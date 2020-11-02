@@ -1,5 +1,10 @@
 import React from 'react';
-
+import Logout from '../../components/LogOut';
 export default () => {
-  return <div>Home</div>;
+  return (
+    <div>
+      Home
+      <Logout />
+    </div>
+  );
 };

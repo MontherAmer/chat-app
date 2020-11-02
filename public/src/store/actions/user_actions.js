@@ -31,3 +31,7 @@ export const signUp = data => dispatch => {
         });
   });
 };
+
+export const logOut = () => dispatch => {
+  return dispatch({ type: userActionTypes.USER_LOGED_OUT });
+};
