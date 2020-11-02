@@ -9,14 +9,14 @@ export default () => {
     // * handle form data
     if (config.data instanceof FormData) {
       Object.assign(config.headers);
-      config.headers = { ...config.headers, Authorization: `Bearer ${localStorage.getItem('KANBAN_USER_TOKEN')}` };
+      config.headers = { ...config.headers, Authorization: `Bearer ${localStorage.getItem('USER_TOKEN')}` };
     } else {
       // * handle other requests
       let data = {
         ...config.data
       };
       config.data = data;
-      config.headers = { ...config.headers, Authorization: `Bearer ${localStorage.getItem('KANBAN_USER_TOKEN')}` };
+      config.headers = { ...config.headers, Authorization: `Bearer ${localStorage.getItem('USER_TOKEN')}` };
     }
     return config;
   });
