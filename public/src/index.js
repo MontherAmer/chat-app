@@ -8,7 +8,7 @@ import configureStore from './store';
 import fireApi from './store/apis';
 
 import App from './App';
-
+import './styles/index.scss';
 fireApi();
 
 export const { store, persistor } = configureStore();

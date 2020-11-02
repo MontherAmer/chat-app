@@ -1,0 +1,15 @@
+@import './fonts.scss';
+@import './colors.scss';
+
+body {
+  margin: 0;
+  background: rgb(241, 124, 125);
+  background: linear-gradient(170deg, rgba(241, 124, 125, 1) 57%, rgba(255, 232, 164, 1) 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.App {
+}
