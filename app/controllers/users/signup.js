@@ -11,9 +11,9 @@ exports.store = async (req, res) => {
 
     user = await user.save();
 
-    let { email, _id, name } = user;
+    let { email, _id } = user;
     let token = createJWT({ _id, email });
-    return res.send({ success: true, data: { email, _id, name, token } });
+    return res.send({ success: true, data: { email, _id, token } });
   } catch (err) {
     console.log(err);
     return errorHandler(err, res);

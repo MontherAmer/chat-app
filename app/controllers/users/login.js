@@ -18,10 +18,10 @@ exports.login = async (req, res) => {
     if (!isMatched) return errorsHandler({ e: 1 }, res);
 
     // * create token
-    ({ _id, email, name } = user);
+    ({ _id, email } = user);
     let token = createJWT({ _id, email });
 
-    return res.send({ success: true, status: 200, data: { _id, email, name, token } });
+    return res.send({ success: true, status: 200, data: { _id, email, token } });
   } catch (err) {
     return errorHandler(err, res);
   }
