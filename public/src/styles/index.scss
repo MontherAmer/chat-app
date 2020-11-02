@@ -1,15 +1,33 @@
 @import './fonts.scss';
 @import './colors.scss';
+@import './auth.scss';
+@import './general.scss';
 
 body {
   margin: 0;
   background: rgb(241, 124, 125);
-  background: linear-gradient(170deg, rgba(241, 124, 125, 1) 57%, rgba(255, 232, 164, 1) 100%);
+  background: linear-gradient(170deg, rgba(241, 124, 125, 1) 33%, rgba(255, 232, 164, 1) 100%);
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
   overflow: hidden;
 }
 
+* {
+  font-family: robot;
+  font-size: 17px;
+  box-sizing: border-box;
+  cursor: default;
+}
+
+#root {
+  height: 100%;
+}
+
 .App {
+  height: 100%;
+}
+
+input {
+  cursor: text;
 }

@@ -12,35 +12,23 @@ export default () => {
   const handleClick = () => dispatch(signUp(state));
 
   return (
-    <div>
-      sign up
-      <input
-        type='email'
-        name='email'
-        onChange={handleChange}
-        value={state.email || ''}
-        placeholder='user email'
-        className='form-control'
-      />
-      <input
-        type='password'
-        name='password'
-        onChange={handleChange}
-        placeholder='user password'
-        value={state.password || ''}
-        className='form-control'
-      />
-      <input
-        type='password'
-        name='password1'
-        onChange={handleChange}
-        placeholder='user password2'
-        value={state.password1 || ''}
-        className='form-control'
-      />
-      <button className='btn btn-primary' onClick={handleClick}>
-        Sign up
-      </button>
+    <div className='auth'>
+      <div className='auth-container'>
+        <h1 className='title3_txt c_gray'>Sign Up</h1>
+        <input autoComplete='off' className='auth--input' placeholder='Email' type='text' name='email' onChange={handleChange} />
+        <input autoComplete='off' className='auth--input' placeholder='Password' type='password' name='password' onChange={handleChange} />
+        <input
+          autoComplete='off'
+          className='auth--input'
+          placeholder='Confirm Password'
+          type='password'
+          name='password2'
+          onChange={handleChange}
+        />
+        <button className='auth--button' onClick={handleClick}>
+          Sign Up
+        </button>
+      </div>
     </div>
   );
 };
