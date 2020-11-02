@@ -19,6 +19,15 @@
   margin-bottom: 100px;
 }
 
+.auth-container > p {
+  color: $gray;
+}
+
+.auth-container span {
+  color: $gray;
+  cursor: pointer;
+}
+
 .auth--input {
   height: 35px;
   width: 100%;

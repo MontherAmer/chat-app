@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import { login } from '../../store/actions';
 
 import ToggleButton from '../../components/ToggleButton';
 
 export default () => {
-  const [state, setState] = useState({ rememberMe: false });
+  const history = useHistory();
   const dispatch = useDispatch();
+  const [state, setState] = useState({ rememberMe: false });
 
   const handleChange = e => setState({ ...state, [e.target.name]: e.target.value });
 
@@ -15,6 +17,7 @@ export default () => {
 
   const handleToggle = e => setState({ ...state, rememberMe: !state.rememberMe });
 
+  if (state.redirect) history.push(state.redirect);
   return (
     <div className='auth'>
       <div className='auth-container'>
@@ -25,6 +28,9 @@ export default () => {
         <button className='auth--button' onClick={handleClick}>
           Log In
         </button>
+        <p>
+          Or, Sign up <span onClick={() => setState({ ...state, redirect: '/signup' })}>Here </span>{' '}
+        </p>
       </div>
     </div>
   );
