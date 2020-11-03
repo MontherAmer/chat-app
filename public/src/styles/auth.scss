@@ -20,21 +20,21 @@
 }
 
 .auth-container > p {
-  color: $gray;
+  color: $Gray;
 }
 
 .auth-container span {
-  color: $gray;
+  color: $Gray;
   cursor: pointer;
 }
 
 .auth--input {
   height: 35px;
   width: 100%;
-  background-color: $gray;
+  background-color: $Gray;
   border-radius: 5px;
-  border: 1px solid $black;
-  color: $black;
+  border: 1px solid $Black;
+  color: $Black;
   outline: none;
   margin: 10px 0;
   padding: 0 20px;
@@ -43,10 +43,10 @@
 .auth--button {
   height: 35px;
   width: 100%;
-  background-color: $red;
+  background-color: $Red;
   border-radius: 5px;
-  border: 1px solid $red;
-  color: $gray;
+  border: 1px solid $Red;
+  color: $Gray;
   outline: none;
   margin: 10px 0;
   padding: 0 20px;
