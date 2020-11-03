@@ -1,0 +1,12 @@
+@import '../../styles/colors.scss';
+
+.messages {
+  width: 65%;
+  height: 100%;
+}
+
+@media (max-width: 425px) {
+  .messages {
+    width: 100%;
+  }
+}

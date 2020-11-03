@@ -3,12 +3,11 @@ import { userActionTypes, errorActionTypes } from '../constants';
 
 export const login = data => dispatch => {
   return userApis.logIn(data).then(res => {
-    console.log('resresres ', res);
     return res.success
       ? (localStorage.setItem('USER_TOKEN', res.data.token),
         dispatch({
           type: userActionTypes.USER_LOGED_IN,
-          payload: res.data
+          payload: { ...res.data, rememberMe: data.rememberMe }
         }))
       : dispatch({
           type: errorActionTypes.LOGIN_ERROR,
@@ -23,7 +22,7 @@ export const signUp = data => dispatch => {
       ? (localStorage.setItem('USER_TOKEN', res.data.token),
         dispatch({
           type: userActionTypes.USER_LOGED_IN,
-          payload: res.data
+          payload: { ...res.data, rememberMe: data.rememberMe }
         }))
       : dispatch({
           type: errorActionTypes.LOGIN_ERROR,

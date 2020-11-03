@@ -21,7 +21,7 @@ export default () => {
   return (
     <div className='auth'>
       <div className='auth-container'>
-        <h1 className='title3_txt c_gray'>Log In</h1>
+        <h1 className='header'>Log In</h1>
         <input autoComplete='off' className='auth--input' placeholder='Email' type='text' name='email' onChange={handleChange} />
         <input autoComplete='off' className='auth--input' placeholder='Password' type='password' name='password' onChange={handleChange} />
         <ToggleButton checked={state.rememberMe} handleClick={handleToggle} label='Remeber me' />

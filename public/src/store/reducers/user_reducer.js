@@ -3,7 +3,8 @@ import { userActionTypes } from '../constants';
 const initialState = {
   _id: '',
   email: '',
-  token: ''
+  token: '',
+  rememberMe: false
 };
 
 export default (state = initialState, { type, payload }) => {

@@ -3,10 +3,10 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import { signUp } from '../../store/actions';
-import ToggleButton from '../../components/ToggleButton';
-import Select from '../../components/Select';
-
 import { languageOptions } from '../../utils';
+
+import Select from '../../components/Select';
+import ToggleButton from '../../components/ToggleButton';
 
 export default () => {
   const history = useHistory();
@@ -17,9 +17,9 @@ export default () => {
 
   const handleToggle = e => setState({ ...state, rememberMe: !state.rememberMe });
 
-  const handleClick = () => dispatch(signUp(state));
+  const handleSelect = e => setState({ ...state, language: e.value });
 
-  const handleSelect = e => console.log(e);
+  const handleClick = () => dispatch(signUp(state));
 
   if (state.redirect) history.push(state.redirect);
   return (
@@ -27,7 +27,7 @@ export default () => {
       <div className='auth-container'>
         <h1 className='header'>Sign Up</h1>
         <input autoComplete='off' className='auth--input' placeholder='Email' type='text' name='email' onChange={handleChange} />
-        <input autoComplete='off' className='auth--input' placeholder='Name' type='text' name='text' onChange={handleChange} />
+        <input autoComplete='off' className='auth--input' placeholder='Name' type='text' name='name' onChange={handleChange} />
         <input autoComplete='off' className='auth--input' placeholder='Password' type='password' name='password' onChange={handleChange} />
         <input
           autoComplete='off'
