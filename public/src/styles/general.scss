@@ -1,19 +1,18 @@
 @import './fonts.scss';
 @import './colors.scss';
 
-.title1_txt {
+.title {
   font-family: robotBold;
   font-size: 18px;
 }
 
-.title2_txt {
-  font-family: robot;
-  font-size: 17px;
-}
-
-.title3_txt {
+.header {
   font-family: lobster;
   font-size: 22px;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .c_red {

@@ -4,6 +4,9 @@ import { useHistory } from 'react-router-dom';
 
 import { signUp } from '../../store/actions';
 import ToggleButton from '../../components/ToggleButton';
+import Select from '../../components/Select';
+
+import { languageOptions } from '../../utils';
 
 export default () => {
   const history = useHistory();
@@ -16,12 +19,15 @@ export default () => {
 
   const handleClick = () => dispatch(signUp(state));
 
+  const handleSelect = e => console.log(e);
+
   if (state.redirect) history.push(state.redirect);
   return (
     <div className='auth'>
       <div className='auth-container'>
-        <h1 className='title3_txt c_gray'>Sign Up</h1>
+        <h1 className='header'>Sign Up</h1>
         <input autoComplete='off' className='auth--input' placeholder='Email' type='text' name='email' onChange={handleChange} />
+        <input autoComplete='off' className='auth--input' placeholder='Name' type='text' name='text' onChange={handleChange} />
         <input autoComplete='off' className='auth--input' placeholder='Password' type='password' name='password' onChange={handleChange} />
         <input
           autoComplete='off'
@@ -31,13 +37,14 @@ export default () => {
           name='password2'
           onChange={handleChange}
         />
+        <Select options={languageOptions} selected={handleSelect} />
         <ToggleButton checked={state.rememberMe} handleClick={handleToggle} label='Remeber me' />
         <button className='auth--button' onClick={handleClick}>
           Sign Up
         </button>
         <p>
-          Or, Log in <span onClick={() => setState({ ...state, redirect: '/login' })}>Here </span>{' '}
-        </p>{' '}
+          Or, Log in <span onClick={() => setState({ ...state, redirect: '/login' })}>Here </span>
+        </p>
       </div>
     </div>
   );

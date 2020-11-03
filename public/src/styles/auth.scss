@@ -1,5 +1,5 @@
 @import './colors.scss';
-// @import './fonts.scss';
+
 .auth {
   display: flex;
   width: 100%;
@@ -19,22 +19,16 @@
   margin-bottom: 100px;
 }
 
-.auth-container > p {
-  color: $Gray;
-}
-
 .auth-container span {
-  color: $Gray;
   cursor: pointer;
 }
 
 .auth--input {
   height: 35px;
   width: 100%;
-  background-color: $Gray;
+  background-color: $White;
   border-radius: 5px;
   border: 1px solid $Black;
-  color: $Black;
   outline: none;
   margin: 10px 0;
   padding: 0 20px;
@@ -46,10 +40,14 @@
   background-color: $Red;
   border-radius: 5px;
   border: 1px solid $Red;
-  color: $Gray;
+  color: $White;
   outline: none;
   margin: 10px 0;
   padding: 0 20px;
   cursor: pointer;
   font-weight: bold;
+  box-shadow: 0px 10px 13px -7px $Black, 3px 3px 6px 0px $Red;
+}
+.auth--button:hover {
+  box-shadow: 5px 5px 5px 0px $Black, inset 4px 4px 15px 0px $Black, -22px 3px 6px 0px rgba(238, 76, 78, 0);
 }
