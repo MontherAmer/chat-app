@@ -11,8 +11,35 @@
   font-size: 22px;
 }
 
+.small {
+  font-size: 14px;
+}
+
 .pointer {
   cursor: pointer;
+}
+
+.flex_r_between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex_r {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.flex_c {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.full_width {
+  width: 100%;
 }
 
 .c_red {

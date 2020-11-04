@@ -8,8 +8,8 @@ export default () => {
   return (
     <div className='home_wrapper'>
       <div className='home'>
-        <Messages />
         <Contacts />
+        <Messages />
       </div>
     </div>
   );

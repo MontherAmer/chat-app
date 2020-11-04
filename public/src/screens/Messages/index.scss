@@ -1,8 +1,13 @@
 @import '../../styles/colors.scss';
 
 .messages {
-  width: 65%;
+  width: 60%;
   height: 100%;
+  background: $Black;
+  background: linear-gradient(153deg, $Gray 40%, $Shark 61%, $Black 100%);
+  border-radius: 15px;
+  box-shadow: 5px 5px 15px 5px #000000;
+  padding: 16px;
 }
 
 @media (max-width: 425px) {

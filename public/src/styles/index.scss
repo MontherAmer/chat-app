@@ -7,11 +7,12 @@
 @import '../screens/Contacts/index.scss';
 @import '../screens/Messages/index.scss';
 @import '../components/Select/index.scss';
+@import '../components/ContactItem/index.scss';
 
 body {
   margin: 0;
-  background: rgb(0, 0, 0);
-  background: linear-gradient(153deg, rgba(0, 0, 0, 1) 36%, rgba(26, 29, 37, 1) 61%, rgba(60, 63, 72, 1) 100%);
+  background: $Black;
+  background: linear-gradient(153deg, $Black 36%, $Shark 61%, $Gray 100%);
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
@@ -23,7 +24,7 @@ body {
   font-family: robot;
   font-size: 17px;
   box-sizing: border-box;
-  cursor: default;
+  // cursor: default;
   margin: 0;
 }
 
