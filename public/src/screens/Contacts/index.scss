@@ -2,11 +2,11 @@
 
 .contacts {
   height: 100%;
-  width: 30%;
+  width: 320px;
   display: flex;
   flex-direction: column;
-  background: rgb(0, 0, 0);
-  background: linear-gradient(153deg, rgba(60, 63, 72, 1) 20%, rgba(26, 29, 37, 1) 41%, rgba(0, 0, 0, 1) 100%);
+  background: $Black;
+  background: linear-gradient(153deg, $Gray 20%, $Shark 41%, $Black 100%);
   border-radius: 15px;
   box-shadow: 5px 5px 15px 5px #000000;
   padding: 16px;
@@ -44,6 +44,40 @@
   border: 2px solid $Black;
   box-shadow: 0px 0px 10px 3px $Shark;
   cursor: pointer;
+}
+
+.contacts__search {
+  display: flex;
+  justify-content: center;
+}
+
+.contacts__search > input {
+  width: 100%;
+  height: 35px;
+  border-radius: 15px;
+  background: $Black;
+  background: linear-gradient(153deg, $Gray 20%, $Shark 80%, $Black 100%);
+  outline: none;
+  outline: none;
+  padding: 0 20px;
+  color: $White;
+}
+
+.contacts__items {
+  height: calc(100% - 100px);
+  padding: 8px 0;
+  overflow: hidden;
+  overflow-y: auto;
+}
+// * scrollbar style
+.contacts__items::-webkit-scrollbar {
+  width: 3px;
+}
+.contacts__items::-webkit-scrollbar-track {
+  background: $White;
+}
+.contacts__items::-webkit-scrollbar-thumb {
+  background: $Gray;
 }
 
 @media (max-width: 425px) {
