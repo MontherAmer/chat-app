@@ -11,6 +11,7 @@ const UserSchema = new mongoose.Schema(
     name: { type: String, minlength: 3, default: 'Guest' },
     language: { type: String, enum: ['E', 'A'], default: 'E' },
     password: { type: String, required: true },
+    show_online: { type: Boolean, default: true },
     online: { type: Boolean, default: true }
   },
   {
