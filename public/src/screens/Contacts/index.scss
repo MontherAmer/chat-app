@@ -2,23 +2,48 @@
 
 .contacts {
   height: 100%;
-  width: 35%;
+  width: 30%;
   display: flex;
   flex-direction: column;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(153deg, rgba(60, 63, 72, 1) 20%, rgba(26, 29, 37, 1) 41%, rgba(0, 0, 0, 1) 100%);
+  border-radius: 15px;
+  box-shadow: 5px 5px 15px 5px #000000;
+  padding: 16px;
 }
 
-.contacts--header {
+.contacts__header {
   height: 50px;
-  background-color: $Red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.contacts--search {
-  height: 30px;
+.contacts__header > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 75px;
 }
 
-.contacts--body {
-  height: calc(100% - 80px);
-  background-color: white;
+.contacts__menu {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: $White;
+  color: $Red;
+  border: 2px solid $Red;
+  box-shadow: 0px 0px 10px 3px $Shark;
+  cursor: pointer;
+}
+
+.contact__img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid $Black;
+  box-shadow: 0px 0px 10px 3px $Shark;
+  cursor: pointer;
 }
 
 @media (max-width: 425px) {
