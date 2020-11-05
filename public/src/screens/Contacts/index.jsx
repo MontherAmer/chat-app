@@ -1,8 +1,11 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import profile from '../../assets/images/profile';
-import { BsPlusCircleFill } from 'react-icons/bs';
+import { changeScreen } from '../../store/actions';
 
 import ContactItem from '../../components/ContactItem';
+
+import { HiDotsVertical } from 'react-icons/hi';
 
 const contacts = [
   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
@@ -28,6 +31,7 @@ const contacts = [
 ];
 
 export default () => {
+  const dispatch = useDispatch();
   return (
     <div className='contacts'>
       {/* Contacts header */}
@@ -36,7 +40,7 @@ export default () => {
           <img src={profile} className='contact__img' />
           <p className='title'> Chats </p>
         </div>
-        <BsPlusCircleFill className='contacts__menu' />
+        <HiDotsVertical className='contacts__menu' title='new chat' onClick={() => dispatch(changeScreen('Menu'))} />
       </div>
 
       {/* Contacts search */}
@@ -49,6 +53,11 @@ export default () => {
           <ContactItem key={i} contact={item} />
         ))}
       </div>
+
+      <div className='contacts__icons'></div>
     </div>
   );
 };
+
+// AiFillSetting
+// TiThMenu

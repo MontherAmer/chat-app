@@ -13,9 +13,9 @@ export const hideAlert = ({ message, type }) => dispatch => {
   });
 };
 
-export const changeScreen = ({ screen }) => dispatch => {
+export const changeScreen = data => dispatch => {
   return dispatch({
     type: utilsActionTypes.CHANGE_SCREEN,
-    payload: screen
+    payload: data
   });
 };
