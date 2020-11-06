@@ -12,5 +12,6 @@ export const errorActionTypes = {
 export const utilsActionTypes = {
   SHOW_ALERT: 'SHOW_ALERT',
   HIDE_ALERT: 'HIDE_ALERT',
-  CHANGE_SCREEN: 'CHANGE_SCREEN'
+  CHANGE_SCREEN: 'CHANGE_SCREEN',
+  SUGGESTION_USER_LIST: 'SUGGESTION_USER_LIST'
 };

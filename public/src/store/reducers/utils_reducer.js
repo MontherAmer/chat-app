@@ -4,7 +4,8 @@ const initialState = {
   alert: {
     show: false,
     message: '',
-    type: ''
+    type: '',
+    usersList: []
   },
   screen: 'Contacts'
 };
@@ -17,6 +18,8 @@ export default (state = initialState, { type, payload }) => {
       return { ...state, alert: { ...state.alert, show: false } };
     case utilsActionTypes.CHANGE_SCREEN:
       return { ...state, screen: payload };
+    case utilsActionTypes.SUGGESTION_USER_LIST:
+      return { ...state, usersList: payload };
     default:
       return state;
   }

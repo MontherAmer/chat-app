@@ -6,4 +6,6 @@ const { threadsControllers } = require('../../app/controllers');
 
 router.post('/', isAuth, threadsControllers.createThread);
 
+router.get('/', isAuth, threadsControllers.listUsers);
+
 module.exports = router;
