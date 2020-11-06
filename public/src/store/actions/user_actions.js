@@ -1,4 +1,5 @@
 import { userApis } from '../apis/user_apis';
+import { threadsApis } from '../apis/threads_apis';
 import { userActionTypes, errorActionTypes } from '../constants';
 
 export const login = data => dispatch => {
@@ -40,6 +41,20 @@ export const updateUser = data => dispatch => {
     return res.success
       ? dispatch({
           type: userActionTypes.USER_UPDATED,
+          payload: res.data
+        })
+      : dispatch({
+          type: errorActionTypes.LOGIN_ERROR,
+          payload: res.err
+        });
+  });
+};
+
+export const createNewConnection = data => dispatch => {
+  return threadsApis.create(data).then(res => {
+    return res.success
+      ? dispatch({
+          type: userActionTypes.USER_CONNECTIONS_LIST,
           payload: res.data
         })
       : dispatch({

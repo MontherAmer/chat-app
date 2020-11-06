@@ -4,7 +4,8 @@ const initialState = {
   _id: '',
   email: '',
   token: '',
-  rememberMe: false
+  rememberMe: false,
+  connections: []
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -16,6 +17,8 @@ export default (state = initialState, { type, payload }) => {
     case userActionTypes.USER_UPDATED:
       console.log('PAYLOAD ', payload);
       return { ...state, ...payload };
+    case userActionTypes.USER_CONNECTIONS_LIST:
+      return { ...state, connections: payload };
     default:
       return state;
   }
