@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { changeScreen } from '../../store/actions';
+import { changeScreen, logOut } from '../../store/actions';
 
 import { MdGroupAdd, MdPersonAdd, MdSettings } from 'react-icons/md';
 import { IoMdArrowRoundBack } from 'react-icons/io';
@@ -11,6 +11,8 @@ export default () => {
   const dispatch = useDispatch();
 
   const handleClick = e => dispatch(changeScreen(e));
+
+  const handleLogout = () => dispatch(logOut());
 
   return (
     <div className='menu'>
@@ -33,7 +35,7 @@ export default () => {
           <h1 className='header menu__item__header'>Settings</h1>
         </div>
 
-        <div className='menu__item' onClick={() => console.log('out')}>
+        <div className='menu__item' onClick={handleLogout}>
           <BiLogOut className='menu__item_icon' size={30} />
           <h1 className='header menu__item__header'>LogOut</h1>
         </div>
