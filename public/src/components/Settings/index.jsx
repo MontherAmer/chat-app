@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default () => {
-  return <div>Profile</div>;
+  return <div>settings</div>;
 };

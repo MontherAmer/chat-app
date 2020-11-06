@@ -2,12 +2,13 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import Messages from '../Messages';
 
+import Profile from '../../components/Profile';
 import Contacts from '../Contacts';
-import Menu from '../Menu';
-import NewConnection from '../NewConnection';
+import Menu from '../../components/Menu';
+import NewUser from '../../components/NewUser';
+import Settings from '../../components/Settings';
+import NewGroup from '../../components/NewGroup';
 import ConnectionProfile from '../ConnectionProfile';
-import Profile from '../Profile';
-import Settings from '../Settings';
 
 export default () => {
   const { screen } = useSelector(state => state.utilsState);
@@ -15,9 +16,10 @@ export default () => {
   const components = {
     Contacts,
     Menu,
-    NewConnection,
     ConnectionProfile,
     Profile,
+    NewUser,
+    NewGroup,
     Settings
   };
 
@@ -26,7 +28,7 @@ export default () => {
   return (
     <div className='home_wrapper'>
       <div className='home'>
-        <div className='test'>
+        <div className='main_container'>
           <ComponentName />
         </div>
         <Messages />

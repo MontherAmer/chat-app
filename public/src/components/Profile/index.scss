@@ -1,0 +1,78 @@
+.profile {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__header {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile__items {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  justify-content: space-around;
+}
+
+.profile__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__item > input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: $White;
+  padding: 0 20px;
+  border: 1px solid transparent;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.profile__item > input:focus {
+  width: 100%;
+  background-color: $White;
+  border-radius: 5px;
+  border: 1px solid $Black;
+  outline: none;
+  color: $Black;
+}
+
+.profile_image_container {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 2px solid $Black;
+  box-shadow: 0px 0px 10px 3px $Shark;
+  cursor: pointer;
+  position: relative;
+}
+
+.profile__image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  // border: 2px solid $Black;
+  box-shadow: 0px 0px 10px 3px $Shark;
+  cursor: pointer;
+}
+
+.profile_image_editer {
+  display: none;
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+}
+
+.profile_image_container:hover .profile_image_editer {
+  display: block;
+}

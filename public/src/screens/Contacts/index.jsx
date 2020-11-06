@@ -37,7 +37,7 @@ export default () => {
       {/* Contacts header */}
       <div className='contacts__header'>
         <div>
-          <img src={profile} className='contact__img' />
+          <img src={profile} className='contact__img' onClick={() => dispatch(changeScreen('Profile'))} />
           <p className='title'> Chats </p>
         </div>
         <HiDotsVertical className='contacts__menu' title='new chat' onClick={() => dispatch(changeScreen('Menu'))} />
