@@ -1,5 +1,5 @@
 const { User, Thread } = require('../../models');
-const { errorHandler, createJWT, threadsList } = require('../../utils');
+const { errorHandler, connectionsList } = require('../../utils');
 
 // *
 // * ─── LOGIN FUNCTION ─────────────────────────────────────────────────────────────
@@ -13,7 +13,7 @@ exports.createThread = async (req, res) => {
 
     await User.updateMany({ _id: { $in: [req._id, friend._id] } }, { $push: { threads: thread._id } });
 
-    let data = await threadsList(req._id);
+    let data = await connectionsList(req._id);
     return res.send({ success: true, status: 200, data });
   } catch (err) {
     return errorHandler(err, res);

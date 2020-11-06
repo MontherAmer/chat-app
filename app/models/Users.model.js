@@ -13,6 +13,7 @@ const UserSchema = new mongoose.Schema(
     password: { type: String, required: true },
     show_online: { type: Boolean, default: true },
     online: { type: Boolean, default: true },
+    threads: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Thread' }],
     image: {
       type: String,
       default:
