@@ -12,7 +12,12 @@ const UserSchema = new mongoose.Schema(
     language: { type: String, enum: ['E', 'A'], default: 'E' },
     password: { type: String, required: true },
     show_online: { type: Boolean, default: true },
-    online: { type: Boolean, default: true }
+    online: { type: Boolean, default: true },
+    image: {
+      type: String,
+      default:
+        'https://lh3.googleusercontent.com/proxy/U4g8a_fpFsJAVyzXtkVEoja8hvcUrcZSb1cpnx8O7giNcvtI6pTz4I3ckSlJEmj7ZkoNIVQq8LXuxa-LhIaOdIMEjxqIkPd_Cr9wRnBSITg3cteC8GUcH1Q'
+    }
   },
   {
     timestamps: true
