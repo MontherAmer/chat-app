@@ -1,5 +1,5 @@
 const { User } = require('../../models');
-const { errorHandler, createJWT } = require('../../utils');
+const { errorHandler, createJWT, userDataRes } = require('../../utils');
 
 // *
 // * ─── SIGN UP NEW USER ───────────────────────────────────────────────────────────
@@ -11,9 +11,12 @@ exports.store = async (req, res) => {
 
     user = await user.save();
 
-    let { email, name, language, online, _id, image } = user;
-    let token = createJWT({ _id, email });
-    return res.send({ success: true, data: { email, name, language, online, _id, image, token } });
+    // * create token
+    let token = createJWT({ _id: user._id, email: user.email });
+
+    let data = await userDataRes(user._id);
+
+    return res.send({ success: true, status: 200, data: { ...data, token } });
   } catch (err) {
     console.log(err);
     return errorHandler(err, res);

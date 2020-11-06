@@ -1,5 +1,5 @@
 const { User } = require('../../models');
-const { errorHandler, createJWT } = require('../../utils');
+const { errorHandler, userDataRes } = require('../../utils');
 
 exports.update = async (req, res) => {
   try {
@@ -27,11 +27,9 @@ exports.update = async (req, res) => {
 
     await user.save();
 
-    // * create token
-    ({ email, name, language, online, image, _id } = user);
-    let token = createJWT({ _id, email });
+    let data = await userDataRes(_id);
 
-    return res.send({ success: true, status: 200, data: { email, name, language, online, _id, image, token } });
+    return res.send({ success: true, status: 200, data: data });
   } catch (err) {
     return errorHandler(err, res);
   }
