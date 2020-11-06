@@ -7,6 +7,7 @@
     "start:dev": "concurrently \"nodemon ./bin/www\" \"cd public && npm run start\""
   },
   "dependencies": {
+    "aws-sdk": "^2.786.0",
     "bcryptjs": "^2.4.3",
     "concurrently": "^5.3.0",
     "cookie-parser": "~1.4.4",
@@ -17,6 +18,9 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.11",
     "morgan": "~1.9.1",
-    "nodemon": "^2.0.6"
+    "multer": "^1.4.2",
+    "multer-s3": "^2.9.0",
+    "nodemon": "^2.0.6",
+    "uuid": "^8.3.1"
   }
 }
