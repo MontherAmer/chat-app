@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import profile from '../../assets/images/profile';
 import { changeScreen } from '../../store/actions';
 
@@ -7,30 +7,31 @@ import ContactItem from '../../components/ContactItem';
 
 import { HiDotsVertical } from 'react-icons/hi';
 
-const contacts = [
-  { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-  { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-  { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-  { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-  { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-  { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-  { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-  { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-  { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-  { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-  { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-  { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-  { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-  { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-  { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-  { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-  { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-  { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-  { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-  { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' }
-];
+// const contacts = [
+//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
+//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
+//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
+//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
+//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
+//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
+//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
+//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
+//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
+//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
+//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
+//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
+//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
+//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
+//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
+//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
+//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
+//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
+//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
+//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' }
+// ];
 
 export default () => {
+  const { connections } = useSelector(state => state.userState);
   const dispatch = useDispatch();
   return (
     <div className='contacts'>
@@ -49,8 +50,8 @@ export default () => {
       </div>
 
       <div className='contacts__items'>
-        {contacts.map((item, i) => (
-          <ContactItem key={i} contact={item} />
+        {connections?.map((item, i) => (
+          <ContactItem key={i} item={item} />
         ))}
       </div>
 

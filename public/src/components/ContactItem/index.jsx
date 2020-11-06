@@ -1,18 +1,17 @@
 import React from 'react';
-import profile from '../../assets/images/profile';
 
-export default ({ contact }) => {
+export default ({ item }) => {
   return (
     <div className='contact__item'>
-      <img src={profile} className='contact__img' style={{ width: '40px', height: '40px' }} />
+      <img src={item.image} className='contact__img' style={{ width: '40px', height: '40px' }} />
       <div>
         <div className='contact__name'>
-          <p>{contact.title}</p>
-          <p className='small'>{contact.key2}</p>
+          <p>{item.name}</p>
+          <p className='small'>last message</p>
         </div>
         <div className='contact__item__notifications'>
-          <div className='round'>{contact.key3}</div>
-          <p>{contact.key4}</p>
+          <div className='round'>number of messages</div>
+          <p>last message time</p>
         </div>
       </div>
     </div>
