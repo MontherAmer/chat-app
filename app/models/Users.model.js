@@ -13,11 +13,10 @@ const UserSchema = new mongoose.Schema(
     password: { type: String, required: true },
     show_online: { type: Boolean, default: true },
     online: { type: Boolean, default: true },
-    connections: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Thread' }],
+    connections: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Connection' }],
     image: {
       type: String,
-      default:
-        'https://lh3.googleusercontent.com/proxy/U4g8a_fpFsJAVyzXtkVEoja8hvcUrcZSb1cpnx8O7giNcvtI6pTz4I3ckSlJEmj7ZkoNIVQq8LXuxa-LhIaOdIMEjxqIkPd_Cr9wRnBSITg3cteC8GUcH1Q'
+      default: 'https://adsonwheelzstorage.s3.amazonaws.com/398ace6d-02f5-478e-9cd5-802d97d4dd81.jpeg'
     }
   },
   {
