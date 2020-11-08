@@ -4,9 +4,11 @@ import WithOutAuth from '../hocs/WithOutAuth';
 import Home from '../screens/Home';
 import SignUp from '../screens/SignUp';
 import LogIn from '../screens/Login';
+import GoogleLogin from '../screens/GoogleLogin';
 
 export default [
   { path: '/', component: WithAuth(Home), exact: true, key: 1 },
   { path: '/signup', component: WithOutAuth(SignUp), exact: true, key: 2 },
-  { path: '/login', component: WithOutAuth(LogIn), exact: true, key: 1 }
+  { path: '/login', component: WithOutAuth(LogIn), exact: true, key: 1 },
+  { path: '/google/login', component: GoogleLogin, exact: true, key: 1 }
 ];

@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import { login } from '../../store/actions';
+import GoogleLogIn from '../GoogleLogin';
 
 import ToggleButton from '../../components/ToggleButton';
 
@@ -31,6 +32,7 @@ export default () => {
         <p>
           Or, Sign up <span onClick={() => setState({ ...state, redirect: '/signup' })}>Here </span>{' '}
         </p>
+        <GoogleLogIn />
       </div>
     </div>
   );
