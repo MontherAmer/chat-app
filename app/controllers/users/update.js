@@ -6,8 +6,6 @@ exports.update = async (req, res) => {
     let { _id } = req.params;
     let { name, password, newPassword, image } = req.body;
 
-    console.log('body ', req.body);
-    if (req.file) console.log(req.file);
     // * find user with req._id
     let user = await User.findById(_id);
     if (!user) return errorsHandler('no user', res);

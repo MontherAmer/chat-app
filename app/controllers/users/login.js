@@ -11,11 +11,11 @@ exports.login = async (req, res) => {
 
     // * find user with req.email
     let user = await User.findOne({ email });
-    if (!user) return errorHandler('{ e: 1 }', res);
+    if (!user) return errorHandler('no user', res);
 
     // * check password match
     let isMatched = await user.comparePassword(password);
-    if (!isMatched) return errorHandler('{ e: 1 }', res);
+    if (!isMatched) return errorHandler('token does not matched', res);
 
     // * create token
     let _id = user._id;

@@ -1,4 +1,4 @@
-import { threadsApis } from '../apis/threads_apis';
+import { connectionApis } from '../apis/connections_apis';
 import { utilsActionTypes, errorActionTypes } from '../constants';
 
 export const showAlert = ({ message, type }) => dispatch => {
@@ -8,7 +8,7 @@ export const showAlert = ({ message, type }) => dispatch => {
   });
 };
 
-export const hideAlert = ({ message, type }) => dispatch => {
+export const hideAlert = () => dispatch => {
   return dispatch({
     type: utilsActionTypes.HIDE_ALERT
   });
@@ -22,7 +22,7 @@ export const changeScreen = data => dispatch => {
 };
 
 export const suggestUsers = () => dispatch => {
-  return threadsApis.suggestUsers().then(res => {
+  return connectionApis.suggestUsers().then(res => {
     res.success
       ? dispatch({
           type: utilsActionTypes.SUGGESTION_USER_LIST,

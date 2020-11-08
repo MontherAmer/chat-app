@@ -9,10 +9,12 @@ export default ({ item }) => {
           <p>{item.name}</p>
           <p className='small'>last message</p>
         </div>
-        <div className='contact__item__notifications'>
-          <div className='round'>number of messages</div>
-          <p>last message time</p>
-        </div>
+        {item.numberOfMessages ? (
+          <div className='contact__item__notifications'>
+            <div className='round'>number of messages</div>
+            <p>last message time</p>
+          </div>
+        ) : null}
       </div>
     </div>
   );

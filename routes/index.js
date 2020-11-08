@@ -1,9 +1,9 @@
 const app = require('express')();
 
 const userRouter = require('./users');
-const threadRouter = require('./threads');
+const connectionRouter = require('./connections');
 
 app.use('/', userRouter);
-app.use('/thread', threadRouter);
+app.use('/connections', connectionRouter);
 
 module.exports = app;

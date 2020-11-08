@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { changeScreen, createNewConnection } from '../../store/actions';
+import { changeScreen, createConnection, showAlert } from '../../store/actions';
+import { validateEmail } from '../../utils';
 
 import { IoMdArrowRoundBack } from 'react-icons/io';
 
@@ -8,16 +9,20 @@ export default () => {
   const [state, setState] = useState({});
   const dispatch = useDispatch();
 
-  const handleClick = e => dispatch(changeScreen(e));
+  const handleRedirect = e => dispatch(changeScreen(e));
 
   const handleChange = e => setState({ ...state, [e.target.name]: e.target.value });
 
-  const handleAdding = () => dispatch(createNewConnection(state));
+  const handleAdding = async () => {
+    return validateEmail(state.email)
+      ? (await dispatch(createConnection(state)), handleRedirect('Contacts'))
+      : dispatch(showAlert({ type: 'danger', message: 'Email not valid' }));
+  };
 
   return (
     <div className='new_connection'>
       <div className='new_connection__header '>
-        <IoMdArrowRoundBack size={30} className='pointer' onClick={() => handleClick('Contacts')} />
+        <IoMdArrowRoundBack size={30} className='pointer' onClick={() => handleRedirect('Contacts')} />
       </div>
 
       <div className='newConnection__items'>

@@ -1,3 +1,3 @@
 // * exports controllers
 exports.userControllers = require('./users');
-exports.threadsControllers = require('./threads');
+exports.connectionsControllers = require('./connections');

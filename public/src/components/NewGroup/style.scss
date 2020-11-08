@@ -1,0 +1,54 @@
+.autocomplete_input > input {
+  height: 35px;
+  width: 100%;
+  background-color: $White;
+  border-radius: 5px;
+  border: 1px solid $Black;
+  outline: none;
+  padding: 0 20px;
+  color: $Black;
+}
+
+.newConnection_flex > svg {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  z-index: 100;
+  color: $Black;
+}
+
+.autocomplete_list {
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  border: 2px solid $White;
+  background-color: $Shark;
+  padding: 4px;
+}
+
+.autocomplete_list > p {
+  margin: 4px 0;
+  cursor: pointer;
+}
+
+.new_connection_emails_list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.new_connection_emails_list > p {
+  margin: 8px 0;
+}
+
+.newConnection__group_name {
+  height: 35px;
+  width: 100%;
+  background-color: $White;
+  border-radius: 5px;
+  border: 1px solid $Black;
+  outline: none;
+  padding: 0 20px;
+  color: $Black;
+  margin: 16px 0;
+}

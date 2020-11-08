@@ -1,44 +1,20 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import profile from '../../assets/images/profile';
 import { changeScreen } from '../../store/actions';
 
 import ContactItem from '../../components/ContactItem';
 
 import { HiDotsVertical } from 'react-icons/hi';
 
-// const contacts = [
-//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' },
-//   { title: 'hello ', key2: 'this is the message', key3: '20', key4: '12:04' }
-// ];
-
 export default () => {
-  const { connections } = useSelector(state => state.userState);
+  const { connections, image } = useSelector(state => state.userState);
   const dispatch = useDispatch();
   return (
     <div className='contacts'>
       {/* Contacts header */}
       <div className='contacts__header'>
         <div>
-          <img src={profile} className='contact__img' onClick={() => dispatch(changeScreen('Profile'))} />
+          <img src={image} className='contact__img' onClick={() => dispatch(changeScreen('Profile'))} />
           <p className='title'> Chats </p>
         </div>
         <HiDotsVertical className='contacts__menu' title='new chat' onClick={() => dispatch(changeScreen('Menu'))} />
@@ -59,6 +35,3 @@ export default () => {
     </div>
   );
 };
-
-// AiFillSetting
-// TiThMenu
