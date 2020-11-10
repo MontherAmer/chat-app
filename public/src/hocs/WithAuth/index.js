@@ -1,11 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+
+import SignUp from '../../screens/Auth/SignUp';
 
 function withAuth(Wrapped) {
   return function (props) {
     const { userState } = useSelector(state => state);
-    if (!userState._id) useHistory().push('/signup');
+    if (!userState._id) return <SignUp />;
     return <Wrapped {...props} />;
   };
 }
