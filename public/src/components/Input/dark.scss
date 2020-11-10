@@ -1,0 +1,22 @@
+.dark .input > label {
+  color: $BaliHai;
+}
+
+.dark .input > input {
+  background-color: $OuterSpace;
+  border: 2px solid $BaliHai;
+  color: $BaliHai;
+}
+
+.dark .input > input::placeholder {
+  color: $BaliHai;
+}
+
+.dark .input__icon {
+  color: $Waterloo;
+  border-right: 2px solid $BaliHai;
+}
+
+input.wrong {
+  border: 2px solid $BrilliantRose;
+}

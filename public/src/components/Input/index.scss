@@ -1,3 +1,5 @@
+@import './dark.scss';
+
 .input {
   display: flex;
   flex-direction: column;
@@ -11,14 +13,14 @@
   margin-bottom: 8px;
   font-weight: 500;
   font-size: 15px;
-  color: #495057;
+  color: $Trout;
 }
 
 .input > input {
-  background-color: #f4f6fa;
+  background-color: $CatskillWhite;
   height: 40px;
   outline: none;
-  border: 2px solid #e6ebf5;
+  border: 2px solid $WhiteLilac;
   border-radius: 5px;
   padding-left: 56px;
 }
@@ -26,17 +28,17 @@
 .input > input::placeholder {
   font-size: 15px;
   font-weight: 500;
-  color: #7a7f9a;
+  color: $Waterloo;
 }
 
 .input__icon {
   position: absolute;
   top: 26px;
   left: 1px;
-  color: #7a7f9a;
+  color: $Waterloo;
   height: 39px;
   width: 40px;
-  border-right: 2px solid #e6ebf5;
+  border-right: 2px solid $WhiteLilac;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,5 +46,5 @@
 }
 
 input.wrong {
-  border: 2px solid #eb579b;
+  border: 2px solid $BrilliantRose;
 }
