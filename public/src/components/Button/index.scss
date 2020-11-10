@@ -1,0 +1,18 @@
+button {
+  margin: 0;
+  outline: none;
+  font-weight: 500;
+  font-size: 15px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  color: #ffffff;
+  background-color: $CornflowerBlue;
+  border-color: $CornflowerBlue;
+  width: 100%;
+  cursor: pointer;
+  height: 40px;
+}
+
+button:hover {
+  background-color: $ElectricViolet;
+}
