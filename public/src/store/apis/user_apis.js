@@ -4,5 +4,5 @@ export const userApis = {
   signUp: data => Axios.post('/api/signup', data),
   logIn: data => Axios.post('/api/login', data),
   update: (_id, data) => Axios.put(`/api/${_id}`, data),
-  googleApi: () => Axios.get('/api/user/google')
+  getUserData: id => Axios.get(`/api/user/${id}`)
 };

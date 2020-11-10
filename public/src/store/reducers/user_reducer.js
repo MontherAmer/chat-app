@@ -10,10 +10,10 @@ const initialState = {
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
-    case userActionTypes.USER_LOGED_IN:
+    case userActionTypes.STORE_USER_INFO:
       console.log('payloadpayloadpayload ', payload);
       return { ...state, ...payload };
-    case userActionTypes.USER_LOGED_OUT:
+    case userActionTypes.REMOVE_USER_INFO:
       return { ...state, _id: '', email: '', token: '' };
     case userActionTypes.USER_UPDATED:
       console.log('PAYLOAD ', payload);
