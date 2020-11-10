@@ -1,0 +1,31 @@
+.dark .auth {
+  background-color: $OuterSpace;
+}
+
+.dark .auth > h4 {
+  color: $CatskillWhite;
+}
+
+.dark .auth > p {
+  color: $BaliHai;
+}
+
+.dark .auth-form {
+  background-color: $OuterSpace2;
+}
+
+.dark .auth__span {
+  color: $BaliHai;
+}
+.dark .auth__span > a {
+  color: $Indigo;
+}
+
+.dark .separator {
+  color: $CatskillWhite;
+}
+
+.dark .separator::before,
+.separator::after {
+  border-bottom: 1px solid $Waterloo;
+}
