@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
-import routes from './routes';
+import { ThemeContext } from './context/ThemeContext';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import routes from './routes';
 import Alert from './components/Alert';
 
-const App = () => {
+export default () => {
   const { alert } = useSelector(state => state.utilsState);
+  const { theme } = useContext(ThemeContext);
   return (
-    <div className='App'>
+    <div className={`App  ${theme}`}>
       <Router>
         <Switch>
           {routes.map(route => (
@@ -20,5 +22,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App;

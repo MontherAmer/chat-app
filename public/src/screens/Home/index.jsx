@@ -1,38 +1,19 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import Messages from '../Messages';
-
-import Profile from '../../components/Profile';
-import Contacts from '../Contacts';
-import Menu from '../../components/Menu';
-import NewUser from '../../components/NewUser';
-import Settings from '../../components/Settings';
-import NewGroup from '../../components/NewGroup';
-import ConnectionProfile from '../ConnectionProfile';
+import { useSelector, useDispatch } from 'react-redux';
+import { logOut } from '../../store/actions';
 
 export default () => {
   const { screen } = useSelector(state => state.utilsState);
+  const dispatch = useDispatch();
 
-  const components = {
-    Contacts,
-    Menu,
-    ConnectionProfile,
-    Profile,
-    NewUser,
-    NewGroup,
-    Settings
+  const handleLogOut = () => {
+    document.cookie = 'ChAt_ApP_CoOkIeS= ; expires = Thu, 01 Jan 1970 00:00:00 GMT';
+    dispatch(logOut());
+    // send logout action
   };
-
-  const ComponentName = components[screen];
-
   return (
     <div className='home_wrapper'>
-      <div className='home'>
-        <div className='main_container'>
-          <ComponentName />
-        </div>
-        <Messages />
-      </div>
+      <button onClick={handleLogOut}>LogOut</button>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 function withAuth(Wrapped) {
   return function (props) {
     const { userState } = useSelector(state => state);
-    if (!userState._id) useHistory().push('/login');
+    if (!userState._id) useHistory().push('/signup');
     return <Wrapped {...props} />;
   };
 }

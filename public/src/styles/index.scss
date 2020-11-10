@@ -2,21 +2,15 @@
 
 body {
   margin: 0;
-  background: $Black;
-  background: linear-gradient(153deg, $Black 36%, $Shark 61%, $Gray 100%);
-  background-size: cover;
-  background-repeat: no-repeat;
   height: 100vh;
-  color: $White;
-  overflow: hidden;
+  overflow: auto;
+  font-family: 'Public Sans', sans-serif;
+  overflow-y: auto;
 }
 
 * {
-  font-family: robot;
-  font-size: 17px;
-  box-sizing: border-box;
   margin: 0;
-  letter-spacing: 1px;
+  box-sizing: border-box;
 }
 
 #root {
@@ -25,8 +19,4 @@ body {
 
 .App {
   height: 100%;
-}
-
-input {
-  cursor: text;
 }

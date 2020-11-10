@@ -1,22 +1,11 @@
-@import './auth.scss';
-@import './fonts.scss';
 @import './colors.scss';
-@import './general.scss';
-
-// * screens
-@import '../screens/Home/index.scss';
-@import '../screens/Contacts/index.scss';
-@import '../screens/Messages/index.scss';
-@import '../screens/ConnectionProfile/index.scss';
 
 // * components
-@import '../components/Menu/index.scss';
-@import '../components/Alert/index.scss';
-@import '../components/Select/index.scss';
-@import '../components/NewUser/style.scss';
-@import '../components/Profile/index.scss';
-@import '../components/Message/index.scss';
-@import '../components/Settings/index.scss';
-@import '../components/NewGroup/style.scss';
-@import '../components/ContactItem/index.scss';
-@import '../components/ToggleButton/index.scss';
+@import '../components/Input/index.scss';
+@import '../components/Button/index.scss';
+@import '../components/GoogleLogin/index.scss';
+@import '../components/FacebookLogin/index.scss';
+
+// * screens
+@import '../screens/Auth/index.scss';
+@import '../screens/Redirect/index.scss';
