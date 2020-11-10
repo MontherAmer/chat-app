@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { AiOutlineUser, AiFillLock } from 'react-icons/ai';
 
-import { signUp } from '../../store/actions';
+import { signUp, showLoader } from '../../store/actions';
 import { validateForm } from '../../utils';
 
 import Input from '../../components/Input';
@@ -18,11 +18,11 @@ export default () => {
 
   const handleLogin = () => {
     let check = validateForm(state);
-    Object.entries(check)
+    return Object.entries(check)
       .map(item => (item[1] ? true : false))
       .filter(i => i).length
       ? setState({ ...state, wrong: check })
-      : dispatch(signUp(state));
+      : (dispatch(showLoader(true)), dispatch(signUp(state)));
   };
 
   return (
