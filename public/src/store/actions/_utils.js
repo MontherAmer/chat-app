@@ -34,3 +34,12 @@ export const suggestUsers = () => dispatch => {
         });
   });
 };
+
+// new
+
+export const showLoader = data => dispatch => {
+  return dispatch({
+    type: utilsActionTypes.TOGGLE_LOADER,
+    payload: data
+  });
+};

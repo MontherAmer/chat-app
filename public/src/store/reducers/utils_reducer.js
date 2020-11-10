@@ -1,13 +1,12 @@
-import { utilsActionTypes } from '../constants';
+import { utilsActionTypes, userActionTypes } from '../constants';
 
 const initialState = {
   alert: {
     show: false,
     message: '',
-    type: '',
-    usersList: []
+    type: ''
   },
-  screen: 'Contacts'
+  loader: false
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -20,6 +19,17 @@ export default (state = initialState, { type, payload }) => {
       return { ...state, screen: payload };
     case utilsActionTypes.SUGGESTION_USER_LIST:
       return { ...state, usersList: payload };
+    case utilsActionTypes.TOGGLE_LOADER:
+      return { ...state, loader: payload };
+
+    // turn of loader
+
+    case utilsActionTypes.ERROR_RESPONSE:
+      return { ...state, loader: false };
+
+    case userActionTypes.STORE_USER_INFO:
+      return { ...state, loader: false };
+
     default:
       return state;
   }

@@ -1,5 +1,5 @@
 import { authApis } from '../apis/auth';
-import { userActionTypes, errorActionTypes } from '../constants';
+import { userActionTypes, errorActionTypes, utilsActionTypes } from '../constants';
 
 export const login = data => dispatch => {
   return authApis.logIn(data).then(res => {
@@ -9,7 +9,7 @@ export const login = data => dispatch => {
           payload: res.data
         })
       : dispatch({
-          type: errorActionTypes.LOGIN_ERROR,
+          type: utilsActionTypes.ERROR_RESPONSE,
           payload: res.err
         });
   });
