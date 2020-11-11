@@ -5,5 +5,5 @@ exports.decodeJWT = require('./tokens').decodeJWT;
 exports.getTokenFromHeader = require('./tokens').getTokenFromHeader;
 exports.upload = require('./uploadFile');
 
-exports.connectionsList = require('./responseHelpers').connectionsList;
+exports.contactsList = require('./responseHelpers').contactsList;
 exports.userDataRes = require('./responseHelpers').userDataRes;
