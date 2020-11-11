@@ -18,18 +18,14 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(passport.initialize());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public/build')));
 
 app.use('/api', apiRouter);
 
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, '/public/build/index.html')));
 
-passport.serializeUser(function (user, done) {
-  done(null, user);
-});
+passport.serializeUser((user, done) => done(null, user));
 
-passport.deserializeUser(function (user, done) {
-  done(null, user);
-});
+passport.deserializeUser((user, done) => done(null, user));
 
 module.exports = app;
