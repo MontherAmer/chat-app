@@ -1,11 +1,12 @@
 const { User } = require('../../models');
 
-exports.connectionsList = async user_id => {
+exports.contactsList = async user_id => {
   try {
+    // * get populated array of user.contacts
     let user = await User.findById(user_id)
-      .select({ connections: 1 })
+      .select({ contacts: 1 })
       .populate({
-        path: 'connections',
+        path: 'contacts',
         select: { users: 1, name: 1, image: 1, type: 1 },
         options: { sort: { updatedAt: 1 } },
         populate: {
@@ -13,7 +14,8 @@ exports.connectionsList = async user_id => {
           select: { name: 1, online: 1, image: 1 }
         }
       });
-    let data = user.connections.map(contact =>
+
+    let data = user.contacts.map(contact =>
       contact.type === 'D'
         ? {
             _id: contact._id,
