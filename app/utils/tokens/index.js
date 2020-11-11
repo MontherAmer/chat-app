@@ -22,7 +22,7 @@ const decodeJWT = async token => {
 const getTokenFromHeader = async req => {
   const autherization = req.headers.authorization;
   if (!autherization) return { success: false, e: 401 };
-  let token = autherization.split(' ')[1];
+  let { token } = autherization;
   if (!token) return { success: false, e: 401 };
   let { _id, email } = await decodeJWT(token);
   return { success: true, _id, email };
