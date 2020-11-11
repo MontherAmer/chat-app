@@ -3,7 +3,6 @@ import { userActionTypes, utilsActionTypes } from '../constants';
 
 export const login = data => dispatch => {
   return authApis.logIn(data).then(res => {
-    console.log('my response', res);
     return res.success
       ? dispatch({
           type: userActionTypes.STORE_USER_INFO,
@@ -31,5 +30,6 @@ export const signUp = data => dispatch => {
 };
 
 export const logOut = () => dispatch => {
+  document.cookie = 'ChAt_ApP_CoOkIeS= ; expires = Thu, 01 Jan 1970 00:00:00 GMT';
   return dispatch({ type: userActionTypes.REMOVE_USER_INFO });
 };

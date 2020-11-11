@@ -17,13 +17,13 @@ export const { store, persistor } = configureStore();
 
 const render = Component => {
   return ReactDOM.render(
-    <ThemeContentProvider>
-      <Provider store={store}>
-        <PersistGate persistor={persistor}>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <ThemeContentProvider>
           <Component />
-        </PersistGate>
-      </Provider>
-    </ThemeContentProvider>,
+        </ThemeContentProvider>
+      </PersistGate>
+    </Provider>,
     document.getElementById('root')
   );
 };
