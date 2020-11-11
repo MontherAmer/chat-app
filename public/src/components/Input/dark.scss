@@ -1,22 +1,22 @@
 .dark .input > label {
-  color: $BaliHai;
+  color: $SecondaryColorDark;
 }
 
 .dark .input > input {
-  background-color: $OuterSpace;
-  border: 2px solid $BaliHai;
-  color: $BaliHai;
+  background-color: $InputBgDark;
+  border: 2px solid $SecondaryColorDark;
+  color: $SecondaryColorDark;
 }
 
 .dark .input > input::placeholder {
-  color: $BaliHai;
+  color: $SecondaryColorDark;
 }
 
 .dark .input__icon {
-  color: $Waterloo;
-  border-right: 2px solid $BaliHai;
+  color: $SecondaryColor;
+  border-right: 2px solid $SecondaryColorDark;
 }
 
 input.wrong {
-  border: 2px solid $BrilliantRose;
+  border: 2px solid $Notification;
 }

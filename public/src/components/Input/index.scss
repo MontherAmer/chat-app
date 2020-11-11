@@ -13,14 +13,14 @@
   margin-bottom: 8px;
   font-weight: 500;
   font-size: 15px;
-  color: $Trout;
+  color: $MainColor;
 }
 
 .input > input {
-  background-color: $CatskillWhite;
+  background-color: $InputBg;
   height: 40px;
   outline: none;
-  border: 2px solid $WhiteLilac;
+  border: 2px solid $SecondaryColor;
   border-radius: 5px;
   padding-left: 56px;
 }
@@ -28,17 +28,17 @@
 .input > input::placeholder {
   font-size: 15px;
   font-weight: 500;
-  color: $Waterloo;
+  color: $SecondaryColor;
 }
 
 .input__icon {
   position: absolute;
   top: 26px;
   left: 1px;
-  color: $Waterloo;
+  color: $SecondaryColor;
   height: 39px;
   width: 40px;
-  border-right: 2px solid $WhiteLilac;
+  border-right: 2px solid $SecondaryColor;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,5 +46,5 @@
 }
 
 input.wrong {
-  border: 2px solid $BrilliantRose;
+  border: 2px solid $Notification;
 }

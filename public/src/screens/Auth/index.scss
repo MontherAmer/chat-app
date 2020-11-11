@@ -7,18 +7,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: $TitanWhite;
+  background-color: $MainBg;
   overflow-y: auto;
 }
 
 .auth > h4 {
   font-size: 21px;
   margin-bottom: 8px;
-  color: $Trout;
+  color: $MainColor;
 }
 
 .auth > p {
-  color: $Waterloo;
+  color: $SecondaryColor;
   font-size: 15px;
   margin-bottom: 24px;
 }
@@ -35,10 +35,10 @@
 }
 
 .auth__span {
-  color: $Trout;
+  color: $MainColor;
 }
 .auth__span > a {
-  color: $ElectricViolet;
+  color: $Blue2;
   text-decoration: none;
 }
 
@@ -54,14 +54,14 @@
   text-align: center;
   width: 450px;
   margin: 16px 0px;
-  color: $Trout;
+  color: $MainColor;
 }
 .separator::before,
 .separator::after {
   margin: 0 8px;
   content: '';
   flex: 1;
-  border-bottom: 1px solid $Trout;
+  border-bottom: 1px solid $MainColor;
 }
 
 @import './smallScreens.scss';

@@ -3,8 +3,8 @@
   top: 150px;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #f2dede;
-  color: #b04742;
+  background-color: $Red1;
+  color: $Red2;
   border-radius: 5px;
   padding: 8px;
   width: 350px;
@@ -15,6 +15,6 @@
 }
 
 .success--alert {
-  background-color: #cdf7ec;
-  color: #317053;
+  background-color: $Green1;
+  color: $Green2;
 }

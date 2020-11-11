@@ -1,31 +1,31 @@
 .dark .auth {
-  background-color: $OuterSpace;
+  background-color: $MainBgDark;
 }
 
 .dark .auth > h4 {
-  color: $CatskillWhite;
+  color: $MainColorDark;
 }
 
 .dark .auth > p {
-  color: $BaliHai;
+  color: $SecondaryColorDark;
 }
 
 .dark .auth-form {
-  background-color: $OuterSpace2;
+  background-color: $MainBgDark2;
 }
 
 .dark .auth__span {
-  color: $BaliHai;
+  color: $SecondaryColorDark;
 }
 .dark .auth__span > a {
-  color: $Indigo;
+  color: $LinksColor;
 }
 
 .dark .separator {
-  color: $CatskillWhite;
+  color: $MainColorDark;
 }
 
 .dark .separator::before,
 .separator::after {
-  border-bottom: 1px solid $Waterloo;
+  border-bottom: 1px solid $SecondaryColor;
 }

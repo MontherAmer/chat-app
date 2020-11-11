@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { AiOutlineUser, AiFillLock } from 'react-icons/ai';
+import { RiUser2Line, RiLockLine } from 'react-icons/ri';
 
 import { signUp, showLoader } from '../../store/actions';
 import { validateForm } from '../../utils';
@@ -31,13 +31,13 @@ export default () => {
       <p>Get your account now.</p>
       <div className='auth-form'>
         <Input label='Email' value={state.email || ''} name='email' type='e' onChange={handleChange} wrong={state.wrong}>
-          <AiOutlineUser />
+          <RiUser2Line />
         </Input>
         <Input label='Username' value={state.name || ''} name='name' type='t' onChange={handleChange} wrong={state.wrong}>
-          <AiOutlineUser />
+          <RiUser2Line />
         </Input>
         <Input label='Password' value={state.password || ''} name='password' type='p' onChange={handleChange} wrong={state.wrong}>
-          <AiFillLock />
+          <RiLockLine />
         </Input>
         <Button label='Sign up' onClick={handleLogin} />
       </div>
