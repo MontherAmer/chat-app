@@ -1,5 +1,5 @@
 const { User } = require('../../models');
-const { connectionsList } = require('./connection_list');
+const { connectionsList } = require('./_connectionsList');
 
 exports.userDataRes = async user_id => {
   console.log('user_id ', user_id);

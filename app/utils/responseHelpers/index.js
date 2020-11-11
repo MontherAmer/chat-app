@@ -1,2 +1,2 @@
-exports.connectionsList = require('./connection_list').connectionsList;
-exports.userDataRes = require('./user_data').userDataRes;
+exports.connectionsList = require('./_connectionsList').connectionsList;
+exports.userDataRes = require('./_userData').userDataRes;

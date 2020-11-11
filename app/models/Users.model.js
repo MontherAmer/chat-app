@@ -10,10 +10,12 @@ const UserSchema = new mongoose.Schema(
     email: { type: String, required: true, index: { unique: true } },
     name: { type: String, minlength: 3, default: 'Guest' },
     language: { type: String, enum: ['E', 'A'], default: 'E' },
-    password: { type: String, required: true },
+    password: { type: String },
     show_online: { type: Boolean, default: true },
     online: { type: Boolean, default: true },
     connections: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Connection' }],
+    provider: { type: String, default: 'local' },
+    theme: { type: String, default: 'light' },
     image: {
       type: String,
       default: 'https://adsonwheelzstorage.s3.amazonaws.com/398ace6d-02f5-478e-9cd5-802d97d4dd81.jpeg'
