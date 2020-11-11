@@ -11,7 +11,7 @@ export default () => {
   const { alert, loader } = useSelector(state => state.utilsState);
   const { theme } = useContext(ThemeContext);
   return (
-    <div className={`App  ${theme}`}>
+    <div className={`App dark ${theme}`}>
       <Router>
         <Switch>
           {routes.map(route => (
