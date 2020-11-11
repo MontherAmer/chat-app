@@ -1,32 +1,20 @@
 .alert {
   position: fixed;
-  top: -40px;
-  left: 0;
-  width: 100%;
-  height: 40px;
-  background-color: $Red;
+  top: 150px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f2dede;
+  color: #b04742;
+  border-radius: 5px;
+  padding: 8px;
+  width: 350px;
+  min-height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.slide-alert-in {
-  animation: slide-alert 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
-.slide-alert-out {
-  animation: slide-alert 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse;
-}
-
-.success_alert {
-  background-color: green;
-}
-
-@keyframes slide-alert {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(40px);
-  }
+.success--alert {
+  background-color: #cdf7ec;
+  color: #317053;
 }

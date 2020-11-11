@@ -1,19 +1,6 @@
 import { connectionApis } from '../apis/connections_apis';
 import { utilsActionTypes, errorActionTypes } from '../constants';
 
-export const showAlert = ({ message, type }) => dispatch => {
-  return dispatch({
-    type: utilsActionTypes.SHOW_ALERT,
-    payload: { message, type }
-  });
-};
-
-export const hideAlert = () => dispatch => {
-  return dispatch({
-    type: utilsActionTypes.HIDE_ALERT
-  });
-};
-
 export const changeScreen = data => dispatch => {
   return dispatch({
     type: utilsActionTypes.CHANGE_SCREEN,
@@ -36,6 +23,19 @@ export const suggestUsers = () => dispatch => {
 };
 
 // new
+
+export const showAlert = ({ message, type, success }) => dispatch => {
+  return dispatch({
+    type: utilsActionTypes.SHOW_ALERT,
+    payload: { message, type, success }
+  });
+};
+
+export const hideAlert = () => dispatch => {
+  return dispatch({
+    type: utilsActionTypes.HIDE_ALERT
+  });
+};
 
 export const showLoader = data => dispatch => {
   return dispatch({

@@ -14,7 +14,6 @@ exports.getUserData = async (req, res) => {
 
     let data = await userDataRes(_id);
     res.cookie('ChAt_ApP_CoOkIeS', token);
-    console.log('BEFORE RESPONSE ', { ...data, token });
     return res.send({ success: true, status: 200, data: { ...data, token } });
   } catch (err) {
     return errorHandler(err, res);

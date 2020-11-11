@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { hideAlert } from '../../store/actions';
 
-export default ({ show, message, type }) => {
+export default ({ show, message, success }) => {
   const dispatch = useDispatch();
 
   if (show)
@@ -10,7 +10,5 @@ export default ({ show, message, type }) => {
       dispatch(hideAlert());
     }, 3000);
 
-  return (
-    <div className={`alert ${type === 'success_alert' ? 'green' : ''}  ${show ? 'slide-alert-in' : 'slide-alert-out'}`}>{message}</div>
-  );
+  return <div className={`alert ${success ? 'success--alert' : ''} `}>{message}</div>;
 };

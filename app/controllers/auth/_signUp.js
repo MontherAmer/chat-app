@@ -19,7 +19,6 @@ exports.store = async (req, res) => {
     res.cookie('ChAt_ApP_CoOkIeS', token);
     return res.send({ success: true, status: 200, data: data });
   } catch (err) {
-    console.log(err);
     return errorHandler(err, res);
   }
 };

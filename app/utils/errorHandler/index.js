@@ -6,7 +6,7 @@ const handleMongooseErrors = err => {
   // * errors for unique values in database
   if (err.keyValue && err.keyPattern) {
     let [first] = Object.keys(err.keyValue);
-    return `Please check ${first} field, ${err.keyValue[first]} is allready used`;
+    return `${err.keyValue[first]} is allready used`;
   }
 };
 

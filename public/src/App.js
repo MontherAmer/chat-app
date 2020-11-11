@@ -19,7 +19,8 @@ export default () => {
           ))}
         </Switch>
       </Router>
-      <Alert show={alert.show} message={alert.message} type={alert.type} />
+      {alert.show ? <Alert show={alert.show} message={alert.message} success={alert.success} /> : null}
+
       {loader ? <Loader /> : null}
     </div>
   );

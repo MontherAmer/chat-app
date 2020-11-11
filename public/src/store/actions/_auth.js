@@ -1,16 +1,17 @@
 import { authApis } from '../apis/auth';
-import { userActionTypes, errorActionTypes, utilsActionTypes } from '../constants';
+import { userActionTypes, utilsActionTypes } from '../constants';
 
 export const login = data => dispatch => {
   return authApis.logIn(data).then(res => {
+    console.log('my response', res);
     return res.success
       ? dispatch({
           type: userActionTypes.STORE_USER_INFO,
           payload: res.data
         })
       : dispatch({
-          type: utilsActionTypes.ERROR_RESPONSE,
-          payload: res.err
+          type: utilsActionTypes.SHOW_ALERT,
+          payload: { message: res.err }
         });
   });
 };
@@ -23,8 +24,8 @@ export const signUp = data => dispatch => {
           payload: res.data
         })
       : dispatch({
-          type: errorActionTypes.LOGIN_ERROR,
-          payload: res.err
+          type: utilsActionTypes.SHOW_ALERT,
+          payload: { message: res.err }
         });
   });
 };

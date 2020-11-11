@@ -4,7 +4,7 @@ const initialState = {
   alert: {
     show: false,
     message: '',
-    type: ''
+    success: false
   },
   loader: false
 };
@@ -12,9 +12,9 @@ const initialState = {
 export default (state = initialState, { type, payload }) => {
   switch (type) {
     case utilsActionTypes.SHOW_ALERT:
-      return { ...state, alert: { show: true, ...payload } };
+      return { ...state, loader: false, alert: { show: true, ...payload } };
     case utilsActionTypes.HIDE_ALERT:
-      return { ...state, alert: { ...state.alert, show: false } };
+      return { ...state, alert: { ...state.alert, show: false, success: false } };
     case utilsActionTypes.CHANGE_SCREEN:
       return { ...state, screen: payload };
     case utilsActionTypes.SUGGESTION_USER_LIST:
