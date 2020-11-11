@@ -10,10 +10,11 @@ const UserSchema = new mongoose.Schema(
     email: { type: String, required: true, index: { unique: true } },
     name: { type: String, minlength: 3, default: 'Guest' },
     language: { type: String, enum: ['E', 'A'], default: 'E' },
+    status: { type: String },
     password: { type: String },
     show_online: { type: Boolean, default: true },
     online: { type: Boolean, default: true },
-    connections: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Connection' }],
+    contacts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Contact' }],
     provider: { type: String, default: 'local' },
     theme: { type: String, default: 'light' },
     image: {
