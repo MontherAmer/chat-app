@@ -1,11 +1,11 @@
 @import './colors.scss';
 
+// * screens
+@import '../screens/Auth/index.scss';
+
 // * components
 @import '../components/Input/index.scss';
 @import '../components/Button/index.scss';
 @import '../components/GoogleLogin/index.scss';
 @import '../components/FacebookLogin/index.scss';
-
-// * screens
-@import '../screens/Auth/index.scss';
-@import '../screens/Redirect/index.scss';
+@import '../components/Loader/index.scss';

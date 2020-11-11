@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 import { getUserData } from '../../store/actions';
 
-import Home from '../Home';
+import Loader from '../../components/Loader';
 
 export default () => {
   const { _id } = useSelector(state => state.userState);
@@ -18,11 +18,5 @@ export default () => {
 
   if (_id) history.push('/');
 
-  return (
-    <div className='redirect'>
-      <div className='redirect_container'>
-        <div className='redirec_loader'></div>
-      </div>
-    </div>
-  );
+  return <Loader />;
 };

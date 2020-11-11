@@ -7,7 +7,7 @@ const casses = {
   p: 'password'
 };
 
-export default ({ label, value, name, type, onChange, children, className }) => {
+export default ({ label, value, name, type, onChange, children, wrong }) => {
   return (
     <div className='input'>
       <label> {label} </label>
@@ -19,7 +19,7 @@ export default ({ label, value, name, type, onChange, children, className }) => 
         value={value}
         onChange={onChange}
         name={name}
-        className={className}
+        className={`${wrong ? (wrong[name] ? 'wrong' : '') : ''}`}
       />
     </div>
   );
