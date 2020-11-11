@@ -2,10 +2,10 @@ const app = require('express')();
 
 const authRouter = require('./auth');
 const userRouter = require('./users');
-const connectionRouter = require('./connections');
+const contactsRouter = require('./contacts');
 
 app.use('/auth', authRouter);
 app.use('/user', userRouter);
-app.use('/connections', connectionRouter);
+app.use('/contact', contactsRouter);
 
 module.exports = app;

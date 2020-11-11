@@ -3,10 +3,10 @@ const router = express.Router();
 
 const { upload } = require('../../app/utils');
 const { isAuth, passport } = require('../../app/middlewares');
-const { userControllers } = require('../../app/controllers');
+const { usersControllers } = require('../../app/controllers');
 
-router.put('/:_id', isAuth, upload.single('image'), userControllers.update);
+router.put('/:_id', isAuth, upload.single('image'), usersControllers.update);
 
-router.get('/:_id', userControllers.getUserData);
+router.get('/:_id', usersControllers.getUserData);
 
 module.exports = router;
