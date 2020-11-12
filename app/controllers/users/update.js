@@ -9,13 +9,12 @@ exports.update = async (req, res) => {
     // * find user with req._id
     let user = await User.findById(_id);
 
-    console.log('user  ', user);
-
     if (!user) return errorsHandler('no user', res);
-    // * handel update name
-    user.name = name ? name : user.name;
 
     if (removeImage) user.image = '';
+
+    // * handel update name
+    if (name) user.name = name;
 
     // * handle update image
     if (req.file) user.image = req.file.location;

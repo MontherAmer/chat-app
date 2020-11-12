@@ -1,4 +1,5 @@
-@import './ProfileImage/index.scss';
+@import './Image/index.scss';
+@import './Name/index.scss';
 
 .profile {
   height: 100%;
@@ -8,6 +9,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 24px;
 }
 
 .profile__header {
