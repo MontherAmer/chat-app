@@ -1,5 +1,6 @@
 const { User, Thread } = require('../../models');
 const { errorHandler, contactsList } = require('../../utils');
+const mongoose = require('mongoose');
 
 // * ─── CREATE CONTACT ─────────────────────────────────────────────────────────────
 // * only email is required in request body
@@ -11,8 +12,12 @@ exports.create = async (req, res) => {
     if (!friend) return errorHandler(`We send an invitation to ${req.body.email}`, res);
 
     // * if the the thread is allready created
-    let thread = await Thread.find({ type: 'D', user: req._id, friend: friend._id });
-    if (thread.length) {
+    let thread = await Thread.findOne({
+      type: 'D',
+      user: req._id,
+      friend: friend._id
+    });
+    if (thread) {
       data = await contactsList(req._id);
       return res.send({ success: true, status: 200, data });
     }

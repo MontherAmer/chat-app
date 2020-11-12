@@ -2,15 +2,15 @@ const { User } = require('../../models');
 
 exports.contactsList = async user_id => {
   try {
-    // * get populated array of user.contacts
+    // // * get populated array of user.contacts
     let user = await User.findById(user_id)
       .select({ contacts: 1 })
       .populate({
         path: 'contacts',
-        select: { users: 1, name: 1, image: 1, type: 1 },
+        select: { friend: 1, name: 1, image: 1, type: 1 },
         options: { sort: { updatedAt: 1 } },
         populate: {
-          path: 'users',
+          path: 'friend',
           select: { name: 1, online: 1, image: 1 }
         }
       });
@@ -19,8 +19,8 @@ exports.contactsList = async user_id => {
       contact.type === 'D'
         ? {
             _id: contact._id,
-            name: contact.users.filter(user => String(user._id) !== String(user_id))[0].name,
-            image: contact.users.filter(user => String(user._id) !== String(user_id))[0].image
+            name: contact.friend.name,
+            image: contact.friend.image
           }
         : {
             _id: contact._id,
@@ -32,5 +32,6 @@ exports.contactsList = async user_id => {
     return data;
   } catch (err) {
     console.log(err);
+    return [];
   }
 };

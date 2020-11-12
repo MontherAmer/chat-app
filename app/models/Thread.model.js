@@ -7,7 +7,7 @@ const ThreadSchema = new mongoose.Schema(
     friend: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     group: { type: mongoose.Schema.Types.ObjectId, ref: 'Group' },
     messages: { type: mongoose.Schema.Types.ObjectId, ref: 'Message' },
-    threadType: { type: String, enum: ['G', 'D'], default: 'D' },
+    type: { type: String, enum: ['G', 'D'], default: 'D' },
     blocked: { type: Boolean, default: false }
   },
   {
