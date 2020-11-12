@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { logOut } from '../../store/actions';
 
 import Menu from './Menu';
+import Screen1 from './Screen1';
 
 export default () => {
   const { screen } = useSelector(state => state.utilsState);
@@ -17,10 +18,10 @@ export default () => {
       <div>
         <Menu />
       </div>
+      <div>
+        <Screen1 />
+      </div>
       <div>hello</div>
-      <div>hello</div>
-
-      {/* <button onClick={handleLogOut}>LogOut</button> */}
     </div>
   );
 };

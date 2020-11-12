@@ -4,17 +4,22 @@ const { errorHandler, userDataRes } = require('../../utils');
 exports.update = async (req, res) => {
   try {
     let { _id } = req.params;
-    let { name, password, newPassword, image } = req.body;
+    let { name, password, newPassword, image, removeImage } = req.body;
 
     // * find user with req._id
     let user = await User.findById(_id);
+
+    console.log('user  ', user);
+
     if (!user) return errorsHandler('no user', res);
     // * handel update name
     user.name = name ? name : user.name;
 
+    if (removeImage) user.image = '';
+
     // * handle update image
     if (req.file) user.image = req.file.location;
-
+    console.log(req.file);
     // * handle password reset
     if (req.password && req.newPassword) {
       // * check password match
@@ -26,8 +31,8 @@ exports.update = async (req, res) => {
     await user.save();
 
     let data = await userDataRes(_id);
-
-    return res.send({ success: true, status: 200, data: data });
+    console.log('MYDATE ', data);
+    return res.send({ success: true, status: 200, data });
   } catch (err) {
     return errorHandler(err, res);
   }

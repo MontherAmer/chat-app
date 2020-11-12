@@ -1,0 +1,59 @@
+@import './Loading/index.scss';
+
+.profile_image_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+}
+
+.profile__image {
+  width: 96px;
+  height: 96px;
+  border: 1px solid $MainColor;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 2px;
+}
+
+.profile__image > img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+.image--edit {
+  position: absolute;
+  top: 0;
+  right: -20px;
+  cursor: pointer;
+  display: none;
+}
+
+.image--remove {
+  position: absolute;
+  top: 20px;
+  right: -20px;
+  cursor: pointer;
+  display: none;
+}
+
+.profile_image_container:hover .image--edit,
+.profile_image_container:hover .image--remove {
+  display: block;
+}
+
+.load {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -7,7 +7,8 @@ const GroupSchema = new mongoose.Schema(
     createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     admins: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
     onlyAdminCanMsg: { type: Boolean, default: false },
-    contacts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Thread' }]
+    contacts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Thread' }],
+    image: { type: String }
   },
   {
     timestamps: true

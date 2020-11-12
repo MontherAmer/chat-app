@@ -1,0 +1,22 @@
+@import './ProfileImage/index.scss';
+
+.profile {
+  height: 100%;
+  background-color: transparent;
+  overflow: auto;
+  color: $MainColor;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 21px;
+}
+
+.profile__header > svg {
+  cursor: pointer;
+}

@@ -1,5 +1,6 @@
 @import './dark.scss';
 @import './Menu/index.scss';
+@import './Screen1/index.scss';
 
 .home {
   width: 100%;
@@ -20,7 +21,7 @@
 
 .home > div:nth-child(2) {
   width: 385px;
-  background-color: $MainBg;
+  background-color: $MainBg2;
 }
 .home > div:nth-child(3) {
   width: calc(100% - 460px);
