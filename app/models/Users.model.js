@@ -14,7 +14,7 @@ const UserSchema = new mongoose.Schema(
     password: { type: String },
     show_online: { type: Boolean, default: true },
     online: { type: Boolean, default: true },
-    contacts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Contact' }],
+    contacts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Thread' }],
     provider: { type: String, default: 'local' },
     theme: { type: String, default: 'light' },
     image: {
