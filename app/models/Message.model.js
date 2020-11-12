@@ -1,14 +1,11 @@
 const mongoose = require('mongoose');
 
-// *
 // * ─── MESSAGE SCHEMA AND MODEL ──────────────────────────────────────────────────────
-// *
-
 const MessageSchema = new mongoose.Schema(
   {
-    from: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    to: { type: mongoose.Schema.Types.ObjectId, ref: 'Contact', required: true },
-    body: { type: String, required: true }
+    from: { type: mongoose.Schema.Types.ObjectId, ref: 'Thread', required: true },
+    text: { type: String },
+    attachment: { type: mongoose.Schema.Types.ObjectId, ref: 'Attachment' }
   },
   {
     timestamps: true
