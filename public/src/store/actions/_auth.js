@@ -30,6 +30,6 @@ export const signUp = data => dispatch => {
 };
 
 export const logOut = () => dispatch => {
-  document.cookie = 'ChAt_ApP_CoOkIeS= ; expires = Thu, 01 Jan 1970 00:00:00 GMT';
+  document.cookie = 'ChAt_ApP_ToKeNs= ; expires = Thu, 01 Jan 1970 00:00:00 GMT';
   return dispatch({ type: userActionTypes.REMOVE_USER_INFO });
 };

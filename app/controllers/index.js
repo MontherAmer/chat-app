@@ -2,6 +2,7 @@
 // * ─── EXPORTS CONTROLLERS ────────────────────────────────────────────────────────
 //
 
-exports.userControllers = require('./users');
-exports.connectionsControllers = require('./connections');
+exports.usersControllers = require('./users');
+exports.contactsControllers = require('./contacts');
 exports.authControllers = require('./auth');
+exports.groupsControllers = require('./groups');

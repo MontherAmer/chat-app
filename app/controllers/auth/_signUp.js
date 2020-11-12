@@ -16,7 +16,7 @@ exports.store = async (req, res) => {
     let token = createJWT({ _id: user._id, email: user.email });
 
     let data = await userDataRes(user._id);
-    res.cookie('ChAt_ApP_CoOkIeS', token);
+    res.cookie('ChAt_ApP_ToKeNs', token);
     return res.send({ success: true, status: 200, data: data });
   } catch (err) {
     return errorHandler(err, res);

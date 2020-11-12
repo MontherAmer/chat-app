@@ -9,7 +9,7 @@ export default () => {
   const dispatch = useDispatch();
 
   const handleLogOut = () => {
-    document.cookie = 'ChAt_ApP_CoOkIeS= ; expires = Thu, 01 Jan 1970 00:00:00 GMT';
+    document.cookie = 'ChAt_ApP_ToKeNs= ; expires = Thu, 01 Jan 1970 00:00:00 GMT';
     dispatch(logOut());
   };
   return (

@@ -10,7 +10,7 @@ export default () => {
     // * handle form data
     if (config.data instanceof FormData) {
       Object.assign(config.headers);
-      config.headers = { ...config.headers, Authorization: token };
+      config.headers = { ...config.headers, Authorization: `Barrer ${token}` };
     } else {
       // * handle other requests
       let data = {
