@@ -16,10 +16,12 @@ export default ({ _id, name }) => {
   const handleChange = e => setState({ ...state, [e.target.name]: e.target.value });
 
   const handleUpdate = async () => {
-    state?.name?.length >= 3
-      ? await dispatch(updateUser({ _id, key: 'name', value: state.name }))
-      : dispatch(showAlert({ message: 'Name should be at least 3 character' }));
-    setState({ ...state, name });
+    return name === state.name
+      ? setState({ ...state, edit: false })
+      : (state?.name?.length >= 3
+          ? await dispatch(updateUser({ _id, key: 'name', value: state.name }))
+          : dispatch(showAlert({ message: 'Name should be at least 3 character' })),
+        setState({ ...state, name }));
   };
 
   return (

@@ -17,7 +17,11 @@ export default ({ _id, image }) => {
     setLoad(false);
   };
 
-  const handleRemove = () => console.log('remove');
+  const handleRemove = async () => {
+    setLoad(true);
+    await dispatch(updateUser({ _id, key: 'removeImage', value: true }));
+    setLoad(false);
+  };
 
   return (
     <div className='profile_image_container'>
