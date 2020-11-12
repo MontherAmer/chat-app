@@ -2,7 +2,7 @@ const { User } = require('../../models');
 
 exports.contactsList = async user_id => {
   try {
-    // // * get populated array of user.contacts
+    // * get populated array of user.contacts
     let user = await User.findById(user_id)
       .select({ contacts: 1 })
       .populate({
@@ -10,7 +10,7 @@ exports.contactsList = async user_id => {
         select: { friend: 1, name: 1, image: 1, type: 1 },
         options: { sort: { updatedAt: 1 } },
         populate: {
-          path: 'friend',
+          path: 'friend group',
           select: { name: 1, online: 1, image: 1 }
         }
       });
@@ -24,8 +24,8 @@ exports.contactsList = async user_id => {
           }
         : {
             _id: contact._id,
-            name: contact.name,
-            image: contact.image
+            name: contact.group.name,
+            image: contact.group.image
           }
     );
 
