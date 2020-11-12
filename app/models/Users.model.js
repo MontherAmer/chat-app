@@ -16,11 +16,7 @@ const UserSchema = new mongoose.Schema(
     online: { type: Boolean, default: true },
     contacts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Thread' }],
     provider: { type: String, default: 'local' },
-    theme: { type: String, default: 'light' },
-    image: {
-      type: String,
-      default: 'https://adsonwheelzstorage.s3.amazonaws.com/398ace6d-02f5-478e-9cd5-802d97d4dd81.jpeg'
-    }
+    theme: { type: String, default: 'light' }
   },
   {
     timestamps: true
