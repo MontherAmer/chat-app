@@ -1,4 +1,4 @@
-import { connectionApis } from '../apis/connections_apis';
+// import { connectionApis } from '../apis/_contacts';
 import { utilsActionTypes, errorActionTypes } from '../constants';
 
 export const changeScreen = data => dispatch => {
@@ -8,19 +8,19 @@ export const changeScreen = data => dispatch => {
   });
 };
 
-export const suggestUsers = () => dispatch => {
-  return connectionApis.suggestUsers().then(res => {
-    res.success
-      ? dispatch({
-          type: utilsActionTypes.SUGGESTION_USER_LIST,
-          payload: res.data
-        })
-      : dispatch({
-          type: errorActionTypes.LOGIN_ERROR,
-          payload: 'err'
-        });
-  });
-};
+// export const suggestUsers = () => dispatch => {
+//   return connectionApis.suggestUsers().then(res => {
+//     res.success
+//       ? dispatch({
+//           type: utilsActionTypes.SUGGESTION_USER_LIST,
+//           payload: res.data
+//         })
+//       : dispatch({
+//           type: errorActionTypes.LOGIN_ERROR,
+//           payload: 'err'
+//         });
+//   });
+// };
 
 // new
 
