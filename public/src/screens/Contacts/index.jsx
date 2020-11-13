@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ChatItem from './Chat';
+import ChatItem from './Contact';
 
 const data = [
   {
@@ -56,11 +56,11 @@ const data = [
 
 export default () => {
   return (
-    <div className='chats'>
-      <div className='chats_header'>
+    <div className='contacts'>
+      <div className='contacts_header'>
         <h4>Chats</h4>
       </div>
-      <div className='chat__thumbnails'>
+      <div className='contact__thumbnails'>
         {data.map(item => (
           <ChatItem image={item.image} name={item.name} online={item.online} lastMsg={item.lastMsg} time={item.time} />
         ))}

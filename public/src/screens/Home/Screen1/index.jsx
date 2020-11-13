@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Profile from '../../Profile';
-import Chats from '../../Chats';
+import Chats from '../../Contacts';
 
 export default () => {
   return (

@@ -1,4 +1,4 @@
-.chat {
+.contact {
   height: 75px;
   width: 100%;
   display: flex;
@@ -8,22 +8,22 @@
   cursor: pointer;
 }
 
-.chat:hover {
+.contact:hover {
   background-color: #e6ebf5;
 }
 
-.chat__image {
+.contact__image {
   position: relative;
   width: 60px;
 }
 
-.chat__image img {
+.contact__image img {
   width: 45px;
   height: 45px;
   border-radius: 50%;
 }
 
-.chat__status {
+.contact__status {
   position: absolute;
   bottom: 0;
   right: 15px;
@@ -34,31 +34,31 @@
   border: 2px solid #fff;
 }
 
-.chat__status.online {
+.contact__status.online {
   background-color: $Green2;
 }
 
-.chat small {
+.contact small {
   width: 60px;
 }
 
-.chat__data {
+.contact__data {
   width: calc(100% - 120px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.chat__name {
+.contact__name {
   font-size: 15px;
   font-weight: 600;
 }
 
-.chat__msg {
+.contact__msg {
   font-size: 14px;
   color: $SecondaryColor;
 }
 
-.chat small {
+.contact small {
   color: $SecondaryColor;
 }
