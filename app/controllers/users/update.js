@@ -3,12 +3,12 @@ const { errorHandler, userDataRes } = require('../../utils');
 
 exports.update = async (req, res) => {
   try {
-    let { _id } = req.params;
-    let { name, removeImage, status, removeStatus } = req.body;
+    let _id = req._id;
+    let { name, removeImage, status, removeStatus, theme } = req.body;
     console.log(' status ', status);
     // * find user with req._id
     let user = await User.findById(_id);
-    if (!user) return errorsHandler('no user', res);
+    if (!user) return errorHandler('no user', res);
 
     // * handel update name
     if (name) user.name = name;
@@ -19,6 +19,8 @@ exports.update = async (req, res) => {
 
     if (status) user.status = status;
     if (removeStatus) user.status = '';
+
+    if (theme) user.theme = theme;
 
     await user.save();
 

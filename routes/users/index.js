@@ -5,8 +5,8 @@ const { upload } = require('../../app/utils');
 const { isAuth, passport } = require('../../app/middlewares');
 const { usersControllers } = require('../../app/controllers');
 
-router.put('/:_id', isAuth, upload.single('image'), usersControllers.update);
+router.put('/', isAuth, upload.single('image'), usersControllers.update);
 
-router.get('/:_id', usersControllers.getUserData);
+router.get('/:_id', isAuth, usersControllers.getUserData);
 
 module.exports = router;

@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { showAlert, updateUser } from '../../../store/actions';
 import { RiEditLine } from 'react-icons/ri';
 
-export default ({ _id, status }) => {
+export default ({ status }) => {
   const dispatch = useDispatch();
   const [state, setState] = useState({});
 
@@ -17,11 +17,11 @@ export default ({ _id, status }) => {
 
   const handleUpdate = async () => {
     return state.status.trim() === ''
-      ? await dispatch(updateUser({ _id, key: 'removeStatus', value: true }))
+      ? await dispatch(updateUser({ key: 'removeStatus', value: true }))
       : status === state.status
       ? setState({ ...state, edit: false })
       : (state?.status?.length < 120
-          ? await dispatch(updateUser({ _id, key: 'status', value: state.status }))
+          ? await dispatch(updateUser({ key: 'status', value: state.status }))
           : dispatch(showAlert({ message: 'status maximun length is 120 character' })),
         setState({ ...state, status }));
   };

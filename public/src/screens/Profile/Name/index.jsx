@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { showAlert, updateUser } from '../../../store/actions';
 import { RiEditLine } from 'react-icons/ri';
 
-export default ({ _id, name }) => {
+export default ({ name }) => {
   const dispatch = useDispatch();
   const [state, setState] = useState({});
 
@@ -19,7 +19,7 @@ export default ({ _id, name }) => {
     return name === state.name
       ? setState({ ...state, edit: false })
       : (state?.name?.length >= 3
-          ? await dispatch(updateUser({ _id, key: 'name', value: state.name }))
+          ? await dispatch(updateUser({ key: 'name', value: state.name }))
           : dispatch(showAlert({ message: 'Name should be at least 3 character' })),
         setState({ ...state, name }));
   };

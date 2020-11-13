@@ -15,11 +15,17 @@ export const getUserData = id => dispatch => {
   });
 };
 
-export const updateUser = ({ _id, key, value }) => dispatch => {
-  console.log({ _id, key, value });
+export const updateUser = ({ key, value }) => dispatch => {
   const formData = new FormData();
   formData.append(key, value);
-  return userApis.update(_id, formData).then(res => {
+  if (key === 'theme') {
+    // update the theme directlry
+    dispatch({
+      type: userActionTypes.STORE_USER_INFO,
+      payload: { theme: value }
+    });
+  }
+  return userApis.update(formData).then(res => {
     return res.success
       ? dispatch({
           type: userActionTypes.STORE_USER_INFO,

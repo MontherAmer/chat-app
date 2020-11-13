@@ -12,10 +12,10 @@ export default () => {
 
   return (
     <div className='profile'>
-      <Image _id={userDate._id} image={userDate.image} />
-      <Name _id={userDate._id} name={userDate.name} />
-      <Online _id={userDate._id} online={userDate.online} />
-      <Status _id={userDate._id} status={userDate.status} />
+      <Image image={userDate.image} />
+      <Name name={userDate.name} />
+      <Online online={userDate.online} />
+      <Status status={userDate.status} />
     </div>
   );
 };

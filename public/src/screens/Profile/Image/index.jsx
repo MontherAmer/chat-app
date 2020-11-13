@@ -5,21 +5,21 @@ import { showAlert, updateUser } from '../../../store/actions';
 import Loading from './Loading';
 import { RiUserLine, RiEditBoxLine, RiDeleteBin7Line } from 'react-icons/ri';
 
-export default ({ _id, image }) => {
+export default ({ image }) => {
   const dispatch = useDispatch();
   const [load, setLoad] = useState(false);
 
   const handleUpload = async e => {
     setLoad(true);
     e.target.files[0].type.split('/')[0] === 'image'
-      ? await dispatch(updateUser({ _id, key: 'image', value: e.target.files[0] }))
+      ? await dispatch(updateUser({ key: 'image', value: e.target.files[0] }))
       : dispatch(showAlert({ message: 'Only images are accepted' }));
     setLoad(false);
   };
 
   const handleRemove = async () => {
     setLoad(true);
-    await dispatch(updateUser({ _id, key: 'removeImage', value: true }));
+    await dispatch(updateUser({ key: 'removeImage', value: true }));
     setLoad(false);
   };
 

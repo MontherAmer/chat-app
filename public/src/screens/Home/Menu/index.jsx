@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import { ThemeContext } from '../../../context/ThemeContext';
 
-import { logOut } from '../../../store/actions';
+import { logOut, updateUser } from '../../../store/actions';
 import { RiMessage3Line, RiContactsLine, RiSettings2Line, RiMoonLine, RiSunLine, RiLogoutBoxLine, RiUserLine } from 'react-icons/ri';
 
 export default () => {
@@ -11,7 +11,12 @@ export default () => {
 
   const handleLogOut = () => dispatch(logOut());
 
-  const handleModeChange = () => console.log('change mode');
+  const handleModeChange = () => {
+    let mode = localStorage.getItem('LETS_CHAT_THEME');
+    return mode === 'dark'
+      ? (localStorage.setItem('LETS_CHAT_THEME', 'light'), dispatch(updateUser({ key: 'theme', value: 'light' })))
+      : (localStorage.setItem('LETS_CHAT_THEME', 'dark'), dispatch(updateUser({ key: 'theme', value: 'dark' })));
+  };
 
   return (
     <div className='menu'>
