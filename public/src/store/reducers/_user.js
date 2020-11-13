@@ -1,6 +1,6 @@
 import { userActionTypes } from '../constants';
 
-const initialState = { _id: '', email: '', name: '', language: '', image: '', connections: '', theme: '' };
+const initialState = {};
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
@@ -8,7 +8,7 @@ export default (state = initialState, { type, payload }) => {
       localStorage.setItem('LETS_CHAT_THEME', payload.theme);
       return { ...state, ...payload };
     case userActionTypes.REMOVE_USER_INFO:
-      return { ...state, _id: '', email: '', name: '', language: '', image: '', connections: '', theme: '' };
+      return {};
     case userActionTypes.USER_CONNECTIONS_LIST:
       return { ...state, connections: payload };
     default:
