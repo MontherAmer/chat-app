@@ -1,0 +1,64 @@
+.chat {
+  height: 75px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  border-radius: 5px;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.chat:hover {
+  background-color: #e6ebf5;
+}
+
+.chat__image {
+  position: relative;
+  width: 60px;
+}
+
+.chat__image img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.chat__status {
+  position: absolute;
+  bottom: 0;
+  right: 15px;
+  width: 10px;
+  height: 10px;
+  background-color: $Red2;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.chat__status.online {
+  background-color: $Green2;
+}
+
+.chat small {
+  width: 60px;
+}
+
+.chat__data {
+  width: calc(100% - 120px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chat__name {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.chat__msg {
+  font-size: 14px;
+  color: $SecondaryColor;
+}
+
+.chat small {
+  color: $SecondaryColor;
+}

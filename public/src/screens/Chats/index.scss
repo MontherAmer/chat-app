@@ -1,0 +1,20 @@
+@import './Chat/index.scss';
+@import './dark.scss';
+
+.chats {
+  height: 100%;
+  background-color: transparent;
+  overflow: hidden;
+  color: $MainColor;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.chats_header {
+  padding: 0 16px;
+}
+
+.chat__thumbnails {
+  overflow: auto;
+}

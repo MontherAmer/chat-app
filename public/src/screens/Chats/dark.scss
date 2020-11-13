@@ -1,0 +1,23 @@
+.dark .chats {
+  color: $MainColorDark;
+}
+
+.dark .chat:hover {
+  background-color: $MainBgDark2;
+}
+
+.dark .chat__status {
+  background-color: $Red2;
+}
+
+.dark .chat__status.online {
+  background-color: $Green2;
+}
+
+.dark .chat__msg {
+  color: $SecondaryColorDark;
+}
+
+.dark .chat small {
+  color: $SecondaryColor;
+}
