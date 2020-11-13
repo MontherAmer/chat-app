@@ -1,0 +1,25 @@
+.dark .profile {
+  color: $MainColorDark;
+}
+
+.dark .profile__image {
+  border: 1px solid $MainColorDark;
+}
+
+.dark .profile__name__container input {
+  color: $MainColorDark;
+  border-bottom: 2px dotted $MainColorDark;
+}
+
+.dark .profile__online__container > p {
+  color: $SecondaryColorDark;
+}
+
+.dark .profile__status__container {
+  color: $SecondaryColorDark;
+}
+
+.dark .profile__status__innercontainer > textarea {
+  color: $SecondaryColorDark;
+  border-bottom: 2px dotted $SecondaryColorDark;
+}
