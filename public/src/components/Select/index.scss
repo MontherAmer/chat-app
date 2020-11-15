@@ -1,0 +1,9 @@
+.select--options {
+  background-color: $InputBg;
+  max-height: 150px;
+  outline: none;
+  border: 2px solid $SecondaryColor;
+  border-radius: 5px;
+  overflow: auto;
+  margin-bottom: 16px;
+}
