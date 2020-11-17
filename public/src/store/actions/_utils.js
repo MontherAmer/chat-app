@@ -26,3 +26,18 @@ export const showLoader = data => dispatch => {
     payload: data
   });
 };
+
+export const updateScreen = data => dispatch => {
+  data = window.screen.width >= 425 && data === 'Messages' ? 'Chats' : data;
+  return dispatch({
+    type: utilsActionTypes.CHANGE_SCREEN,
+    payload: data
+  });
+};
+
+export const updateActiveChat = data => dispatch => {
+  return dispatch({
+    type: utilsActionTypes.ACTIVE_CHAT,
+    payload: data
+  });
+};

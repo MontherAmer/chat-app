@@ -7,7 +7,8 @@ const initialState = {
     success: false
   },
   loader: false,
-  screen: 'Profile'
+  screen: 'Profile',
+  activeChat: ''
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -24,8 +25,8 @@ export default (state = initialState, { type, payload }) => {
       return { ...state, loader: false };
     case userActionTypes.STORE_USER_INFO:
       return { ...state, loader: false };
-    case utilsActionTypes.CHANGE_SCREEN:
-      return { ...state, screen: payload };
+    case utilsActionTypes.ACTIVE_CHAT:
+      return { ...state, activeChat: payload };
     default:
       return state;
   }
