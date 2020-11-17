@@ -7,8 +7,8 @@ exports.userDataRes = async user_id => {
 
     let { _id, email, theme, name, language, status, image } = user;
 
-    let connections = await contactsList(user_id);
-    return { _id, email, name, language, status, image, connections, theme };
+    let contacts = await contactsList(user_id);
+    return { _id, email, name, language, status, image, contacts, theme };
   } catch (err) {
     console.log(err);
   }

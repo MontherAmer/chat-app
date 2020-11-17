@@ -19,7 +19,7 @@ export default () => {
         ...config.data
       };
       config.data = data;
-      config.headers = { ...config.headers, Authorization: token };
+      config.headers = { ...config.headers, Authorization: `Barrer ${token}` };
     }
     return config;
   });

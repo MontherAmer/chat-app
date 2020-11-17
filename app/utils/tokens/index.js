@@ -15,6 +15,7 @@ const decodeJWT = async token => {
     const { _id, email } = await verify(token, process.env.ACCESS_TOKEN_SECRET);
     return _id ? { _id, email } : null;
   } catch (err) {
+    console.log('the error ', err);
     return false;
   }
 };
@@ -22,11 +23,9 @@ const decodeJWT = async token => {
 const getTokenFromHeader = async req => {
   const autherization = req.headers.authorization;
   if (!autherization) return { e: 'You need to sign in' };
-  console.log('autherization ', autherization);
-  // let token = autherization.split(' ')[1];
-  let token = autherization;
-  console.log('token ', token);
+  let token = autherization.split(' ')[1];
   if (!token) return { e: 'You are not allowed to do this request' };
+  let a = await decodeJWT(token);
   let { _id, email } = await decodeJWT(token);
   return { success: true, _id, email };
 };

@@ -10,7 +10,7 @@ exports.create = async (req, res) => {
     if (!req.body.email) return errorHandler(`email is required`, res);
     let friend = await User.findOne({ email: req.body.email });
     if (!friend) return errorHandler(`We send an invitation to ${req.body.email}`, res);
-
+    if (String(req._id) === String(friend._id)) return errorHandler(`You can't add yourself to contacts`);
     // * if the the thread is allready created
     let thread = await Thread.findOne({
       type: 'D',

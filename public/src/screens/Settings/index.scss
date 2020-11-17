@@ -1,6 +1,11 @@
+@import './CreateGroup/index.scss';
+@import './dark.scss';
+
 .create {
   height: 100%;
   padding: 16px;
+  overflow-y: auto;
+  color: $MainColor;
 }
 
 .collapsible {
@@ -15,6 +20,7 @@
   cursor: pointer;
   font-size: 14px;
   font-weight: 600;
+  margin-top: 16px;
 }
 
 .collabse__header {
@@ -37,6 +43,12 @@
 
 .first--collabse {
   max-height: 200px;
+  transition: max-height 0.5s ease-in-out;
+  display: block;
+}
+
+.second--collabse {
+  max-height: unset;
   transition: max-height 0.5s ease-in-out;
   display: block;
 }

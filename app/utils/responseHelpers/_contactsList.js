@@ -11,7 +11,7 @@ exports.contactsList = async user_id => {
         options: { sort: { updatedAt: 1 } },
         populate: {
           path: 'friend group',
-          select: { name: 1, online: 1, image: 1 }
+          select: { name: 1, online: 1, email: 1, image: 1 }
         }
       });
 
@@ -20,7 +20,8 @@ exports.contactsList = async user_id => {
         ? {
             _id: contact._id,
             name: contact.friend.name,
-            image: contact.friend.image
+            image: contact.friend.image,
+            email: contact.friend.email
           }
         : {
             _id: contact._id,

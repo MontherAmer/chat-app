@@ -14,8 +14,11 @@ const createThread = async (user, group) => {
 
 exports.create = async (req, res) => {
   try {
+    console.log(req.body);
     let { name, members } = req.body;
+    let image;
 
+    members = JSON.parse(members);
     // add the user who make the request to members array and remove dublicated values
     members.push(req._id);
 
@@ -25,8 +28,10 @@ exports.create = async (req, res) => {
       }
     });
 
+    if (req.file) image = req.file.location;
+
     // * create new group
-    let group = new Group({ name, admins: [req._id], createdBy: req._id });
+    let group = new Group({ name, image, admins: [req._id], createdBy: req._id });
 
     group = await group.save();
 

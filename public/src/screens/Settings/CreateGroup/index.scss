@@ -1,0 +1,9 @@
+.selected_users_container {
+  max-height: 100px;
+  overflow-y: auto;
+  margin-bottom: 16px;
+}
+
+.selected_users_container > div {
+  padding: 2px auto;
+}

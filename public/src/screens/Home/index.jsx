@@ -4,6 +4,7 @@ import { logOut } from '../../store/actions';
 
 import Menu from './Menu';
 import Screen1 from './Screen1';
+import Messages from '../Messages';
 
 export default () => {
   const { screen } = useSelector(state => state.utilsState);
@@ -21,7 +22,9 @@ export default () => {
       <div>
         <Screen1 />
       </div>
-      <div>hello</div>
+      <div>
+        <Messages />
+      </div>
     </div>
   );
 };
