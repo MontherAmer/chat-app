@@ -1,5 +1,4 @@
-// import { connectionApis } from '../apis/_contacts';
-import { utilsActionTypes, errorActionTypes } from '../constants';
+import { utilsActionTypes } from '../constants';
 
 export const changeScreen = data => dispatch => {
   return dispatch({
@@ -7,22 +6,6 @@ export const changeScreen = data => dispatch => {
     payload: data
   });
 };
-
-// export const suggestUsers = () => dispatch => {
-//   return connectionApis.suggestUsers().then(res => {
-//     res.success
-//       ? dispatch({
-//           type: utilsActionTypes.SUGGESTION_USER_LIST,
-//           payload: res.data
-//         })
-//       : dispatch({
-//           type: errorActionTypes.LOGIN_ERROR,
-//           payload: 'err'
-//         });
-//   });
-// };
-
-// new
 
 export const showAlert = ({ message, type, success }) => dispatch => {
   return dispatch({

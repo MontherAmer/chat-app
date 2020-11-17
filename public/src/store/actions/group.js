@@ -2,7 +2,6 @@ import { utilsActionTypes, userActionTypes } from '../constants';
 import { groupApis } from '../apis/groups';
 
 export const createGroup = data => dispatch => {
-  console.log('MY DATA ', data);
   const formData = new FormData();
   if (data.image) formData.append('image', data.image);
   formData.append('name', data.name);

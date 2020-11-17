@@ -6,7 +6,8 @@ const initialState = {
     message: '',
     success: false
   },
-  loader: false
+  loader: false,
+  screen: 'Profile'
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -17,19 +18,14 @@ export default (state = initialState, { type, payload }) => {
       return { ...state, alert: { ...state.alert, show: false, success: false } };
     case utilsActionTypes.CHANGE_SCREEN:
       return { ...state, screen: payload };
-    case utilsActionTypes.SUGGESTION_USER_LIST:
-      return { ...state, usersList: payload };
     case utilsActionTypes.TOGGLE_LOADER:
       return { ...state, loader: payload };
-
-    // turn of loader
-
     case utilsActionTypes.ERROR_RESPONSE:
       return { ...state, loader: false };
-
     case userActionTypes.STORE_USER_INFO:
       return { ...state, loader: false };
-
+    case utilsActionTypes.CHANGE_SCREEN:
+      return { ...state, screen: payload };
     default:
       return state;
   }
