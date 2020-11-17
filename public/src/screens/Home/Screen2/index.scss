@@ -1,0 +1,10 @@
+.screen2 {
+  height: 100%;
+  overflow: hidden;
+}
+
+@media (max-width: 425px) {
+  .screen2 {
+    display: none;
+  }
+}

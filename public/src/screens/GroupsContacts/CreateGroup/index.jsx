@@ -35,7 +35,8 @@ export default ({ close }) => {
       ? state.userList.length === 0
         ? dispatch(showAlert({ message: 'You should add at least one contact to the group' }))
         : (await dispatch(createGroup({ name: state.name, members: state.userList.map(user => user._id), image: state.image })),
-          setState({ ...state, name: '', userList: [], image: null }))
+          setState({ ...state, name: '', userList: [], image: null }),
+          close())
       : dispatch(showAlert({ message: 'Group name should be at least 3 characters' }));
   };
 
@@ -59,6 +60,7 @@ export default ({ close }) => {
           </div>
         </div>
       </div>
+      <br />
       <Input label='Group name' value={state.name || ''} name='name' type='t' onChange={handleName} children={<RiGroupLine />} />
       <Select options={filterOptions(contacts)} choose={handleChoose} />
       {state.userList?.length ? <p>{state.userList.length} users in this group</p> : null}

@@ -1,6 +1,7 @@
 @import './dark.scss';
 @import './Menu/index.scss';
 @import './Screen1/index.scss';
+@import './Screen2/index.scss';
 
 .home {
   width: 100%;
@@ -27,4 +28,13 @@
   width: calc(100% - 460px);
   background-color: $White;
   padding: 24px;
+}
+
+@media (max-width: 425px) {
+  .home > div:nth-child(2) {
+    width: 100%;
+  }
+  .home > div:nth-child(3) {
+    display: none;
+  }
 }
