@@ -4,7 +4,7 @@ import { RiUserLine } from 'react-icons/ri';
 
 export default ({ _id, image, name, online, lastMsg, time, onClick }) => {
   return (
-    <div className='contact' onClick={() => onClick(_id)}>
+    <div className='contact' onClick={() => onClick({ _id, name, image })}>
       <div className='contact__image'>
         {image ? <img src={image} /> : <RiUserLine />}
         <span className={`contact__status ${online ? 'online' : ''}`}></span>

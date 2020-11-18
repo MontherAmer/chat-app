@@ -27,7 +27,7 @@
 .home > div:nth-child(3) {
   width: calc(100% - 460px);
   background-color: $White;
-  padding: 24px;
+  padding-top: 0;
 }
 
 @media (max-width: 425px) {

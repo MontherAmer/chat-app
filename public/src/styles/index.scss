@@ -28,3 +28,13 @@ h4 {
 h5 {
   font-size: 17px;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: $SecondaryColor;
+}

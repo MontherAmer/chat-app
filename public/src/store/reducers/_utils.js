@@ -8,7 +8,7 @@ const initialState = {
   },
   loader: false,
   screen: 'Profile',
-  activeChat: ''
+  activeChat: {}
 };
 
 export default (state = initialState, { type, payload }) => {
