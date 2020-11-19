@@ -11,7 +11,7 @@ export default ({ _id, image, name, online, lastMsg, time, onClick }) => {
       </div>
       <div className='contact__data'>
         <h4 className='contact__name'>{name}</h4>
-        <p className='contact__msg'>{lastMsg}</p>
+        <p className='contact__msg'>{lastMsg || 'start chating'}</p>
       </div>
       <small>{time}</small>
     </div>

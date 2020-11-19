@@ -8,6 +8,7 @@ import { showAlert, createGroup } from '../../../store/actions';
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
 import Select from '../../../components/Select';
+import Toggle from '../../../components/Toggle';
 
 export default ({ close }) => {
   const [state, setState] = useState({ name: '', userList: [], image: null });
@@ -46,6 +47,8 @@ export default ({ close }) => {
     return users;
   };
 
+  const handleToggle = e => setState({ ...state, onlyAdminCanMsg: e.target.checked });
+
   return (
     <div className='settings__gruop'>
       <div>
@@ -75,7 +78,7 @@ export default ({ close }) => {
           </div>
         ))}
       </div>
-
+      <Toggle label='WHAT' name='onlyAdminCanMsg' checked={state.onlyAdminCanMsg || false} handleClick={handleToggle} />
       <Button label='Add' onClick={handleCreate} />
     </div>
   );
