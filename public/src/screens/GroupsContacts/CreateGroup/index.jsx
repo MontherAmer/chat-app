@@ -34,7 +34,7 @@ export default ({ close }) => {
     return state.name.length >= 3
       ? state.userList.length === 0
         ? dispatch(showAlert({ message: 'You should add at least one contact to the group' }))
-        : (await dispatch(createGroup({ name: state.name, members: state.userList.map(user => user._id), image: state.image })),
+        : (await dispatch(createGroup({ name: state.name, users: state.userList.map(user => user._id), image: state.image })),
           setState({ ...state, name: '', userList: [], image: null }),
           close())
       : dispatch(showAlert({ message: 'Group name should be at least 3 characters' }));

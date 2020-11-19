@@ -13,7 +13,8 @@ exports.create = async (req, res) => {
     if (!friend) return errorHandler(`We send an invitation to ${req.body.email}`, res);
     if (String(req._id) === String(friend._id)) return errorHandler(`You can't add yourself to contacts`);
 
-    let contact = await Contact.findOne({ type: 'D', users: { $in: [req._id, friend._id] } });
+    // * the contact should be of type D and the users array should contain both user and friend _ids
+    let contact = await Contact.findOne({ type: 'D', $and: [{ users: { $in: [req._id] } }, { users: { $in: [friend._id] } }] });
 
     if (contact) {
       // should return data represent the contact
