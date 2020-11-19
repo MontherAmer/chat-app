@@ -1,11 +1,11 @@
-const { Group, User, Thread } = require('../../models');
+const { Group, User, Contact } = require('../../models');
 const { errorHandler, contactsList } = require('../../utils');
 
 // * create thread between group and user and save it to user
-const createThread = async (user, group) => {
-  let thread = new Thread({ user, group, type: 'G' });
-  let data = await thread.save();
-  await User.updateOne({ _id: user }, { $push: { contacts: thread._id } });
+const addGroupToUsersContacts = async (user, group) => {
+  let contact = new Contact({ group, type: 'G' });
+  contact = await contact.save();
+  await User.updateOne({ _id: user }, { $push: { contacts: contact._id } });
   return data._id;
 };
 
@@ -14,8 +14,7 @@ const createThread = async (user, group) => {
 
 exports.create = async (req, res) => {
   try {
-    console.log(req.body);
-    let { name, members } = req.body;
+    let { name, members, onlyAdminCanMsg } = req.body;
     let image;
 
     members = JSON.parse(members);
@@ -31,14 +30,14 @@ exports.create = async (req, res) => {
     if (req.file) image = req.file.location;
 
     // * create new group
-    let group = new Group({ name, image, admins: [req._id], createdBy: req._id });
+    let group = new Group({ name, image, onlyAdminCanMsg, members, admins: [req._id], createdBy: req._id });
 
     group = await group.save();
 
-    // * create threads between group and members and add them to group model
-    threadsLists = await Promise.all(members.map((member, i) => createThread(member, group._id)));
+    // // * create threads between group and members and add them to group model
+    threadsLists = await Promise.all(members.map((member, i) => addGroupToUsersContacts(member, group._id)));
 
-    group.contacts = threadsLists;
+    // group.contacts = threadsLists;
 
     await group.save();
 
