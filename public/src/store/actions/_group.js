@@ -1,5 +1,5 @@
 import { utilsActionTypes, userActionTypes } from '../constants';
-import { groupApis } from '../apis/groups';
+import { groupApis } from '../apis/_groups';
 
 export const createGroup = data => dispatch => {
   const formData = new FormData();

@@ -1,4 +1,4 @@
-import { authApis } from '../apis/auth';
+import { authApis } from '../apis/_auth';
 import { userActionTypes, utilsActionTypes } from '../constants';
 
 export const login = data => dispatch => {

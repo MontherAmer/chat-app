@@ -1,8 +1,8 @@
-import { utilsActionTypes } from '../constants';
+import { utilsActionTypes, messagesActionTypes, screensActionTypes } from '../constants';
 
 export const changeScreen = data => dispatch => {
   return dispatch({
-    type: utilsActionTypes.CHANGE_SCREEN,
+    type: screensActionTypes.CHANGE_SCREEN,
     payload: data
   });
 };
@@ -28,16 +28,16 @@ export const showLoader = data => dispatch => {
 };
 
 export const updateScreen = data => dispatch => {
-  data = window.screen.width >= 425 && data === 'Messages' ? 'Chats' : data;
+  data = window.screen.width > 425 && data === 'Messages' ? 'Chats' : data;
   return dispatch({
-    type: utilsActionTypes.CHANGE_SCREEN,
+    type: screensActionTypes.CHANGE_SCREEN,
     payload: data
   });
 };
 
 export const updateActiveChat = data => dispatch => {
   return dispatch({
-    type: utilsActionTypes.ACTIVE_CHAT,
+    type: messagesActionTypes.ACTIVE_CHAT,
     payload: data
   });
 };

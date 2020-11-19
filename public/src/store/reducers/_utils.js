@@ -6,9 +6,7 @@ const initialState = {
     message: '',
     success: false
   },
-  loader: false,
-  screen: 'Profile',
-  activeChat: {}
+  loader: false
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -17,16 +15,12 @@ export default (state = initialState, { type, payload }) => {
       return { ...state, loader: false, alert: { show: true, ...payload } };
     case utilsActionTypes.HIDE_ALERT:
       return { ...state, alert: { ...state.alert, show: false, success: false } };
-    case utilsActionTypes.CHANGE_SCREEN:
-      return { ...state, screen: payload };
     case utilsActionTypes.TOGGLE_LOADER:
       return { ...state, loader: payload };
     case utilsActionTypes.ERROR_RESPONSE:
       return { ...state, loader: false };
     case userActionTypes.STORE_USER_INFO:
       return { ...state, loader: false };
-    case utilsActionTypes.ACTIVE_CHAT:
-      return { ...state, activeChat: payload };
     default:
       return state;
   }

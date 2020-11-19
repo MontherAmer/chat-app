@@ -7,8 +7,15 @@ export const userActionTypes = {
 export const utilsActionTypes = {
   SHOW_ALERT: 'SHOW_ALERT',
   HIDE_ALERT: 'HIDE_ALERT',
-  CHANGE_SCREEN: 'CHANGE_SCREEN',
   TOGGLE_LOADER: 'TOGGLE_LOADER',
-  ERROR_RESPONSE: 'ERROR_RESPONSE',
-  ACTIVE_CHAT: 'ACTIVE_CHAT'
+  ERROR_RESPONSE: 'ERROR_RESPONSE'
+};
+
+export const messagesActionTypes = {
+  ACTIVE_CHAT: 'ACTIVE_CHAT',
+  NEW_MESSAGE: 'NEW_MESSAGE'
+};
+
+export const screensActionTypes = {
+  CHANGE_SCREEN: 'CHANGE_SCREEN'
 };
