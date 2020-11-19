@@ -22,6 +22,7 @@ const decodeJWT = async token => {
 
 const getTokenFromHeader = async req => {
   const autherization = req.headers.authorization;
+  console.log('autherization ', autherization);
   if (!autherization) return { e: 'You need to sign in' };
   let token = autherization.split(' ')[1];
   if (!token) return { e: 'You are not allowed to do this request' };

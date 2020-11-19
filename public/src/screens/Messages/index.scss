@@ -1,4 +1,5 @@
 @import './Header/index.scss';
+@import './Input/index.scss';
 
 .messages {
   width: 100%;
@@ -7,4 +8,5 @@
   flex-direction: column;
   overflow-x: hidden;
   overflow-y: auto;
+  position: relative;
 }

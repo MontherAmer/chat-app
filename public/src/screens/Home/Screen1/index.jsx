@@ -7,7 +7,7 @@ import Messages from '../../Messages';
 import GroupsContacts from '../../GroupsContacts';
 
 export default () => {
-  const { screen } = useSelector(state => state.utilsState);
+  const { screen } = useSelector(state => state.screensState);
 
   const components = {
     Chats,
