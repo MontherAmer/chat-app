@@ -39,7 +39,7 @@ export default () => {
         </div>
         <input type='text' autoComplete='off' placeholder='Search user' value={state.search || ''} onChange={handleSearch} />
       </div>
-
+      <h4>Recent</h4>
       <div className='contact__thumbnails'>
         {state.contacts.map(item => (
           <ChatItem

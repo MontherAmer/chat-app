@@ -23,6 +23,7 @@ body {
 
 h4 {
   font-size: 21px;
+  font-weight: 600;
 }
 
 h5 {
@@ -36,5 +37,5 @@ h5 {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: $SecondaryColor;
+  background: #ccd2da;
 }

@@ -14,6 +14,9 @@ export default () => {
 
   return (
     <div className='create'>
+      <div className='create__header'>
+        <h4>Groups & Contacts</h4>
+      </div>
       {/* Create Contact */}
       <div className='collapsible' onClick={() => handleCollapse('first')}>
         <div className='collabse__header'>
