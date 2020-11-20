@@ -1,6 +1,6 @@
 import { userApis } from '../apis/_users';
 import { contactApis } from '../apis/_contacts';
-import { userActionTypes, utilsActionTypes } from '../constants';
+import { userActionTypes, utilsActionTypes, messagesActionTypes, screensActionTypes } from '../constants';
 
 export const getUserData = id => dispatch => {
   return userApis.getUserData(id).then(res => {
@@ -39,13 +39,27 @@ export const updateUser = ({ key, value }) => dispatch => {
   });
 };
 
-export const createConnection = data => dispatch => {
+export const createNewContact = data => dispatch => {
+  // * fire the loader
+  dispatch({ type: utilsActionTypes.TOGGLE_LOADER, payload: true });
   return contactApis.addContact(data).then(res => {
+    // * stop the loader
+    dispatch({ type: utilsActionTypes.TOGGLE_LOADER, payload: false });
+    // * update chats list, redirect to chat screen
     return res.success
-      ? dispatch({
-          type: userActionTypes.STORE_USER_INFO,
+      ? (dispatch({
+          type: messagesActionTypes.ACTIVE_CHAT,
+          payload: res.data[0]
+        }),
+        dispatch({
+          type: userActionTypes.USER_CONNECTIONS_LIST,
           payload: res.data
-        })
+        }),
+        // * for small screen show messages screen
+        dispatch({
+          type: screensActionTypes.CHANGE_SCREEN,
+          payload: window.screen.width > 425 ? 'Chats' : 'Messages'
+        }))
       : dispatch({
           type: utilsActionTypes.SHOW_ALERT,
           payload: { message: res.err }

@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 // * only email is required in request body
 exports.create = async (req, res) => {
   try {
-    console.log('reach create');
     // * check for required data
     if (!req.body.email) return errorHandler(`email is required`, res);
     let friend = await User.findOne({ email: req.body.email });
@@ -17,10 +16,10 @@ exports.create = async (req, res) => {
     let contact = await Contact.findOne({ type: 'D', $and: [{ users: { $in: [req._id] } }, { users: { $in: [friend._id] } }] });
 
     if (contact) {
-      // should return data represent the contact
-      return res.send('allready exist');
-      // data = await contactsList(req._id);
-      // return res.send({ success: true, status: 200, data });
+      contact.updatedAt = Date.now();
+      await contact.save();
+      data = await contactsList(req._id);
+      return res.send({ success: true, status: 200, data });
     }
 
     contact = new Contact({ type: 'D', users: [req._id, friend._id] });
@@ -29,8 +28,8 @@ exports.create = async (req, res) => {
 
     await User.updateMany({ _id: { $in: [req._id, friend._id] } }, { $push: { contacts: contact._id } });
 
-    // data = await contactsList(req._id);
-    return res.send({ success: true, status: 200, data: 'done' });
+    data = await contactsList(req._id);
+    return res.send({ success: true, status: 200, data });
   } catch (err) {
     return errorHandler(err, res);
   }

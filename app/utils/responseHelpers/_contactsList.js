@@ -3,20 +3,21 @@ const { User } = require('../../models');
 exports.contactsList = async user_id => {
   try {
     // * get populated array of user.contacts
-    console.log('REACT LOGIN');
     let user = await User.findById(user_id)
       .select({ contacts: 1 })
       .populate({
         path: 'contacts',
+        model: 'Contact',
         select: { type: 1, users: 1, name: 1, image: 1, onlyAdminCanMsg: 1, admins: 1, createdBy: 1, updatedAt: 1 },
-        options: { sort: { updatedAt: 1 } },
+        options: { sort: { updatedAt: -1 } },
         populate: {
           path: 'users',
           select: { name: 1, online: 1, email: 1, image: 1 }
         }
       });
+    let data = user.contacts;
 
-    let data = user.contacts.map(contact => {
+    data = data.map(contact => {
       if (contact.type === 'D') {
         return { date: contact.updatedAt, ...contact.users.filter(user => String(user._id) !== String(user_id))[0]._doc };
       } else {

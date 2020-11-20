@@ -78,7 +78,12 @@ export default ({ close }) => {
           </div>
         ))}
       </div>
-      <Toggle label='WHAT' name='onlyAdminCanMsg' checked={state.onlyAdminCanMsg || false} handleClick={handleToggle} />
+      <Toggle
+        label='Only admins can send messages'
+        name='onlyAdminCanMsg'
+        checked={state.onlyAdminCanMsg || false}
+        handleClick={handleToggle}
+      />
       <Button label='Add' onClick={handleCreate} />
     </div>
   );

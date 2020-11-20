@@ -7,10 +7,10 @@ import Group from './CreateGroup';
 import { RiArrowDropRightLine, RiArrowDropUpLine, RiUserLine, RiGroupLine } from 'react-icons/ri';
 
 export default () => {
-  const [state, setState] = useState({ first: false });
+  const [state, setState] = useState({ first: false, second: false });
   const dispatch = useDispatch();
 
-  const handleCollapse = e => setState({ ...state, [e]: !state[e] });
+  const handleCollapse = e => setState({ ...state, first: false, second: false, [e]: !state[e] });
 
   return (
     <div className='create'>

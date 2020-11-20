@@ -16,10 +16,10 @@
 }
 
 .dark .profile__status__container {
-  color: $SecondaryColorDark;
+  color: $MainColorDark;
 }
 
 .dark .profile__status__innercontainer > textarea {
-  color: $SecondaryColorDark;
-  border-bottom: 2px dotted $SecondaryColorDark;
+  color: $MainColorDark;
+  border-bottom: 2px dotted $MainColorDark;
 }

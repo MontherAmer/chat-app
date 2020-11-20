@@ -10,7 +10,7 @@ export default (state = initialState, { type, payload }) => {
     case userActionTypes.REMOVE_USER_INFO:
       return {};
     case userActionTypes.USER_CONNECTIONS_LIST:
-      return { ...state, connections: payload };
+      return { ...state, contacts: payload };
     default:
       return state;
   }

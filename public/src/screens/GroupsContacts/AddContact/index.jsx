@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { RiUserLine } from 'react-icons/ri';
 
 import { validateEmail } from '../../../utils';
-import { showAlert, createConnection } from '../../../store/actions';
+import { showAlert, createNewContact } from '../../../store/actions';
 
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
@@ -19,7 +19,7 @@ export default ({ close }) => {
     console.log(validateEmail(state.email));
     validateEmail(state.email)
       ? dispatch(showAlert({ message: 'Please check email field' }))
-      : dispatch(createConnection({ email: state.email }));
+      : dispatch(createNewContact({ email: state.email }));
     close();
   };
   return (
