@@ -8,13 +8,56 @@
   color: $MainColor;
   display: flex;
   flex-direction: column;
-  padding: 16px;
 }
 
 .contacts_header {
-  padding: 0 16px;
+  padding: 24px;
+  width: 100%;
 }
 
 .contact__thumbnails {
   overflow: auto;
+  padding: 0 8px;
+}
+
+.contact__input {
+  width: 100%;
+  height: 65px;
+  position: relative;
+  margin-bottom: 16px;
+  padding: 0 24px;
+}
+
+.contact__input > label {
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 15px;
+  color: $MainColor;
+}
+
+.contact__input > input {
+  background-color: #e6ebf5;
+  height: 40px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding-left: 56px;
+  width: 100%;
+}
+
+.contact__input > input::placeholder {
+  font-size: 15px;
+  font-weight: 500;
+  color: $SecondaryColor;
+}
+
+.contact__input__icon {
+  position: absolute;
+  color: $SecondaryColor;
+  height: 39px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
 }
