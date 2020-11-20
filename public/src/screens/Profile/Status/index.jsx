@@ -23,7 +23,7 @@ export default ({ status }) => {
       : (state?.status?.length < 120
           ? await dispatch(updateUser({ key: 'status', value: state.status }))
           : dispatch(showAlert({ message: 'status maximun length is 120 character' })),
-        setState({ ...state, status }));
+        setState({ ...state, edit: false, status }));
   };
 
   return (
@@ -34,7 +34,7 @@ export default ({ status }) => {
         <div className='profile__status__innercontainer'>
           <h5>
             {status}
-            <RiEditLine title='Edit' className='name--edit' onClick={() => setState({ ...state, edit: true })} />
+            <RiEditLine title='Edit' className='status--edit' onClick={() => setState({ ...state, edit: true })} />
           </h5>
         </div>
       ) : (
@@ -42,18 +42,6 @@ export default ({ status }) => {
           <textarea onChange={handleChange} name='status' onBlur={handleUpdate} maxLength={120} defaultValue={state.status} />
         </div>
       )}
-      {/* {!state.edit ? (
-        <div className='profile__status__innercontainer'>
-          <h5>
-            {status}
-            <RiEditLine title='Edit' className='name--edit' onClick={() => setState({ ...state, edit: true })} />
-          </h5>
-        </div>
-      ) : (
-        <div className='profile__status__innercontainer'>
-          <textarea onChange={handleChange} name='status' onBlur={handleUpdate} maxLength={120} defaultValue={state.status} />
-        </div>
-      )} */}
     </div>
   );
 };
