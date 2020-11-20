@@ -12,7 +12,7 @@
 
 .home > div {
   box-shadow: 0 2px 4px rgba(15, 34, 58, 0.12);
-  padding-top: 24px;
+  // padding-top: 24px;
 }
 
 .home > div:nth-child(1) {
@@ -21,11 +21,11 @@
 }
 
 .home > div:nth-child(2) {
-  width: 385px;
+  width: 350px;
   background-color: $MainBg2;
 }
 .home > div:nth-child(3) {
-  width: calc(100% - 460px);
+  width: calc(100% - 425px);
   background-color: $White;
   padding-top: 0;
 }

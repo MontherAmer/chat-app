@@ -22,18 +22,15 @@ export default () => {
 
   return (
     <div className='menu'>
-      <div className='menu__item'>
-        <RiUserLine title='Profile' onClick={() => handleUpdateScreen('Profile')} />
+      <div className='menu__item' onClick={() => handleUpdateScreen('Profile')}>
+        <RiUserLine title='Profile' />
       </div>
-      <div className='menu__item'>
-        <RiMessage3Line title='Chats' onClick={() => handleUpdateScreen('Chats')} />
+      <div className='menu__item' onClick={() => handleUpdateScreen('Chats')}>
+        <RiMessage3Line title='Chats' />
       </div>
-      <div className='menu__item'>
-        <RiContactsLine title='Contacts/Groups' onClick={() => handleUpdateScreen('GroupsContacts')} />
+      <div className='menu__item' onClick={() => handleUpdateScreen('GroupsContacts')}>
+        <RiContactsLine title='Contacts/Groups' />
       </div>
-      {/* <div className='menu__item'>
-        <RiSettings2Line  onClick={()=>handleUpdateScreen()}/>
-      </div> */}
       <div className='menu__item' onClick={handleModeChange}>
         {theme === 'light' ? <RiMoonLine title='Dark mode' /> : <RiSunLine title='Light mode' />}
       </div>

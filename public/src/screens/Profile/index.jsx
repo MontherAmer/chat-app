@@ -16,12 +16,16 @@ export default () => {
       <Name name={userDate.name} />
       <Online online={userDate.online} />
       <Status status={userDate.status} />
+
+      <div className='profile__item'>
+        <h5>Email:</h5>
+        <small>{userDate.email}</small>
+      </div>
+
+      <div className='profile__item'>
+        <h5>Last Seen:</h5>
+        <small>{userDate.lastSeen || '00:00'}</small>
+      </div>
     </div>
   );
 };
-
-// email
-// name
-// status
-// online
-//
