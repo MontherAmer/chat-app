@@ -22,12 +22,14 @@ exports.contactsList = async user_id => {
         return { date: contact.updatedAt, ...contact.users.filter(user => String(user._id) !== String(user_id))[0]._doc };
       } else {
         return {
+          _id: contact._id,
           name: contact.name,
           image: contact.image,
           onlyAdminCanMsg: contact.onlyAdminCanMsg,
           createdBy: contact.createdBy,
           admins: contact.admins,
-          updatedAt: contact.updatedAt
+          updatedAt: contact.updatedAt,
+          online: true
         };
       }
     });
