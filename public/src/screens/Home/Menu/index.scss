@@ -1,15 +1,17 @@
 .menu {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   height: 100%;
   font-size: 30px;
   color: $MainColor;
+  padding-top: 24px;
 }
 
 .menu img {
-  width: 30px;
+  width: 45px;
+  height: 45px;
 }
 
 .menu__item {

@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import { ThemeContext } from '../../../context/ThemeContext';
 
+import logo from '../../../assets/images/logo.png';
+
 import { logOut, updateUser, updateScreen } from '../../../store/actions';
 import { RiMessage3Line, RiContactsLine, RiSettings2Line, RiMoonLine, RiSunLine, RiLogoutBoxLine, RiUserLine } from 'react-icons/ri';
 
@@ -22,6 +24,9 @@ export default () => {
 
   return (
     <div className='menu'>
+      <div className='menu__item'>
+        <img src={logo} />
+      </div>
       <div className='menu__item' onClick={() => handleUpdateScreen('Profile')}>
         <RiUserLine title='Profile' />
       </div>
