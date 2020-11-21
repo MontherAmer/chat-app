@@ -7,6 +7,10 @@
 var app = require('../app');
 var debug = require('debug')('chat-app:server');
 var http = require('http');
+const socketApi = require('../io');
+
+const io = socketApi.io;
+// const io = require('socket.io');
 
 /**
  * Get port from environment and store in Express.
@@ -48,7 +52,7 @@ function normalizePort(val) {
 
   return false;
 }
-
+io.attach(server);
 /**
  * Event listener for HTTP server "error" event.
  */

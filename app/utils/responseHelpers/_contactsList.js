@@ -19,7 +19,17 @@ exports.contactsList = async user_id => {
 
     data = data.map(contact => {
       if (contact.type === 'D') {
-        return { date: contact.updatedAt, ...contact.users.filter(user => String(user._id) !== String(user_id))[0]._doc };
+        let data = contact.users.filter(user => String(user._id) !== String(user_id))[0];
+        return {
+          _id: data._id,
+          name: data.name,
+          email: data.email,
+          image: data.image,
+          date: data.updatedAt,
+          online: data.online,
+          type: 'D',
+          usersIds: [user._id]
+        };
       } else {
         return {
           _id: contact._id,
@@ -28,8 +38,10 @@ exports.contactsList = async user_id => {
           onlyAdminCanMsg: contact.onlyAdminCanMsg,
           createdBy: contact.createdBy,
           admins: contact.admins,
-          updatedAt: contact.updatedAt,
-          online: true
+          date: contact.updatedAt,
+          online: contact.users.filter(item => item.online && String(item._id) !== String(user_id)).length ? true : false,
+          type: 'G',
+          usersIds: contact.users.filter(item => item._id)
         };
       }
     });
