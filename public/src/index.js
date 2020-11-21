@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import ThemeContentProvider from './context/ThemeContext';
+import SocketContextProvider from './context/SocketContext';
 
 import configureStore from './store';
 
@@ -20,7 +21,9 @@ const render = Component => {
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <ThemeContentProvider>
-          <Component />
+          <SocketContextProvider>
+            <Component />
+          </SocketContextProvider>
         </ThemeContentProvider>
       </PersistGate>
     </Provider>,

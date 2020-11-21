@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { ThemeContext } from './context/ThemeContext';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';

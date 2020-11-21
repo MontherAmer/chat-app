@@ -47,7 +47,7 @@ export default ({ close }) => {
           close())
       : dispatch(showAlert({ message: 'Group name should be at least 3 characters' }));
   };
-
+  console.log('contactscontactscontacts ', contacts);
   const filterOptions = options => {
     let usersList_ids = state.userList.map(user => user._id);
     let users = options.filter(option => option.email && !usersList_ids.includes(option._id));
