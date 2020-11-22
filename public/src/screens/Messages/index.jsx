@@ -15,7 +15,7 @@ export default () => {
     <div className='messages'>
       {activeChat._id ? <Header data={activeChat} /> : null}
 
-      {activeChat._id ? <InputContainer threadId={activeChat._id} /> : null}
+      {activeChat._id ? <InputContainer _id={activeChat._id} /> : null}
     </div>
   );
 };

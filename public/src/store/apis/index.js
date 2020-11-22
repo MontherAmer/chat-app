@@ -6,7 +6,6 @@ export default () => {
   if (Axios.defaults.baseURL === BASE_URL) return;
 
   let token = Object.fromEntries(document.cookie.split('; ').map(v => v.split('=').map(decodeURIComponent))).ChAt_ApP_ToKeNs;
-  console.log('TOKEEEM ', token);
   Axios.defaults.baseURL = BASE_URL;
   Axios.interceptors.request.use(async config => {
     // * handle form data

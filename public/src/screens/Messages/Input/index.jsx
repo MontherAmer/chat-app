@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { showAlert, createMessage } from '../../../store/actions';
 import { RiSendPlane2Fill, RiImageFill, RiCloseLine } from 'react-icons/ri';
 
-export default ({ threadId }) => {
+export default ({ _id }) => {
   const [state, setState] = useState({});
   const dispatch = useDispatch();
 
@@ -16,8 +16,8 @@ export default ({ threadId }) => {
   const handleChange = e => setState({ ...state, text: e.target.value });
 
   const handleClick = async () => {
-    console.log(threadId);
-    dispatch(createMessage({ threadId, ...state }));
+    console.log(_id);
+    dispatch(createMessage({ _id, ...state }));
   };
 
   return (
