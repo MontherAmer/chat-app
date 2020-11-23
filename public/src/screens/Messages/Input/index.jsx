@@ -12,14 +12,14 @@ export default ({ _id }) => {
 
   const handleUpload = e =>
     e.target.files[0].type.split('/')[0] === 'image'
-      ? setState({ ...state, image: e.target.files[0] })
+      ? setState({ ...state, showEmojiPicket: false, image: e.target.files[0] })
       : dispatch(showAlert({ message: 'Only images are accepted' }));
 
-  const handleChange = e => setState({ ...state, text: e.target.value });
+  const handleChange = e => setState({ ...state, showEmojiPicket: false, text: e.target.value });
 
   const handleClick = async () => {
-    console.log(_id);
     dispatch(createMessage({ _id, ...state }));
+    setState({ showEmojiPicket: false, text: '', image: null });
   };
 
   const handleShowHideEmoji = () => setState({ ...state, showEmojiPicket: !state.showEmojiPicket });
@@ -27,18 +27,10 @@ export default ({ _id }) => {
   const handleEmojiChoose = emoji => setState({ ...state, text: `${state.text ? state.text : ''}${emoji}` });
 
   return (
-    <div className='messages__send'>
+    <div className={`messages__send ${state.image ? 'big' : ''}`}>
       {/* text input */}
       <div className='messages--input'>
         <input type='text' placeholder='Enter Message...' value={state.text || ''} onChange={handleChange} />
-        {state.image ? <img className='messages--image--preview' src={URL.createObjectURL(state.image)} /> : null}
-        {state.image ? (
-          <RiCloseLine
-            className='messages--image--preview--close'
-            title='Remove Image'
-            onClick={() => setState({ ...state, image: null })}
-          />
-        ) : null}
       </div>
 
       <div className='emoji__container'>
@@ -54,6 +46,10 @@ export default ({ _id }) => {
       <div className='messages--button' onClick={handleClick}>
         <RiSendPlane2Fill />
       </div>
+      {state.image ? <img className='messages--image--preview' src={URL.createObjectURL(state.image)} /> : null}
+      {state.image ? (
+        <RiCloseLine className='messages--image--preview--close' title='Remove Image' onClick={() => setState({ ...state, image: null })} />
+      ) : null}
     </div>
   );
 };

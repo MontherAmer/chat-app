@@ -7,9 +7,14 @@ exports.create = async (req, res) => {
   try {
     let { contactId, text } = req.body;
     console.log('my messages', contactId, text);
-    if (req.file) console.log('has file', req.file.location);
+    let type = 'TEXT';
+    let attachment;
+    if (req.file) {
+      type = 'IMAGE';
+      attachment = req.file.location;
+    }
 
-    let message = new Message({ type: 'TEXT', text, from: req._id });
+    let message = new Message({ type, attachment, text, from: req._id });
 
     message = await message.save();
 

@@ -6,9 +6,10 @@ const MessageSchema = new mongoose.Schema(
     from: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     type: { type: String, enum: ['TEXT', 'VIDEO', 'IMAGE'] },
     text: { type: String },
-    attachment: { type: mongoose.Schema.Types.ObjectId, ref: 'Attachment' },
+    attachment: { type: String },
     seen: { type: Boolean, default: false },
-    seenBy: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
+    seenBy: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    deleted: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
   },
   {
     timestamps: true

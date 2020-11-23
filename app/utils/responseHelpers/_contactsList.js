@@ -21,7 +21,7 @@ exports.contactsList = async user_id => {
       if (contact.type === 'D') {
         let data = contact.users.filter(user => String(user._id) !== String(user_id))[0];
         return {
-          _id: data._id,
+          _id: contact._id,
           name: data.name,
           email: data.email,
           image: data.image,

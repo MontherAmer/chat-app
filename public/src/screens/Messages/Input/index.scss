@@ -7,9 +7,14 @@
   border-top: 1px solid $BorderBolor;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-end;
   padding: 0 24px;
   color: $MainColor;
+  padding: 20px;
+}
+
+.big {
+  height: 165px;
 }
 
 .messages--input {
@@ -30,18 +35,21 @@
 }
 
 .messages--image--preview {
+  width: 85px;
+  height: 85px;
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 45px;
-  height: 45px;
+  bottom: 75px;
+  left: 24px;
   border: 1px solid $BorderBolor;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .messages--image--preview--close {
   position: absolute;
-  top: -10px;
-  right: -10px;
+  bottom: 144px;
+  left: 93px;
   color: $MainColor;
   cursor: pointer;
 }
