@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { showAlert, createMessage } from '../../../store/actions';
-import { RiSendPlane2Fill, RiImageFill, RiCloseLine } from 'react-icons/ri';
+import { RiSendPlane2Fill, RiImageFill, RiCloseLine, RiEmotionHappyLine } from 'react-icons/ri';
+
+import Emoji from './Emoji';
 
 export default ({ _id }) => {
-  const [state, setState] = useState({});
+  const [state, setState] = useState({ showEmojiPicket: false });
   const dispatch = useDispatch();
 
   const handleUpload = e =>
@@ -19,6 +21,10 @@ export default ({ _id }) => {
     console.log(_id);
     dispatch(createMessage({ _id, ...state }));
   };
+
+  const handleShowHideEmoji = () => setState({ ...state, showEmojiPicket: !state.showEmojiPicket });
+
+  const handleEmojiChoose = emoji => setState({ ...state, text: `${state.text ? state.text : ''}${emoji}` });
 
   return (
     <div className='messages__send'>
@@ -35,7 +41,11 @@ export default ({ _id }) => {
         ) : null}
       </div>
 
-      {/* image upload container */}
+      <div className='emoji__container'>
+        {state.showEmojiPicket ? <Emoji handleChoose={handleEmojiChoose} /> : null}
+        <RiEmotionHappyLine onClick={handleShowHideEmoji} />
+      </div>
+
       <label className='messages--image'>
         <RiImageFill />
         <input type='file' name='image' style={{ display: 'none' }} onChange={handleUpload} />
