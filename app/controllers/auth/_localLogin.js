@@ -19,6 +19,7 @@ exports.login = async (req, res) => {
     let token = createJWT({ _id, email });
 
     let data = await userDataRes(_id);
+    data.token = token;
     res.cookie('ChAt_ApP_ToKeNs', token);
     return res.send({ success: true, status: 200, data });
   } catch (err) {

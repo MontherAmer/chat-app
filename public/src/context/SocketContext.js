@@ -10,8 +10,7 @@ export const SocketContext = createContext();
 export default props => {
   const { _id } = useSelector(state => state.userState);
   const dispatch = useDispatch();
-  const token = Object.fromEntries(document.cookie.split('; ').map(v => v.split('=').map(decodeURIComponent))).ChAt_ApP_ToKeNs;
-
+  const token = localStorage.getItem('ChAt_ApP_ToKeNs');
   const socket = io.connect('http://localhost:5000', {
     query: { token, senderId: _id }
   });

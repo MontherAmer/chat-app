@@ -7,6 +7,7 @@ export default (state = initialState, { type, payload }) => {
   switch (type) {
     case userActionTypes.STORE_USER_INFO:
       localStorage.setItem('LETS_CHAT_THEME', payload.theme);
+      localStorage.setItem('ChAt_ApP_ToKeNs', payload.token);
       return { ...state, ...payload };
     case userActionTypes.REMOVE_USER_INFO:
       return {};
