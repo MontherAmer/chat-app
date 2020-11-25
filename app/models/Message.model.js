@@ -7,7 +7,6 @@ const MessageSchema = new mongoose.Schema(
     type: { type: String, enum: ['TEXT', 'VIDEO', 'IMAGE'] },
     text: { type: String },
     attachment: { type: String },
-    seen: { type: Boolean, default: false },
     seenBy: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
     deleted: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
   },

@@ -1,4 +1,7 @@
 const { makeOffline, makeOnline } = require('./userStatus');
+const EventEmitter = require('events');
+class MyEmitter extends EventEmitter {}
+const eventEmmiter = new MyEmitter();
 
 const usersSocketsObj = {};
 
@@ -11,4 +14,8 @@ exports.socketControllers = (io, socket) => {
   socket.on('SET_USER_OFF_LINE', makeOffline);
 
   socket.on('disconnect', () => delete usersSocketsObj[socket.senderId]);
+
+  eventEmmiter.on('NEW_MESSAGE_CREATED', data => socket.emit('USER_RECIVE_NEW_MESSAGE', data));
 };
+
+exports.eventEmmiter = eventEmmiter;
