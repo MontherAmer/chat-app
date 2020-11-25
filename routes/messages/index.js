@@ -7,4 +7,6 @@ const { messageControllers } = require('../../app/controllers');
 
 router.post('/', isAuth, upload.single('attachment'), messageControllers.create);
 
+router.get('/:contactId', isAuth, messageControllers.list);
+
 module.exports = router;
