@@ -14,7 +14,8 @@ export const utilsActionTypes = {
 
 export const messagesActionTypes = {
   ACTIVE_CHAT: 'ACTIVE_CHAT',
-  NEW_MESSAGE: 'NEW_MESSAGE'
+  NEW_MESSAGE: 'NEW_MESSAGE',
+  MESSAGES_LIST: 'MESSAGES_LIST'
 };
 
 export const screensActionTypes = {

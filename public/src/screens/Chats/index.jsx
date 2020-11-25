@@ -26,7 +26,7 @@ export default () => {
     dispatch(updateScreen('Messages'));
     dispatch(updateActiveChat(e));
   };
-
+  console.log('HELLO CHATS ', contacts);
   return (
     <div className='contacts'>
       <div className='contacts_header'>
@@ -42,16 +42,7 @@ export default () => {
       <h4>Recent</h4>
       <div className='contact__thumbnails'>
         {state.contacts.map(item => (
-          <ChatItem
-            _id={item._id}
-            image={item.image}
-            name={item.name}
-            online={item.online}
-            lastMsg={item.lastMsg}
-            time={item.time}
-            key={item._id}
-            onClick={handleChooseChat}
-          />
+          <ChatItem contact={item} onClick={handleChooseChat} />
         ))}
       </div>
     </div>

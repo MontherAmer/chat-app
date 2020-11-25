@@ -17,5 +17,7 @@ export default props => {
 
   socket.on('USER_TOGGLE_ON_OFF_LINE', data => dispatch({ type: userActionTypes.UPDATE_ONLINE_OFFLINE_CONTACT, payload: data }));
 
+  socket.on('USER_RECIVE_NEW_MESSAGE', data => console.log('NEW MESSAGE ', data));
+
   return <SocketContext.Provider value={{ socket }}>{props.children}</SocketContext.Provider>;
 };

@@ -66,3 +66,8 @@
 .contact small {
   color: $SecondaryColor;
 }
+
+.contact__time {
+  display: flex;
+  flex-direction: column;
+}

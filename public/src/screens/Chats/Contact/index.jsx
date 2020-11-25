@@ -1,8 +1,11 @@
 import React from 'react';
 
+import { timeFormate } from '../../../utils';
+
 import { RiUserLine } from 'react-icons/ri';
 
-export default ({ _id, image, name, online, lastMsg, time, onClick }) => {
+export default ({ contact, onClick }) => {
+  let { _id, image, name, online, lastMessage, unreadMessages, time } = contact;
   return (
     <div className='contact' onClick={() => onClick({ _id, name, image })}>
       <div className='contact__image'>
@@ -11,9 +14,12 @@ export default ({ _id, image, name, online, lastMsg, time, onClick }) => {
       </div>
       <div className='contact__data'>
         <h4 className='contact__name'>{name}</h4>
-        <p className='contact__msg'>{lastMsg || 'start chating'}</p>
+        <p>{lastMessage?.text || 'Start chat'}</p>
       </div>
-      <small>{time}</small>
+      <div className='contact__time'>
+        <p className='contact__msg'>{timeFormate(lastMessage?.createdAt) || 'start chating'}</p>
+        <small>{unreadMessages.length}</small>
+      </div>
     </div>
   );
 };

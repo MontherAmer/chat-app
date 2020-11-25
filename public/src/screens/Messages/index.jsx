@@ -1,19 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Header from './Header';
 import InputContainer from './Input';
+import MessagesArea from './MessagesArea';
+
+import { listMessages } from '../../store/actions';
 
 export default () => {
-  const { activeChat } = useSelector(state => state.messagesState);
+  const { activeChat, messages } = useSelector(state => state.messagesState);
+  const dispatch = useDispatch();
+
+  // const loadContent = () => dispatch(listMessages(activeChat._id));
 
   useEffect(() => {
-    console.log('hi', activeChat);
+    async function getMessages() {
+      await dispatch(listMessages(activeChat._id));
+    }
+    getMessages();
   }, [activeChat]);
 
   return (
     <div className='messages'>
       {activeChat._id ? <Header data={activeChat} /> : null}
+      <MessagesArea />
 
       {activeChat._id ? <InputContainer _id={activeChat._id} /> : null}
     </div>
