@@ -18,10 +18,14 @@ exports.create = async (req, res) => {
 
     message = await message.save();
 
-    await Contact.updateOne({ _id: contactId }, { $push: { messages: message._id }, lastMessage: message._id });
+    message = await Message.findById(message._id).populate({
+      path: 'from seenBy',
+      select: { email: 1, name: 1, online: 1, image: 1 }
+    });
 
-    eventEmmiter.emit('NEW_MESSAGE_CREATED', { contactId, message });
-    return res.send({ success: true, status: 200 });
+    await Contact.updateOne({ _id: contactId }, { $push: { messages: message._id }, lastMessage: message._id });
+    eventEmmiter.emit('NEW_MESSAGE_CREATED', { contactId, user_id: req._id, message });
+    return res.send({ success: true, status: 200, data: message });
   } catch (err) {
     return errorHandler(err, res);
   }

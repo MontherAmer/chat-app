@@ -6,7 +6,6 @@ const { errorHandler } = require('../../utils');
 exports.list = async (req, res) => {
   try {
     let { contactId } = req.params;
-    console.log('helllooooo ', contactId);
     let { messages } = await Contact.findById(contactId)
       .select({ messages: 1 })
       .populate({

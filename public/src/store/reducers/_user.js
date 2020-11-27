@@ -10,6 +10,7 @@ export default (state = initialState, { type, payload }) => {
       localStorage.setItem('ChAt_ApP_ToKeNs', payload.token);
       return { ...state, ...payload };
     case userActionTypes.REMOVE_USER_INFO:
+      localStorage.removeItem('ChAt_ApP_ToKeNs');
       return {};
     case userActionTypes.USER_CONNECTIONS_LIST:
       return { ...state, contacts: payload };

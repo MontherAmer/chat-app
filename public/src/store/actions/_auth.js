@@ -30,6 +30,5 @@ export const signUp = data => dispatch => {
 };
 
 export const logOut = () => dispatch => {
-  localStorage.removeItem('ChAt_ApP_ToKeNs');
   return dispatch({ type: userActionTypes.REMOVE_USER_INFO });
 };

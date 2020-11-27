@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { showAlert, updateUser } from '../../../store/actions';
-import Loading from './Loading';
+import Loading from '../../../components/SubLoader';
 import { RiUserLine, RiEditBoxLine, RiDeleteBin7Line } from 'react-icons/ri';
 
 export default ({ image }) => {

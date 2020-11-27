@@ -8,7 +8,13 @@ export const createMessage = data => dispatch => {
   if (data.image) formData.append('attachment', data.image);
 
   return messagesApis.create(formData).then(res => {
-    console.log(res);
+    console.log('RRRRRRRRrr ', res);
+    return res.success
+      ? dispatch({
+          type: messagesActionTypes.NEW_MESSAGE,
+          payload: res.data
+        })
+      : console.log('something wrong');
   });
 };
 

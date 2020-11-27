@@ -11,6 +11,8 @@ export default (state = initialState, { type, payload }) => {
       return { ...state, activeChat: payload };
     case messagesActionTypes.MESSAGES_LIST:
       return { ...state, messages: payload };
+    case messagesActionTypes.NEW_MESSAGE:
+      return { ...state, messages: state.messages.concat(payload) };
     default:
       return state;
   }
