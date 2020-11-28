@@ -25,13 +25,11 @@ export default () => {
             <div className={`message__body__text ${msg.from._id === _id ? 'sent' : 'recived'}`}>
               <p className='message__main__text'>{msg.text}</p>
               {msg.attachment ? <img src={msg.attachment} /> : null}
+              {msg.image ? <img src={URL.createObjectURL(msg.image)} /> : null}
               <p className='time'>{timeFormate(msg.createdAt)}</p>
             </div>
             <div className={`message__body__from ${msg.from._id === _id ? 'sent' : 'recived'}`}>{msg.from.name}</div>
           </div>
-          {/* <div className={`message__options ${msg.from._id === _id ? 'sent' : 'recived'}`}>
-            <RiDeleteBinLine />
-          </div> */}
         </div>
       ))}
       <div id='scrollto'></div>

@@ -1,14 +1,18 @@
+import { v4 as uuidv4 } from 'uuid';
 import { messagesApis } from '../apis/_messages';
 import { messagesActionTypes } from '../constants';
 
 export const createMessage = data => dispatch => {
+  dispatch({
+    type: messagesActionTypes.TEMP_MESSAGE,
+    payload: { uuid: uuidv4(), from: data.currentUser, ...data }
+  });
   const formData = new FormData();
   formData.append('contactId', data._id);
   formData.append('text', data.text);
   if (data.image) formData.append('attachment', data.image);
 
   return messagesApis.create(formData).then(res => {
-    console.log('RRRRRRRRrr ', res);
     return res.success
       ? dispatch({
           type: messagesActionTypes.NEW_MESSAGE,

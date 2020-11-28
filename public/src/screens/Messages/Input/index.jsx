@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { showAlert, createMessage } from '../../../store/actions';
 import { RiSendPlane2Fill, RiImageFill, RiCloseLine, RiEmotionHappyLine } from 'react-icons/ri';
@@ -8,6 +8,7 @@ import Emoji from './Emoji';
 
 export default ({ _id }) => {
   const [state, setState] = useState({ showEmojiPicket: false });
+  const currentUser = useSelector(state => state.userState);
   const dispatch = useDispatch();
 
   const handleUpload = e =>
@@ -18,7 +19,7 @@ export default ({ _id }) => {
   const handleChange = e => setState({ ...state, showEmojiPicket: false, text: e.target.value });
 
   const handleClick = async () => {
-    dispatch(createMessage({ _id, ...state }));
+    dispatch(createMessage({ _id, currentUser, ...state }));
     setState({ showEmojiPicket: false, text: '', image: null });
   };
 
