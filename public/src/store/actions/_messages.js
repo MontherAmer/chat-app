@@ -3,19 +3,21 @@ import { messagesApis } from '../apis/_messages';
 import { messagesActionTypes } from '../constants';
 
 export const createMessage = data => dispatch => {
+  let uuid = uuidv4();
   dispatch({
     type: messagesActionTypes.TEMP_MESSAGE,
-    payload: { uuid: uuidv4(), from: data.currentUser, ...data }
+    payload: { uuid, from: data.currentUser, ...data }
   });
   const formData = new FormData();
   formData.append('contactId', data._id);
   formData.append('text', data.text);
+  formData.append('uuid', uuid);
   if (data.image) formData.append('attachment', data.image);
 
   return messagesApis.create(formData).then(res => {
     return res.success
       ? dispatch({
-          type: messagesActionTypes.NEW_MESSAGE,
+          type: messagesActionTypes.NEW_MESSAGE_CREATED_FROM_RESPONSE,
           payload: res.data
         })
       : console.log('something wrong');

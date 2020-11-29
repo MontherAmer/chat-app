@@ -6,7 +6,7 @@ const { eventEmmiter } = require('../sockets');
 
 exports.create = async (req, res) => {
   try {
-    let { contactId, text } = req.body;
+    let { contactId, text, uuid } = req.body;
     let type = 'TEXT';
     let attachment;
     if (req.file) {
@@ -14,7 +14,7 @@ exports.create = async (req, res) => {
       attachment = req.file.location;
     }
 
-    let message = new Message({ type, attachment, text, from: req._id, seenBy: [req._id] });
+    let message = new Message({ type, attachment, text, uuid, from: req._id, seenBy: [req._id] });
 
     message = await message.save();
 

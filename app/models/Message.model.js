@@ -8,7 +8,8 @@ const MessageSchema = new mongoose.Schema(
     text: { type: String },
     attachment: { type: String },
     seenBy: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
-    deleted: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
+    deleted: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    uuid: { type: String }
   },
   {
     timestamps: true
