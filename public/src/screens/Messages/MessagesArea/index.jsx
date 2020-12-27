@@ -16,7 +16,7 @@ export default () => {
 
   return (
     <div className='messages__area'>
-      {messages.map(msg => (
+      {messages?.map(msg => (
         <div className={`message ${msg.from._id === _id ? 'sent' : 'recived'}`}>
           <div className={`message__image ${msg.from._id === _id ? 'sent' : 'recived'}`}>
             {msg.from.image ? <img src={msg.from.image} /> : <RiUserLine size={34} />}
