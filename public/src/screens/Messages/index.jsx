@@ -11,11 +11,10 @@ export default () => {
   const { activeChat, messages } = useSelector(state => state.messagesState);
   const dispatch = useDispatch();
 
-  // const loadContent = () => dispatch(listMessages(activeChat._id));
-
   useEffect(() => {
     async function getMessages() {
-      await dispatch(listMessages(activeChat._id));
+      console.log('activeChatactiveChatactiveChatactiveChat ', activeChat);
+      if (activeChat._id) await dispatch(listMessages(activeChat._id));
     }
     getMessages();
   }, [activeChat]);

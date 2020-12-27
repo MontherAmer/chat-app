@@ -9,7 +9,6 @@ export default ({ status }) => {
   const [state, setState] = useState({});
 
   useEffect(() => {
-    console.log('use Effect');
     setState({ status });
   }, [status]);
 

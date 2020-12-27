@@ -41,7 +41,7 @@ export default () => {
       </div>
       <h4>Recent</h4>
       <div className='contact__thumbnails'>
-        {state.contacts.map(item => (
+        {state.contacts?.map(item => (
           <ChatItem contact={item} onClick={handleChooseChat} />
         ))}
       </div>

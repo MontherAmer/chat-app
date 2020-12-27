@@ -25,8 +25,9 @@ export const createMessage = data => dispatch => {
 };
 
 export const listMessages = contactId => dispatch => {
-  return messagesApis.list(contactId).then(res => {
-    console.log('GET RESPOSE ', res);
-    return res.success ? dispatch({ type: messagesActionTypes.MESSAGES_LIST, payload: res.data }) : console.log('errr');
-  });
+  console.log('listMessageslistMessageslistMessageslistMessageslistMessages');
+  if (contactId)
+    return messagesApis.list(contactId).then(res => {
+      return res.success ? dispatch({ type: messagesActionTypes.MESSAGES_LIST, payload: res.data }) : console.log('errr');
+    });
 };

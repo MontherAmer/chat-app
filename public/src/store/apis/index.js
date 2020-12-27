@@ -1,5 +1,7 @@
 import Axios from 'axios';
-
+import { userActionTypes } from '../constants';
+import configureStore from '../index';
+const { store } = configureStore();
 export const BASE_URL = '/';
 
 export default () => {
@@ -25,6 +27,8 @@ export default () => {
   // * filter data from response
   Axios.interceptors.response.use(
     response => {
+      console.log(response);
+      if (response.data.unautherized) store.dispatch({ type: userActionTypes.REMOVE_USER_INFO });
       return response.data;
     },
     error => {
