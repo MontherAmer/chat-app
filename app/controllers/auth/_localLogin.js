@@ -8,11 +8,11 @@ exports.login = async (req, res) => {
 
     // * find user with req.email
     let user = await User.findOne({ email, provider: 'local' });
-    if (!user) return errorHandler('email or password is not correct', res);
+    if (!user) return errorHandler({ errorMessage: 'email or password is not correct', status: 401 }, res);
 
     // * check password match
     let isMatched = await user.comparePassword(password);
-    if (!isMatched) return errorHandler('email or password is not correct', res);
+    if (!isMatched) return errorHandler({ errorMessage: 'email or password is not correct', status: 401 }, res);
 
     // * create token
     let _id = user._id;

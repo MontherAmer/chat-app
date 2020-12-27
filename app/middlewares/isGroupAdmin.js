@@ -1,7 +1,10 @@
 const { Group } = require('../models');
 const { errorHandler } = require('../utils');
 
-// * should be use after isAdmin middleware
+/* -------------------------------------------------------------------------- */
+/* ------------------Check if user is group admin---------------------------- */
+/* -------------- should be use after isAdmin middleware--------------------- */
+
 exports.isGroupAdmin = async (req, res, next) => {
   try {
     let isAdmin = false;
@@ -11,7 +14,7 @@ exports.isGroupAdmin = async (req, res, next) => {
       if (String(req._id) === String(admin)) isAdmin = true;
     });
 
-    return isAdmin ? next() : errorHandler('You are not allowed to update the group data', res);
+    return isAdmin ? next() : errorHandler({ errorMessage: `You are not allowed to update the group data`, status: 403 }, res);
   } catch (err) {
     return errorHandler(err, res);
   }

@@ -1,7 +1,9 @@
 const { Group } = require('../models');
 const { errorHandler } = require('../utils');
 
-// * should be use after isAdmin middleware
+/* -------------------------------------------------------------------------- */
+/* ------------------Check if user is group member--------------------------- */
+/* -------------- should be use after isAdmin middleware--------------------- */
 exports.isGroupMember = async (req, res, next) => {
   try {
     let isMember = false;
@@ -16,7 +18,7 @@ exports.isGroupMember = async (req, res, next) => {
       if (String(req._id) === String(contact.user)) isMember = true;
     });
 
-    return isMember ? next() : errorHandler('You are no longer member of this group', res);
+    return isMember ? next() : errorHandler({ errorMessage: `You are no longer member of this group`, status: 403 }, res);
   } catch (err) {
     return errorHandler(err, res);
   }

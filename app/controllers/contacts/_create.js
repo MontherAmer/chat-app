@@ -1,16 +1,18 @@
 const { User, Contact } = require('../../models');
 const { errorHandler, contactsList } = require('../../utils');
-const mongoose = require('mongoose');
 
-// * ─── CREATE CONTACT ─────────────────────────────────────────────────────────────
-// * only email is required in request body
+/* -------------------------------------------------------------------------- */
+/* -----------------------------create contacts------------------------------ */
+/* -------------------------------------------------------------------------- */
+
 exports.create = async (req, res) => {
   try {
     // * check for required data
     if (!req.body.email) return errorHandler(`email is required`, res);
     let friend = await User.findOne({ email: req.body.email });
-    if (!friend) return errorHandler(`We send an invitation to ${req.body.email}`, res);
-    if (String(req._id) === String(friend._id)) return errorHandler(`You can't add yourself to contacts`);
+    if (!friend) return errorHandler({ errorMessage: `We send an invitation to ${req.body.email}`, status: 404 }, res);
+    if (String(req._id) === String(friend._id))
+      return errorHandler({ errorMessage: `You can't add yourself to contacts`, status: 400 }, res);
 
     // * the contact should be of type D and the users array should contain both user and friend _ids
     let contact = await Contact.findOne({ type: 'D', $and: [{ users: { $in: [req._id] } }, { users: { $in: [friend._id] } }] });

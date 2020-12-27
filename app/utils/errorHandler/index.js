@@ -1,6 +1,6 @@
-// *
-// * ─── HANDLE RESPONSE WHEN ERROR OCCURS ──────────────────────────────────────────
-// *
+/* -------------------------------------------------------------------------- */
+/* -------------------HANDLE RESPONSE WHEN ERROR OCCURS---------------------- */
+/* -------------------------------------------------------------------------- */
 
 const handleMongooseErrors = err => {
   // * errors for unique values in database
@@ -16,5 +16,7 @@ exports.errorHandler = (err, res) => {
     let error = handleMongooseErrors(err);
     return res.send({ success: false, status: 500, err: error });
   }
+  if (err.errorMessage) return res.send({ success: false, status: err.status, errorMessage: err.errorMessage, err });
+  if (err.unautherized) return res.send({ success: false, unautherized: true, status: 403 });
   return res.send({ success: false, status: 500, err });
 };
