@@ -11,3 +11,13 @@
 .messages__header > * {
   margin-left: 16px;
 }
+
+@media (max-width: 425px) {
+  .messages__header {
+    height: 65px;
+    padding: 0px 4px;
+  }
+  .messages__header > * {
+    margin: 0px 2px;
+  }
+}

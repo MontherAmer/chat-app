@@ -145,5 +145,6 @@
 @media (max-width: 425px) {
   .messages__area {
     padding: 24px 4px;
+    height: calc(100% - 161px);
   }
 }
