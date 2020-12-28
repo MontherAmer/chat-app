@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { timeFormate } from '../../../utils';
 
 import { RiUserLine, RiDeleteBinLine } from 'react-icons/ri';
+import profileImage from '../../../assets/images/profile.png';
 
 export default () => {
   const { messages } = useSelector(state => state.messagesState);
@@ -12,14 +13,14 @@ export default () => {
   useEffect(() => {
     var ele = document.getElementById('scrollto');
     ele.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-  }, []);
+  }, [messages]);
 
   return (
     <div className='messages__area'>
       {messages?.map(msg => (
         <div className={`message ${msg.from._id === _id ? 'sent' : 'recived'}`}>
           <div className={`message__image ${msg.from._id === _id ? 'sent' : 'recived'}`}>
-            {msg.from.image ? <img src={msg.from.image} /> : <RiUserLine size={34} />}
+            {msg.from.image ? <img src={msg.from.image} /> : <img src={profileImage} />}
           </div>
           <div className={`message__body ${msg.from._id === _id ? 'sent' : 'recived'}`}>
             <div className={`message__body__text ${msg.from._id === _id ? 'sent' : 'recived'}`}>

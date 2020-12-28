@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { showAlert, updateUser } from '../../../store/actions';
 import Loading from '../../../components/SubLoader';
 import { RiUserLine, RiEditBoxLine, RiDeleteBin7Line } from 'react-icons/ri';
+import profileImage from '../../../assets/images/profile.png';
 
 export default ({ image }) => {
   const dispatch = useDispatch();
@@ -36,7 +37,7 @@ export default ({ image }) => {
               <RiEditBoxLine title='Edit' />
               <input type='file' name='image' style={{ display: 'none' }} onChange={handleUpload} />
             </label>
-            {image ? <img src={image} /> : <RiUserLine size={60} />}
+            {image ? <img src={image} /> : <img src={profileImage} />}
             {image ? <RiDeleteBin7Line className='image--remove' title='Remove' onClick={handleRemove} /> : null}
           </>
         )}

@@ -32,7 +32,7 @@
 
 @media (max-width: 425px) {
   .home > div:nth-child(2) {
-    width: 100%;
+    width: calc(100% - 75px);
   }
   .home > div:nth-child(3) {
     display: none;

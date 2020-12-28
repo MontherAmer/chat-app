@@ -2,14 +2,14 @@ import React from 'react';
 
 import { timeFormate } from '../../../utils';
 
-import { RiUserLine } from 'react-icons/ri';
+import profileImage from '../../../assets/images/profile.png';
 
 export default ({ contact, onClick }) => {
   let { _id, image, name, online, lastMessage, unreadMessages, time } = contact;
   return (
     <div className='contact' onClick={() => onClick({ _id, name, image })}>
       <div className='contact__image'>
-        {image ? <img src={image} /> : <RiUserLine />}
+        {image ? <img src={image} /> : <img src={profileImage} />}
         <span className={`contact__status ${online ? 'online' : ''}`}></span>
       </div>
       <div className='contact__data'>

@@ -12,6 +12,7 @@ export default () => {
   const history = useHistory();
 
   useEffect(() => {
+    console.log('hello ======================================================', history.location.pathname.split('/'));
     localStorage.setItem('ChAt_ApP_ToKeNs', history.location.pathname.split('/')[2]);
     dispatch(getUserData(history.location.pathname.split('/')[3]));
   }, []);

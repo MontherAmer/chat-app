@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RiUserLine, RiGroupLine, RiEditBoxLine, RiDeleteBin7Line } from 'react-icons/ri';
 
 import { showAlert, createGroup } from '../../../store/actions';
-
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
 import Select from '../../../components/Select';

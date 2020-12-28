@@ -11,6 +11,7 @@
 .message {
   display: flex;
   margin: 4px 0;
+  width: 100%;
 }
 
 .message.sent {
@@ -47,12 +48,18 @@
 .message__image.recived {
   margin-right: 8px;
 }
+.message__body {
+  max-width: calc(100% - 75px);
+}
 
 .message__body__text {
   border-radius: 5px;
   padding: 8px;
   font-size: 15px;
   position: relative;
+  max-width: 100%;
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 .message__body__text.sent {
@@ -133,4 +140,10 @@
   margin-bottom: -20px;
   right: 0;
   border-right: 0;
+}
+
+@media (max-width: 425px) {
+  .messages__area {
+    padding: 24px 4px;
+  }
 }
