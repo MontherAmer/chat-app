@@ -1,8 +1,10 @@
 const { Message, Contact } = require('../../models');
-const { errorHandler } = require('../../utils');
+const { errorHandler, contactsList } = require('../../utils');
 const { eventEmmiter } = require('../sockets');
 
-// * ─── CREATE NEW MESSAGE ───────────────────────────────────────────────────────────
+/* -------------------------------------------------------------------------- */
+/* ----------------------------CREATE NEW MESSAGE---------------------------- */
+/* -------------------------------------------------------------------------- */
 
 exports.create = async (req, res) => {
   try {
@@ -24,8 +26,8 @@ exports.create = async (req, res) => {
     });
 
     await Contact.updateOne({ _id: contactId }, { $push: { messages: message._id }, lastMessage: message._id });
-    eventEmmiter.emit('NEW_MESSAGE_CREATED', { contactId, user_id: req._id, message });
-    return res.send({ success: true, status: 200, data: message });
+    eventEmmiter.emit('EVEVT_NEW_MESSAGE_CREATED', { contactId, user_id: req._id, message });
+    return res.send({ success: true, status: 200, data: message, subData: await contactsList(req._id) });
   } catch (err) {
     return errorHandler(err, res);
   }

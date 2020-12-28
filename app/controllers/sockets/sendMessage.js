@@ -7,9 +7,8 @@ exports.sendMessage = async (usersSocketsObj, io, data) => {
   await Promise.all(
     contact.users.map(async user => {
       if (String(user._id) !== String(data.user_id)) {
-        console.log('uuid');
         let list = await contactsList(user);
-        io.to(usersSocketsObj[user]).emit('USER_RECIVE_NEW_MESSAGE', { contactId: contact._id, list, message: data.message });
+        io.to(usersSocketsObj[user]).emit('SOCKET_NEW_MESSAGE_CREATED', { contactId: contact._id, list, message: data.message });
       }
     })
   );

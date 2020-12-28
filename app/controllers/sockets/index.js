@@ -1,4 +1,4 @@
-const { makeOffline, makeOnline } = require('./userStatus');
+const { makeUserOffline, makeUserOnline } = require('./userStatus');
 const { sendMessage } = require('./sendMessage');
 const EventEmitter = require('events');
 class MyEmitter extends EventEmitter {}
@@ -16,13 +16,13 @@ exports.socketControllers = (io, socket) => {
   usersSocketsObj[socket.senderId] = socket.id;
 
   // handle user online
-  socket.on('SET_USER_ON_LINE', () => makeOnline(usersSocketsObj, io, socket));
-  socket.on('SET_USER_OFF_LINE', makeOffline);
+  socket.on('SET_USER_ON_LINE', () => makeUserOnline(usersSocketsObj, io, socket));
+  socket.on('SET_USER_OFF_LINE', makeUserOffline);
 
   socket.on('disconnect', () => delete usersSocketsObj[socket.senderId]);
 };
 
 // handle messages
-eventEmmiter.on('NEW_MESSAGE_CREATED', data => sendMessage(usersSocketsObj, tempIO, data));
+eventEmmiter.on('EVEVT_NEW_MESSAGE_CREATED', data => sendMessage(usersSocketsObj, tempIO, data));
 
 exports.eventEmmiter = eventEmmiter;

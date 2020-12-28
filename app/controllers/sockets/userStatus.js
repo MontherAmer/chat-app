@@ -1,6 +1,6 @@
 const { User } = require('../../models');
 
-exports.makeOnline = async (usersSocketsObj, io, socket) => {
+exports.makeUserOnline = async (usersSocketsObj, io, socket) => {
   let { senderId, id } = socket;
 
   // * get user data to check if the user is online allready(for front end even the home page refresh will send new socket)
@@ -35,7 +35,7 @@ exports.makeOnline = async (usersSocketsObj, io, socket) => {
   return usersSockets.map(item => io.to(usersSocketsObj[item]).emit('USER_TOGGLE_ON_OFF_LINE', { user_id: item, online: true }));
 };
 
-exports.makeOffline = async (usersSocketsObj, io, socket) => {
+exports.makeUserOffline = async (usersSocketsObj, io, socket) => {
   let { senderId, id } = socket;
 
   // * get user data to check if the user is online allready(for front end even the home page refresh will send new socket)
