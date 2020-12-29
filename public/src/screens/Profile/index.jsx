@@ -5,7 +5,7 @@ import Image from './Image';
 import Name from './Name';
 import Online from './Online';
 import Status from './Status';
-
+import Typing from '../../components/Typing';
 import { RiUser2Line, RiTimeLine } from 'react-icons/ri';
 
 export default () => {
@@ -33,6 +33,7 @@ export default () => {
         <RiTimeLine />
         <p>{userDate.lastSeen || '00:00'}</p>
       </div>
+      <Typing />
     </div>
   );
 };
