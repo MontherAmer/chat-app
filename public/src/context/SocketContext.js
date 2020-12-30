@@ -30,5 +30,25 @@ export default props => {
       });
   });
 
-  return <SocketContext.Provider value={{ socket }}>{props.children}</SocketContext.Provider>;
+  socket.on('SOCKET_I_AM_TYPING', ({ contactId, from }) => {
+    if (activeChat._id === contactId)
+      dispatch({
+        type: messagesActionTypes.SHOW_TYPING_ON_MESSAGES_AREA,
+        payload: { contactId, from }
+      });
+    dispatch({ type: messagesActionTypes.SHOW_TYPING_ON_CONTACT_LIST, payload: { contactId } });
+  });
+
+  socket.on('SOCKET_I_AM_STOP_TYPING', ({ contactId, from }) => {
+    if (activeChat._id === contactId)
+      dispatch({
+        type: messagesActionTypes.HIDE_TYPING_ON_MESSAGES_AREA,
+        payload: { contactId, from }
+      });
+    dispatch({ type: messagesActionTypes.HIDE_TYPING_ON_CONTACT_LIST, payload: { contactId } });
+  });
+
+  const sendSocket = (eventName, data) => socket.emit(eventName, data);
+
+  return <SocketContext.Provider value={{ socket, sendSocket }}>{props.children}</SocketContext.Provider>;
 };

@@ -5,7 +5,7 @@ import { timeFormate } from '../../../utils';
 
 import { RiUserLine, RiDeleteBinLine } from 'react-icons/ri';
 import profileImage from '../../../assets/images/profile.png';
-
+import Typing from '../../../components/Typing';
 export default () => {
   const { messages } = useSelector(state => state.messagesState);
   const { _id } = useSelector(state => state.userState);
@@ -14,7 +14,6 @@ export default () => {
     var ele = document.getElementById('scrollto');
     ele.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
   }, [messages]);
-
   return (
     <div className='messages__area'>
       {messages?.map(msg => (
@@ -24,10 +23,10 @@ export default () => {
           </div>
           <div className={`message__body ${msg.from._id === _id ? 'sent' : 'recived'}`}>
             <div className={`message__body__text ${msg.from._id === _id ? 'sent' : 'recived'}`}>
-              <p className='message__main__text'>{msg.text}</p>
+              {msg.typing ? <Typing /> : <p className='message__main__text'>{msg.text}</p>}
               {msg.attachment ? <img src={msg.attachment} /> : null}
               {msg.image ? <img src={URL.createObjectURL(msg?.image)} /> : null}
-              <p className='time'>{timeFormate(msg.createdAt)}</p>
+              {msg.typing ? null : <p className='time'>{timeFormate(msg.createdAt)}</p>}
             </div>
             <div className={`message__body__from ${msg.from._id === _id ? 'sent' : 'recived'}`}>{msg.from.name}</div>
           </div>

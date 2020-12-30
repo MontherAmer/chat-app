@@ -4,9 +4,13 @@
   height: 4px;
   border-radius: 50%;
   margin: 0px 1.5px;
-  background: #fff;
+  background: #000000;
   animation: 1300ms linear 0ms infinite normal none running wave;
   opacity: 0.6;
+}
+
+.dark .animate-typing .dot {
+  background: #ffffff;
 }
 
 .animate-typing .dot:nth-child(2) {
@@ -15,6 +19,9 @@
 
 .animate-typing .dot:nth-child(3) {
   animation-delay: -0.9s;
+}
+.message__body__text .animate-typing .dot {
+  background: #ffffff;
 }
 
 @keyframes wave {

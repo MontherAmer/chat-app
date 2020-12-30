@@ -18,6 +18,10 @@ export default (state = initialState, { type, payload }) => {
     case userActionTypes.UPDATE_ONLINE_OFFLINE_CONTACT:
       newContacts = state.contacts.map(item => (item.usersIds.includes(payload.user_id) ? { ...item, online: payload.online } : item));
       return { ...state, contacts: newContacts };
+    case messagesActionTypes.SHOW_TYPING_ON_CONTACT_LIST:
+      return { ...state, contacts: state.contacts.map(c => (c._id == payload.contactId ? { ...c, typing: true } : c)) };
+    case messagesActionTypes.HIDE_TYPING_ON_CONTACT_LIST:
+      return { ...state, contacts: state.contacts.map(c => (c._id == payload.contactId ? { ...c, typing: false } : c)) };
     default:
       return state;
   }

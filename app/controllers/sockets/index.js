@@ -1,5 +1,6 @@
 const { makeUserOffline, makeUserOnline } = require('./userStatus');
 const { sendMessage } = require('./sendMessage');
+const { isTyping, stopedTyping } = require('./typing');
 const EventEmitter = require('events');
 class MyEmitter extends EventEmitter {}
 const eventEmmiter = new MyEmitter();
@@ -18,6 +19,9 @@ exports.socketControllers = (io, socket) => {
   // handle user online
   socket.on('SET_USER_ON_LINE', () => makeUserOnline(usersSocketsObj, io, socket));
   socket.on('SET_USER_OFF_LINE', makeUserOffline);
+
+  socket.on('SOCKET_I_AM_TYPING', ({ contactId }) => isTyping({ usersSocketsObj, io, senderId: socket.senderId, contactId }));
+  socket.on('SOCKET_I_AM_STOP_TYPING', ({ contactId }) => stopedTyping({ usersSocketsObj, io, senderId: socket.senderId, contactId }));
 
   socket.on('disconnect', () => delete usersSocketsObj[socket.senderId]);
 };

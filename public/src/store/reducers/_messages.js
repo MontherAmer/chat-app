@@ -12,12 +12,15 @@ export default (state = initialState, { type, payload }) => {
     case messagesActionTypes.MESSAGES_LIST:
       return { ...state, messages: payload };
     case messagesActionTypes.NEW_MESSAGE_CREATED_FROM_RESPONSE:
-      console.log('PPPPPPPPPPPPPPPPPPP ', payload);
       return { ...state, messages: state.messages.map(msg => (msg.uuid === payload.uuid ? payload : msg)) };
     case messagesActionTypes.TEMP_MESSAGE:
       return { ...state, messages: state.messages.concat(payload) };
     case messagesActionTypes.NEW_MESSAGE:
       return { ...state, messages: state.messages.concat(payload) };
+    case messagesActionTypes.SHOW_TYPING_ON_MESSAGES_AREA:
+      return { ...state, messages: state.messages.concat({ typing: true, from: payload.from }) };
+    case messagesActionTypes.HIDE_TYPING_ON_MESSAGES_AREA:
+      return { ...state, messages: state.messages.filter(msg => !msg.typing) };
     default:
       return state;
   }
