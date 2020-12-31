@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { listMessages } from '../../../store/actions';
 import { timeFormate } from '../../../utils';
+import { SocketContext } from '../../../context/SocketContext';
 
 import profileImage from '../../../assets/images/profile.png';
 import Typing from '../../../components/Typing';
 import Loader from '../../../components/Loader';
 export default () => {
   const dispatch = useDispatch();
+  let { sendSocket } = useContext(SocketContext);
   const [state, setState] = useState({ firstLoad: true });
   const { messages } = useSelector(state => state.messagesState);
   const { _id } = useSelector(state => state.userState);
@@ -23,6 +25,7 @@ export default () => {
       ele.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
       setState({ ...state, firstLoad: false });
     }
+    if (activeChat?.unreadMessages?.length) sendSocket('SOCKET_MARK_MASSEGAES_AS_READ', { msgs: activeChat.unreadMessages });
   }, [messages]);
 
   const handleScroll = async () => {

@@ -70,4 +70,18 @@
 .contact__time {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+.contact__time > small {
+  width: 20px;
+  height: 20px;
+  background-color: #f1d0e2;
+  border-radius: 50%;
+  color: #eb5976;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 600;
 }

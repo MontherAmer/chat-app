@@ -13,6 +13,7 @@ export default () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log('CCCCCCCCC ', contacts);
     setState({ ...state, contacts: contacts });
   }, [contacts]);
 
@@ -24,7 +25,8 @@ export default () => {
 
   const handleChooseChat = e => {
     dispatch(updateScreen('Messages'));
-    dispatch(updateActiveChat(e));
+    let { _id, name, image, unreadMessages } = e;
+    dispatch(updateActiveChat({ _id, name, image, unreadMessages }));
   };
   console.log('HELLO CHATS ', contacts);
   return (
@@ -42,7 +44,7 @@ export default () => {
       <h4>Recent</h4>
       <div className='contact__thumbnails'>
         {state.contacts?.map(item => (
-          <ChatItem contact={item} onClick={handleChooseChat} />
+          <ChatItem contact={item} onClick={() => handleChooseChat(item)} />
         ))}
       </div>
     </div>

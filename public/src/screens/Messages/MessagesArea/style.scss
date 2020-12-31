@@ -150,6 +150,9 @@
   left: 0;
 }
 
+.dark .message__body__from {
+  color: #838ca4;
+}
 @media (max-width: 425px) {
   .messages__area {
     padding: 24px 4px;

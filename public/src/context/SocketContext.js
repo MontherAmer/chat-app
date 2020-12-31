@@ -48,6 +48,13 @@ export default props => {
     dispatch({ type: messagesActionTypes.HIDE_TYPING_ON_CONTACT_LIST, payload: { contactId } });
   });
 
+  socket.on('SOCKET_MARK_MASSEGAES_AS_READ', data => {
+    dispatch({
+      type: userActionTypes.USER_CONNECTIONS_LIST,
+      payload: data
+    });
+  });
+
   const sendSocket = (eventName, data) => socket.emit(eventName, data);
 
   return <SocketContext.Provider value={{ socket, sendSocket }}>{props.children}</SocketContext.Provider>;

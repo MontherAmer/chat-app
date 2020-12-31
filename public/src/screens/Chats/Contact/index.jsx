@@ -18,7 +18,7 @@ export default ({ contact, onClick }) => {
       </div>
       <div className='contact__time'>
         <p className='contact__msg'>{timeFormate(lastMessage?.createdAt) || 'start chating'}</p>
-        <small>{unreadMessages.length}</small>
+        {unreadMessages.length ? <small>{unreadMessages.length}</small> : null}
       </div>
     </div>
   );

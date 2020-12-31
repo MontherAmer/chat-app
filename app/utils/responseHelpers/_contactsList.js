@@ -39,7 +39,7 @@ exports.contactsList = async user_id => {
           type: 'D',
           usersIds: [user._id],
           lastMessage: contact.lastMessage,
-          unreadMessages: contact.messages
+          unreadMessages: contact.messages.map(msg => msg._id)
         };
       } else {
         return {
@@ -54,7 +54,7 @@ exports.contactsList = async user_id => {
           type: 'G',
           usersIds: contact.users.filter(item => item._id),
           lastMessage: contact.lastMessage,
-          unreadMessages: contact.messages
+          unreadMessages: contact.messages.map(msg => msg._id)
         };
       }
     });

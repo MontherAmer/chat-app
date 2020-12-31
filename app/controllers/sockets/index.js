@@ -1,5 +1,6 @@
 const { makeUserOffline, makeUserOnline } = require('./userStatus');
 const { sendMessage } = require('./sendMessage');
+const { markMsgAsRead } = require('./markMsgAsRead');
 const { isTyping, stopedTyping } = require('./typing');
 const EventEmitter = require('events');
 class MyEmitter extends EventEmitter {}
@@ -22,6 +23,8 @@ exports.socketControllers = (io, socket) => {
 
   socket.on('SOCKET_I_AM_TYPING', ({ contactId }) => isTyping({ usersSocketsObj, io, senderId: socket.senderId, contactId }));
   socket.on('SOCKET_I_AM_STOP_TYPING', ({ contactId }) => stopedTyping({ usersSocketsObj, io, senderId: socket.senderId, contactId }));
+
+  socket.on('SOCKET_MARK_MASSEGAES_AS_READ', ({ msgs }) => markMsgAsRead({ usersSocketsObj, io, senderId: socket.senderId, msgs }));
 
   socket.on('disconnect', () => delete usersSocketsObj[socket.senderId]);
 };
