@@ -10,7 +10,11 @@ export default (state = initialState, { type, payload }) => {
     case messagesActionTypes.ACTIVE_CHAT:
       return { ...state, activeChat: payload };
     case messagesActionTypes.MESSAGES_LIST:
-      return { ...state, messages: payload };
+      return { ...state, messages: payload.reverse() };
+    case messagesActionTypes.NEW_MESSAGE_APPEND:
+      let messagesTemp = state.messages;
+      messagesTemp.unshift(...payload.reverse());
+      return { ...state, messages: messagesTemp };
     case messagesActionTypes.NEW_MESSAGE_CREATED_FROM_RESPONSE:
       return { ...state, messages: state.messages.map(msg => (msg.uuid === payload.uuid ? payload : msg)) };
     case messagesActionTypes.TEMP_MESSAGE:

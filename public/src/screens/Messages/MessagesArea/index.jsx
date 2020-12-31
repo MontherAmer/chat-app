@@ -1,21 +1,44 @@
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { listMessages } from '../../../store/actions';
 import { timeFormate } from '../../../utils';
 
-import { RiUserLine, RiDeleteBinLine } from 'react-icons/ri';
 import profileImage from '../../../assets/images/profile.png';
 import Typing from '../../../components/Typing';
+import Loader from '../../../components/Loader';
 export default () => {
+  const dispatch = useDispatch();
+  const [state, setState] = useState({ firstLoad: true });
   const { messages } = useSelector(state => state.messagesState);
   const { _id } = useSelector(state => state.userState);
+  const { activeChat } = useSelector(state => state.messagesState);
 
   useEffect(() => {
-    var ele = document.getElementById('scrollto');
-    ele.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+    setState({ ...state, firstLoad: true, showLoader: false });
+  }, [activeChat._id]);
+
+  useEffect(() => {
+    if (state.firstLoad) {
+      var ele = document.getElementById('scrollto');
+      ele.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+      setState({ ...state, firstLoad: false });
+    }
   }, [messages]);
+
+  const handleScroll = async () => {
+    let el = document.getElementById('messages__area');
+    if (el?.scrollTop === 0) {
+      setState({ ...state, showLoader: true });
+      await dispatch(listMessages(activeChat._id, messages.length));
+      setState({ ...state, showLoader: false });
+      let el = document.getElementById('messages__area');
+      el.scrollTop = 100;
+    }
+  };
+
   return (
-    <div className='messages__area'>
+    <div className='messages__area' id='messages__area' onScroll={handleScroll}>
+      <div className='message_loader_container'>{state.showLoader ? <Loader absolute={true} /> : null}</div>
       {messages?.map(msg => (
         <div className={`message ${msg.from._id === _id ? 'sent' : 'recived'}`}>
           <div className={`message__image ${msg.from._id === _id ? 'sent' : 'recived'}`}>
