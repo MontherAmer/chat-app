@@ -13,7 +13,7 @@ const persistConfig = {
 
 const pReducer = persistReducer(persistConfig, rootReducer);
 
-const middleware = applyMiddleware(ReduxThunk, logger);
+const middleware = process.env.NODE_ENV === 'development' ? applyMiddleware(ReduxThunk, logger) : applyMiddleware(ReduxThunk);
 
 const store = createStore(pReducer, middleware);
 
