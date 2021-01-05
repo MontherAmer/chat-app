@@ -1,4 +1,4 @@
-import { messagesActionTypes } from '../constants';
+import { messagesActionTypes, screensActionTypes } from '../constants';
 
 const initialState = {
   activeChat: {},
@@ -25,6 +25,8 @@ export default (state = initialState, { type, payload }) => {
       return { ...state, messages: state.messages.concat({ typing: true, from: payload.from }) };
     case messagesActionTypes.HIDE_TYPING_ON_MESSAGES_AREA:
       return { ...state, messages: state.messages.filter(msg => !msg.typing) };
+    case screensActionTypes.CHANGE_SCREEN:
+      return { ...state, activeChat: {}, messages: [] };
     default:
       return state;
   }

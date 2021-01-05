@@ -62,7 +62,7 @@ export const createNewContact = data => dispatch => {
         }))
       : dispatch({
           type: utilsActionTypes.SHOW_ALERT,
-          payload: { message: res.err }
+          payload: { message: 'Could not found the email you enterd' }
         });
   });
 };
