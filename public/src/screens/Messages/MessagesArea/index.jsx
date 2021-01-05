@@ -20,12 +20,13 @@ export default () => {
   }, [activeChat._id]);
 
   useEffect(() => {
-    if (state.firstLoad) {
+    if (state.firstLoad || state.messagesLength === messages.length + 1) {
       var ele = document.getElementById('scrollto');
       ele.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
       setState({ ...state, firstLoad: false });
     }
     if (activeChat?.unreadMessages?.length) sendSocket('SOCKET_MARK_MASSEGAES_AS_READ', { msgs: activeChat.unreadMessages });
+    setState({ ...state, messagesLength: messages.length });
   }, [messages]);
 
   const handleScroll = async () => {
