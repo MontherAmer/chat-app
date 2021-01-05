@@ -10,7 +10,7 @@ export const login = data => dispatch => {
         })
       : dispatch({
           type: utilsActionTypes.SHOW_ALERT,
-          payload: { message: res.err }
+          payload: { message: 'Email or Password is wrong' }
         });
   });
 };
@@ -24,7 +24,7 @@ export const signUp = data => dispatch => {
         })
       : dispatch({
           type: utilsActionTypes.SHOW_ALERT,
-          payload: { message: res.err }
+          payload: { message: 'User allready exist' }
         });
   });
 };
