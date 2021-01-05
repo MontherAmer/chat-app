@@ -12,10 +12,9 @@ export default props => {
   const { activeChat } = useSelector(state => state.messagesState);
   const dispatch = useDispatch();
   const token = localStorage.getItem('ChAt_ApP_ToKeNs');
-  const socket = io.connect('http://localhost:5000', {
+  const socket = io.connect('https://letschat101.herokuapp.com/', {
     query: { token, senderId: _id }
   });
-
   socket.on('USER_TOGGLE_ON_OFF_LINE', data => dispatch({ type: userActionTypes.UPDATE_ONLINE_OFFLINE_CONTACT, payload: data }));
 
   socket.on('SOCKET_NEW_MESSAGE_CREATED', ({ list, contactId, message }) => {
