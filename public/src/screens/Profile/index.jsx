@@ -33,7 +33,6 @@ export default () => {
         <RiTimeLine />
         <p>{userDate.lastSeen || '00:00'}</p>
       </div>
-      <Typing />
     </div>
   );
 };

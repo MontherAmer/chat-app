@@ -9,7 +9,6 @@ exports.update = async (req, res) => {
   try {
     let _id = req._id;
     let { name, removeImage, status, removeStatus, theme } = req.body;
-    console.log(' status ', status);
     // * find user with req._id
     let user = await User.findById(_id);
     if (!user) return errorHandler({ unautherized: true, status: 403 }, res);

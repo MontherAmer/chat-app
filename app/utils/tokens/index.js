@@ -15,7 +15,6 @@ const decodeJWT = async token => {
     const { _id, email } = await verify(token, process.env.ACCESS_TOKEN_SECRET);
     return _id ? { _id, email } : null;
   } catch (err) {
-    console.log('the error ', err);
     return false;
   }
 };

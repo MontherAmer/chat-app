@@ -13,7 +13,6 @@ export default () => {
 
   useEffect(() => {
     async function getMessages() {
-      console.log('activeChatactiveChatactiveChatactiveChat ', activeChat);
       if (activeChat._id) await dispatch(listMessages(activeChat._id));
     }
     getMessages();

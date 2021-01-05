@@ -11,7 +11,7 @@ const handleMongooseErrors = err => {
 };
 
 exports.errorHandler = (err, res) => {
-  console.log('EEEEEEEEE ', err);
+  console.log('ERROR: ', err);
   if (err.code === 11000) {
     let error = handleMongooseErrors(err);
     return res.send({ success: false, status: 500, err: error });

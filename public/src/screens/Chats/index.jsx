@@ -13,7 +13,6 @@ export default () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log('CCCCCCCCC ', contacts);
     setState({ ...state, contacts: contacts });
   }, [contacts]);
 
@@ -28,7 +27,6 @@ export default () => {
     let { _id, name, image, unreadMessages } = e;
     dispatch(updateActiveChat({ _id, name, image, unreadMessages }));
   };
-  console.log('HELLO CHATS ', contacts);
   return (
     <div className='contacts'>
       <div className='contacts_header'>

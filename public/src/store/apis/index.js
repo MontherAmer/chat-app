@@ -27,7 +27,6 @@ export default () => {
   // * filter data from response
   Axios.interceptors.response.use(
     response => {
-      console.log(response);
       // if (response.data.unautherized) store.dispatch({ type: userActionTypes.REMOVE_USER_INFO });
       return response.data;
     },

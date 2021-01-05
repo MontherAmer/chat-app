@@ -19,7 +19,6 @@ io.use(async (socket, next) => {
       socket.senderId = socket.handshake.query.senderId;
       next();
     } catch (err) {
-      console.log('err');
       return;
     }
   } else {

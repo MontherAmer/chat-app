@@ -16,7 +16,6 @@ export default ({ close }) => {
   const handleChange = e => setState({ ...state, [e.target.name]: e.target.value });
 
   const handleAddContact = () => {
-    console.log(validateEmail(state.email));
     validateEmail(state.email)
       ? dispatch(showAlert({ message: 'Please check email field' }))
       : dispatch(createNewContact({ email: state.email }));
