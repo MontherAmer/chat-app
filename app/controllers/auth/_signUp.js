@@ -17,7 +17,6 @@ exports.store = async (req, res) => {
 
     let data = await userDataRes(user._id);
     data.token = token;
-    res.cookie('ChAt_ApP_ToKeNs', token);
     return res.send({ success: true, status: 200, data: data });
   } catch (err) {
     return errorHandler(err, res);

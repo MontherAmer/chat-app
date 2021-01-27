@@ -17,7 +17,6 @@ exports.getUserData = async (req, res) => {
     let token = createJWT({ _id, email: user.email });
 
     let data = await userDataRes(_id);
-    res.cookie('ChAt_ApP_ToKeNs', token);
     return res.send({ success: true, status: 200, data: { ...data, token } });
   } catch (err) {
     return errorHandler(err, res);

@@ -17,7 +17,6 @@ exports.faceBookLogin = async (req, res) => {
       // * user have account in DB
       let _id = user._id;
       let token = createJWT({ _id, email });
-      res.cookie('ChAt_ApP_ToKeNs', token);
       return res.redirect(`/redirect/${token}/${user._id}`);
     } else {
       // * user does not have account in DB
@@ -25,7 +24,6 @@ exports.faceBookLogin = async (req, res) => {
       user = await user.save();
       // * create token
       let token = createJWT({ _id: user._id, email: user.email });
-      res.cookie('ChAt_ApP_ToKeNs', token);
       return res.redirect(`/redirect/${token}/${user._id}`);
     }
   } catch (err) {

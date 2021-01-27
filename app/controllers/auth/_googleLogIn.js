@@ -14,14 +14,12 @@ exports.googleLogin = async (req, res) => {
       // * user have account in DB
       let _id = user._id;
       let token = createJWT({ _id, email });
-      res.cookie('ChAt_ApP_ToKeNs', token);
       return res.redirect(`/redirect/${token}/${user._id}`);
     } else {
       // * user does not have account in DB
       user = new User({ name, image, provider, email });
       user = await user.save();
       let token = createJWT({ _id: user._id, email: user.email });
-      res.cookie('ChAt_ApP_ToKeNs', token);
       return res.redirect(`/redirect/${token}/${user._id}`);
     }
   } catch (err) {
