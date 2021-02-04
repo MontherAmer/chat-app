@@ -2,13 +2,20 @@
   background-color: #ee4a36;
   color: $White;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  width: 150px;
+  width: 100%;
   height: 40px;
   border-radius: 5px;
   text-decoration: none;
   font-size: 20px;
   font-weight: 500;
   padding: 0 24px;
+  margin-bottom: 16px;
+}
+
+.google-login > div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }

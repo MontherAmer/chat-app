@@ -6,7 +6,9 @@ export default () => {
   return (
     <a href='api/auth/google' className='google-login'>
       <GrGoogle />
-      <p>Google</p>
+      <div>
+        <p>Google</p>
+      </div>
     </a>
   );
 };

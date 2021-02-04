@@ -6,7 +6,9 @@ export default () => {
   return (
     <a href='api/auth/facebook' className='fb-login'>
       <GrFacebookOption />
-      <p>Facebook</p>
+      <div>
+        <p>Facebook</p>
+      </div>
     </a>
   );
 };

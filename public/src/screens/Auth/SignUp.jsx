@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { RiUser2Line, RiLockLine } from 'react-icons/ri';
 
 import { signUp, showLoader } from '../../store/actions';
+import logo from '../../assets/images/logo.png';
 import { validateForm } from '../../utils';
 
 import Input from '../../components/Input';
@@ -27,6 +28,10 @@ export default () => {
 
   return (
     <div className='auth'>
+      <div className='main-icon'>
+        <img src={logo} />
+        <h1> Let's Chat </h1>
+      </div>
       <h4>Sign up</h4>
       <p>Get your account now.</p>
       <div className='auth-form'>
@@ -40,15 +45,13 @@ export default () => {
           <RiLockLine />
         </Input>
         <Button label='Sign up' onClick={handleLogin} />
+        <div className='separator'>OR</div>
+        <GoogleLogin />
+        <FacebookLogin />
       </div>
       <span className='auth__span'>
         Already have an account?&nbsp;<a href='/login'>Signin</a>
       </span>
-      <div className='separator'>OR</div>
-      <div className='social_login'>
-        <GoogleLogin />
-        <FacebookLogin />
-      </div>
     </div>
   );
 };

@@ -1,14 +1,12 @@
-@import './dark.scss';
-
 .auth {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: $MainBg;
   overflow-y: auto;
+  padding: 40px 0px;
 }
 
 .auth > h4 {
@@ -62,6 +60,24 @@
   content: '';
   flex: 1;
   border-bottom: 1px solid $MainColor;
+}
+.main-icon {
+  width: 100%;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.main-icon > img {
+  height: 52px;
+}
+
+.main-icon > h1 {
+  font-size: 30px;
+  color: $MainColor;
+  font-family: 'Kaushan Script', cursive;
 }
 
 @import './smallScreens.scss';
