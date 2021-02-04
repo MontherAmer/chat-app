@@ -15,7 +15,10 @@ export default props => {
   const socket = io.connect('http://localhost:5000', {
     query: { token, senderId: _id }
   });
-  socket.on('USER_TOGGLE_ON_OFF_LINE', data => dispatch({ type: userActionTypes.UPDATE_ONLINE_OFFLINE_CONTACT, payload: data }));
+  socket.on('USER_TOGGLE_ON_OFF_LINE', data => {
+    console.log('user go offline>>>>>> ', data);
+    dispatch({ type: userActionTypes.UPDATE_ONLINE_OFFLINE_CONTACT, payload: data });
+  });
 
   socket.on('SOCKET_NEW_MESSAGE_CREATED', ({ list, contactId, message }) => {
     console.log('RRRRRRRRRRRRRRRRRRRRRRRRRRRRR');

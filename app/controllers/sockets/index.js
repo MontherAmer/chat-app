@@ -17,14 +17,17 @@ exports.socketControllers = (io, socket) => {
 
   // handle user online
   socket.on('SET_USER_ON_LINE', () => makeUserOnline(usersSocketsObj, io, socket));
-  socket.on('SET_USER_OFF_LINE', makeUserOffline);
+  socket.on('SET_USER_OFF_LINE', () => makeUserOffline(usersSocketsObj, io, socket));
 
   socket.on('SOCKET_I_AM_TYPING', ({ contactId }) => isTyping({ usersSocketsObj, io, senderId: socket.senderId, contactId }));
   socket.on('SOCKET_I_AM_STOP_TYPING', ({ contactId }) => stopedTyping({ usersSocketsObj, io, senderId: socket.senderId, contactId }));
 
   socket.on('SOCKET_MARK_MASSEGAES_AS_READ', ({ msgs }) => markMsgAsRead({ usersSocketsObj, io, senderId: socket.senderId, msgs }));
 
-  socket.on('disconnect', () => delete usersSocketsObj[socket.senderId]);
+  socket.on('disconnect', () => {
+    makeUserOffline(usersSocketsObj, io, socket);
+    delete usersSocketsObj[socket.senderId];
+  });
 };
 
 // handle messages
