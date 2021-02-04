@@ -1,5 +1,5 @@
 const { User } = require('../../models');
-
+const { chatMessages } = require('./_chatMessages');
 exports.contactsList = async user_id => {
   try {
     // * get populated array of user.contacts
@@ -26,38 +26,42 @@ exports.contactsList = async user_id => {
         ]
       });
     let data = user.contacts;
-    data = data.map(contact => {
-      if (contact.type === 'D') {
-        let data = contact.users.filter(user => String(user._id) !== String(user_id))[0];
-        return {
-          _id: contact._id,
-          name: data.name,
-          email: data.email,
-          image: data.image,
-          date: data.updatedAt,
-          online: data.online,
-          type: 'D',
-          usersIds: [user._id],
-          lastMessage: contact.lastMessage,
-          unreadMessages: contact.messages.map(msg => msg._id)
-        };
-      } else {
-        return {
-          _id: contact._id,
-          name: contact.name,
-          image: contact.image,
-          onlyAdminCanMsg: contact.onlyAdminCanMsg,
-          createdBy: contact.createdBy,
-          admins: contact.admins,
-          date: contact.updatedAt,
-          online: contact.users.filter(item => item.online && String(item._id) !== String(user_id)).length ? true : false,
-          type: 'G',
-          usersIds: contact.users.filter(item => item._id),
-          lastMessage: contact.lastMessage,
-          unreadMessages: contact.messages.map(msg => msg._id)
-        };
-      }
-    });
+    data = Promise.all(
+      data.map(async contact => {
+        if (contact.type === 'D') {
+          let data = contact.users.filter(user => String(user._id) !== String(user_id))[0];
+          return {
+            _id: contact._id,
+            name: data.name,
+            email: data.email,
+            image: data.image,
+            date: data.updatedAt,
+            online: data.online,
+            type: 'D',
+            usersIds: [user._id],
+            lastMessage: contact.lastMessage,
+            unreadMessages: contact.messages.map(msg => msg._id),
+            messages: await chatMessages(contact._id, user_id, 0)
+          };
+        } else {
+          return {
+            _id: contact._id,
+            name: contact.name,
+            image: contact.image,
+            onlyAdminCanMsg: contact.onlyAdminCanMsg,
+            createdBy: contact.createdBy,
+            admins: contact.admins,
+            date: contact.updatedAt,
+            online: contact.users.filter(item => item.online && String(item._id) !== String(user_id)).length ? true : false,
+            type: 'G',
+            usersIds: contact.users.filter(item => item._id),
+            lastMessage: contact.lastMessage,
+            unreadMessages: contact.messages.map(msg => msg._id),
+            messages: await chatMessages(contact._id, user_id, 0)
+          };
+        }
+      })
+    );
 
     return data;
   } catch (err) {
