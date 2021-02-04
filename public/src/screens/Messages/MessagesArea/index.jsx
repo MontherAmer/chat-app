@@ -43,8 +43,8 @@ export default () => {
   return (
     <div className='messages__area' id='messages__area' onScroll={handleScroll}>
       <div className='message_loader_container'>{state.showLoader ? <Loader absolute={true} /> : null}</div>
-      {messages?.map(msg => (
-        <div className={`message ${msg.from._id === _id ? 'sent' : 'recived'}`}>
+      {messages?.map((msg, i) => (
+        <div key={i} className={`message ${msg.from._id === _id ? 'sent' : 'recived'}`}>
           <div className={`message__image ${msg.from._id === _id ? 'sent' : 'recived'}`}>
             {msg.from.image ? <img src={msg.from.image} /> : <img src={profileImage} />}
           </div>
@@ -52,7 +52,7 @@ export default () => {
             <div className={`message__body__text ${msg.from._id === _id ? 'sent' : 'recived'}`}>
               {msg.typing ? <Typing /> : <p className='message__main__text'>{msg.text}</p>}
               {msg.attachment ? <img src={msg.attachment} /> : null}
-              {msg.image ? <img src={URL.createObjectURL(msg?.image)} /> : null}
+              {msg?.image ? <img src={URL.createObjectURL(msg?.image)} /> : null}
               {msg.typing ? null : <p className='time'>{timeFormate(msg.createdAt)}</p>}
             </div>
             <div className={`message__body__from ${msg.from._id === _id ? 'sent' : 'recived'}`}>{msg.from.name}</div>

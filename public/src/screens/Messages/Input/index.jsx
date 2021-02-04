@@ -17,10 +17,19 @@ export default ({ _id }) => {
     setState({ ...state, text: '', contactId: _id });
   }, [_id]);
 
-  const handleUpload = e =>
+  const toBase64 = file =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
+
+  const handleUpload = async e => {
     e.target.files[0].type.split('/')[0] === 'image'
       ? setState({ ...state, showEmojiPicket: false, image: e.target.files[0] })
       : dispatch(showAlert({ message: 'Only images are accepted' }));
+  };
 
   const handleChange = e => {
     e.target.value.length === 1 ? sendSocket('SOCKET_I_AM_TYPING', { contactId: _id }) : console.log('nothing');
@@ -31,6 +40,7 @@ export default ({ _id }) => {
 
   const handleClick = async () => {
     dispatch(createMessage({ _id, currentUser, ...state }));
+    // sendSocket('NEW_MESSAGE_CREATED', { _id, currentUser, ...state });
     setState({ showEmojiPicket: false, text: '', image: null });
     sendSocket('SOCKET_I_AM_STOP_TYPING', { contactId: _id });
   };

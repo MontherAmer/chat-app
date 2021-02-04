@@ -6,7 +6,7 @@ import Home from '../../screens/Home';
 function withOutAuth(Wrapped) {
   return function (props) {
     const { userState } = useSelector(state => state);
-    if (userState._id) return <Home />;
+    if (userState.app === 'Chat_app') return <Home />;
     return <Wrapped {...props} />;
   };
 }
