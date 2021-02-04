@@ -7,7 +7,6 @@ import Messages from '../Messages';
 
 export default () => {
   const { socket } = useContext(SocketContext);
-
   socket.emit('SET_USER_ON_LINE');
 
   useEffect(() => {

@@ -29,8 +29,9 @@ export const createMessage = data => dispatch => {
 export const listMessages = (contactId, skip = 0) => dispatch => {
   if (contactId)
     return messagesApis.list(contactId, skip).then(res => {
-      return res.success
-        ? dispatch({ type: res.append ? messagesActionTypes.NEW_MESSAGE_APPEND : messagesActionTypes.MESSAGES_LIST, payload: res.data })
-        : console.log('errr');
+      return (
+        res.success &&
+        dispatch({ type: res.append ? messagesActionTypes.NEW_MESSAGE_APPEND : messagesActionTypes.MESSAGES_LIST, payload: res.data })
+      );
     });
 };

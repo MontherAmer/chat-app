@@ -8,11 +8,9 @@ const eventEmmiter = new MyEmitter();
 
 const usersSocketsObj = {};
 let tempIO;
-let tempSocket;
 
 exports.socketControllers = (io, socket) => {
   tempIO = io;
-  tempSocket = socket;
 
   // store userId and socket
   usersSocketsObj[socket.senderId] = socket.id;

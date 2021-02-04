@@ -6,10 +6,11 @@ export const BASE_URL = '/';
 
 export default () => {
   if (Axios.defaults.baseURL === BASE_URL) return;
-
-  let token = localStorage.getItem('ChAt_ApP_ToKeNs');
   Axios.defaults.baseURL = BASE_URL;
+  let token = localStorage.getItem('ChAt_ApP_ToKeNs');
+
   Axios.interceptors.request.use(async config => {
+    if (!token) token = localStorage.getItem('ChAt_ApP_ToKeNs');
     // * handle form data
     if (config.data instanceof FormData) {
       Object.assign(config.headers);
@@ -27,7 +28,6 @@ export default () => {
   // * filter data from response
   Axios.interceptors.response.use(
     response => {
-      // if (response.data.unautherized) store.dispatch({ type: userActionTypes.REMOVE_USER_INFO });
       return response.data;
     },
     error => {
