@@ -31,6 +31,7 @@ passport.use(
       profileFields: ['email', 'name']
     },
     function (accessToken, refreshToken, profile, done) {
+      console.log('SOMETHING');
       return done(null, profile);
     }
   )
