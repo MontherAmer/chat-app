@@ -4,7 +4,7 @@ letschat is a real time chat app build using ExpressJS an ReactJS.
 
 ![](preview.gif)
 
-### [Demo](https://chatapp01234.herokuapp.com/)
+### [Demo](https://monther-chat-app.herokuapp.com/)
 
 ### Installation
 
