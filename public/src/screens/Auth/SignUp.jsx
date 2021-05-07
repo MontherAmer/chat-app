@@ -47,7 +47,7 @@ export default () => {
         <Button label='Sign up' onClick={handleLogin} />
         <div className='separator'>OR</div>
         <GoogleLogin />
-        <FacebookLogin />
+        {/* <FacebookLogin /> */}
       </div>
       <span className='auth__span'>
         Already have an account?&nbsp;<a href='/login'>Signin</a>

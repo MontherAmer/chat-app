@@ -16,7 +16,5 @@ exports.chatMessages = async (contactId, userId, skip) => {
       });
 
     return messages;
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };

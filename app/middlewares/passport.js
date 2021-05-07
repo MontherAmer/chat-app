@@ -31,18 +31,15 @@ passport.use(
       profileFields: ['email', 'name']
     },
     function (accessToken, refreshToken, profile, done) {
-      console.log('SOMETHING');
       return done(null, profile);
     }
   )
 );
 
 passport.serializeUser(function (user, done) {
-  console.log('SERIALIZE');
   done(null, user);
 });
 passport.deserializeUser(function (obj, done) {
-  console.log('DESERIALIZE', obj);
   done(null, obj);
 });
 

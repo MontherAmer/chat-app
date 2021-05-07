@@ -9,7 +9,5 @@ exports.userDataRes = async user_id => {
 
     let contacts = await contactsList(user_id);
     return { _id, email, name, language, status, image, contacts, theme, app: 'Chat_app' };
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 };

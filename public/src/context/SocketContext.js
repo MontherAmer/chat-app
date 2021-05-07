@@ -16,12 +16,10 @@ export default props => {
     query: { token, senderId: _id }
   });
   socket.on('USER_TOGGLE_ON_OFF_LINE', data => {
-    console.log('user go offline>>>>>> ', data);
     dispatch({ type: userActionTypes.UPDATE_ONLINE_OFFLINE_CONTACT, payload: data });
   });
 
   socket.on('SOCKET_NEW_MESSAGE_CREATED', ({ list, contactId, message }) => {
-    console.log('RRRRRRRRRRRRRRRRRRRRRRRRRRRRR');
     dispatch({
       type: userActionTypes.USER_CONNECTIONS_LIST,
       payload: list
