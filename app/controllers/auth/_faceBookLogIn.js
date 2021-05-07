@@ -27,6 +27,7 @@ exports.faceBookLogin = async (req, res) => {
       return res.redirect(`/redirect/${token}/${user._id}`);
     }
   } catch (err) {
+    console.log('ERROR in _facebooklogin>>>>>>>>>>', err);
     return errorHandler(err, res);
   }
 };
